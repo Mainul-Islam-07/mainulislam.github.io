@@ -321,6 +321,27 @@ section .hero__hint, .research__intro .hero__hint, .cert-note .hero__hint{ color
 }
 .research__links{ display:flex; gap:14px; }
 
+.supervisor-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
+.supervisor-card{
+  display:grid; grid-template-columns:80px 1fr; gap:16px;
+  border:1px solid var(--line-navy); border-radius:var(--radius);
+  padding:18px; background:rgba(255,255,255,0.03);
+}
+.supervisor-card__body h4{ font-size:1rem; margin-bottom:4px; }
+.supervisor-card__body h4 a{ text-decoration:none; color:#fff; border-bottom:1px dotted var(--teal); }
+.supervisor-card__body h4 a:hover{ color:var(--teal); }
+.supervisor-role{ font-size:.8rem; color:rgba(255,255,255,.65); margin-bottom:4px; }
+.supervisor-spec{ font-size:.78rem; color:var(--teal); margin-bottom:10px; }
+.img-placeholder--avatar{ width:80px; height:80px; min-height:0; border-radius:50%; padding:4px; }
+.img-placeholder--avatar .ph-text,
+.img-placeholder--avatar .ph-file{ display:none; }
+.img-placeholder--avatar .ph-icon{ font-size:1.2rem; }
+
+@media (max-width: 560px){
+  .supervisor-card{ grid-template-columns:1fr; }
+  .img-placeholder--avatar{ width:64px; height:64px; }
+}
+
 @media (max-width: 700px){
   .paper-card{ grid-template-columns:1fr; }
 }
