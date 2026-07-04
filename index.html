@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mainul Islam — Embedded Systems &amp; Robotics Researcher</title>
+<meta name="description" content="Portfolio of Mainul Islam — EEE graduate, embedded systems engineer and robotics researcher preparing for doctoral research in robotics and machine learning.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =========================================================
+     BACKGROUND GRID (fixed, sits behind everything)
+========================================================= -->
+<div class="grid-backdrop" aria-hidden="true"></div>
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+<header class="topbar" id="topbar">
+  <div class="topbar__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark">[M]</span>
+      <span class="brand__text">MAINUL&nbsp;ISLAM</span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="status-chip">
+      <span class="status-dot"></span> Open to PhD 2026/27
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- =========================================================
+       HERO — datasheet title block
+  ========================================================= -->
+  <section class="hero" id="hero">
+    <div class="hero__inner">
+
+      <div class="hero__titleblock">
+        <div class="titleblock">
+          <div class="titleblock__row titleblock__row--head">
+            <span>DOC No. PORTFOLIO&#8209;001</span>
+            <span>REV. 2026.07</span>
+          </div>
+          <div class="titleblock__grid">
+            <div class="tb-field">
+              <span class="tb-label">Name</span>
+              <span class="tb-value">Mainul Islam</span>
+            </div>
+            <div class="tb-field">
+              <span class="tb-label">Degree</span>
+              <span class="tb-value">B.Sc. Electrical &amp; Electronic Engineering (EEE)</span>
+            </div>
+            <div class="tb-field">
+              <span class="tb-label">Current roles</span>
+              <span class="tb-value">Embedded Systems Engineer (R&amp;D) · Part-time Lecturer</span>
+            </div>
+            <div class="tb-field">
+              <span class="tb-label">Target</span>
+              <span class="tb-value">Doctoral research — Robotics &amp; Machine Learning</span>
+            </div>
+            <div class="tb-field">
+              <span class="tb-label">Based in</span>
+              <span class="tb-value">Dhaka, Bangladesh</span>
+            </div>
+            <div class="tb-field">
+              <span class="tb-label">Status</span>
+              <span class="tb-value tb-value--accent">Applying for Fall 2026 / 2027 intake</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__copy">
+        <p class="eyebrow">// embedded systems · robotics · applied machine learning</p>
+        <h1>I build the control loop between hardware, code, and real‑world motion.</h1>
+        <p class="hero__lede">
+          Lecturer, embedded systems engineer, and robotics researcher who turns ideas into
+          working systems — autonomous ground vehicles, target‑tracking drones, ROVs, and the
+          control &amp; perception stacks that drive them. Now preparing for doctoral research in
+          robotics and machine learning.
+        </p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">View projects</a>
+          <a href="assets/docs/CV_Mainul_Islam.pdf" class="btn btn--ghost">Download CV</a>
+        </div>
+        <p class="hero__hint">↳ Replace <code>assets/docs/CV_Mainul_Islam.pdf</code> with your actual CV file.</p>
+      </div>
+
+      <div class="hero__portrait">
+        <div class="img-placeholder img-placeholder--square" data-fill="profile_photo.jpg">
+          <span class="ph-icon">◎</span>
+          <span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/profile_photo.jpg</span>
+          <span class="ph-size">recommended 800×800</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Signature element: schematic trace connecting the arc of the journey -->
+    <div class="hero__trace" aria-hidden="true">
+      <svg viewBox="0 0 1200 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="trace-line" d="M 20 120 L 220 120 L 260 60 L 460 60 L 500 120 L 700 120 L 740 60 L 940 60 L 980 120 L 1140 120 L 1180 90"/>
+        <circle class="trace-node" cx="20"  cy="120" r="6"/>
+        <circle class="trace-node" cx="260" cy="60"  r="6"/>
+        <circle class="trace-node" cx="500" cy="120" r="6"/>
+        <circle class="trace-node" cx="740" cy="60"  r="6"/>
+        <circle class="trace-node" cx="980" cy="120" r="6"/>
+        <circle class="trace-node trace-node--pending" cx="1180" cy="90" r="8"/>
+      </svg>
+      <div class="trace-labels">
+        <span style="left:1.6%">SSC/HSC</span>
+        <span style="left:21.6%">IUT · EEE</span>
+        <span style="left:41.6%">Mars Rover Team</span>
+        <span style="left:61.6%">R&amp;D Engineer</span>
+        <span style="left:81.6%">Publications</span>
+        <span style="left:96%" class="trace-label--pending">PhD →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ABOUT
+  ========================================================= -->
+  <section class="sheet sheet--paper" id="about">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 01</span>
+      <span class="sheet__title">About</span>
+      <span class="sheet__scale">SCALE — N/A</span>
+    </div>
+    <div class="about__grid">
+      <div class="about__text">
+        <p>
+          I graduated in Electrical and Electronic Engineering from the Islamic University of
+          Technology (IUT) with distinction (CGPA 3.87/4.00, 4.00/4.00 in the final year). During
+          my undergraduate studies I served as System Designer for <strong>Project Altair</strong>,
+          IUT's Mars Rover team, contributing to a 6th‑place finish at the International Rover
+          Challenge (IRC) 2024 and a Best Science Task award.
+        </p>
+        <p>
+          After graduating, I joined <strong>Ahsanullah University of Science &amp; Technology
+          (AUST)</strong> as a part‑time lecturer, and I currently work as an
+          <strong>Embedded Systems Engineer (R&amp;D)</strong> at Cybernetics Hi‑Tech Solutions,
+          where I develop autonomous ground vehicles, live‑object‑tracking drones, tollbooth
+          automation, and 6‑DOF ROVs for multi‑purpose use.
+        </p>
+        <p>
+          My academic and professional paths reinforce each other: my thesis on control systems
+          fed directly into my AGV development work; my interest in machine learning led to
+          published research and my current work on object tracking; and my role on the Mars
+          Rover team built my expertise in PCB design and firmware. I'm now exploring ROS‑based
+          localization (SLAM) and real‑time embedded systems as I prepare for doctoral research
+          aimed at advancing intelligent, adaptive robotic systems — rooted in both theory and
+          practice.
+        </p>
+      </div>
+      <div class="about__facts">
+        <div class="fact-card">
+          <span class="fact-num">3.87</span>
+          <span class="fact-label">Final CGPA / 4.00</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">3</span>
+          <span class="fact-label">Peer‑reviewed publications</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">6th</span>
+          <span class="fact-label">International Rover Challenge, 2024</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-num">1.5+ yrs</span>
+          <span class="fact-label">R&amp;D: AGVs, drones, ROVs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       EDUCATION
+  ========================================================= -->
+  <section class="sheet sheet--navy" id="education">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 02</span>
+      <span class="sheet__title">Education</span>
+      <span class="sheet__scale">SCALE — 1:1</span>
+    </div>
+
+    <div class="timeline">
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="img-placeholder img-placeholder--wide" data-fill="iut_campus.jpg">
+            <span class="ph-icon">◎</span>
+            <span class="ph-text">Add photo</span>
+            <span class="ph-file">assets/images/iut_campus.jpg</span>
+          </div>
+          <div class="tl-card__head">
+            <h3>B.Sc. in Electrical &amp; Electronic Engineering</h3>
+            <span class="tl-date">Jan 2020 – Jun 2024</span>
+          </div>
+          <p class="tl-org">Islamic University of Technology (IUT), Gazipur, Bangladesh</p>
+          <ul class="tl-list">
+            <li>CGPA 3.87 / 4.00 — 4.00 / 4.00 in final year</li>
+            <li>Full tuition waived (scholarship)</li>
+          </ul>
+          <details class="coursework">
+            <summary>Relevant coursework (22 courses)</summary>
+            <div class="chip-row">
+              <span class="chip">Electrical Circuits I &amp; II</span>
+              <span class="chip">Electronics I &amp; II</span>
+              <span class="chip">Energy Conversion I &amp; II</span>
+              <span class="chip">Power System I &amp; II</span>
+              <span class="chip">Communication Engineering I &amp; II</span>
+              <span class="chip">Digital Electronics</span>
+              <span class="chip">Wireless Communication</span>
+              <span class="chip">Data Comm. &amp; Networking I &amp; II</span>
+              <span class="chip">Advanced Communication Techniques</span>
+              <span class="chip">Signals &amp; Systems</span>
+              <span class="chip">Digital Signal Processing</span>
+              <span class="chip">Control System Engineering I</span>
+              <span class="chip">Measurement &amp; Instrumentation</span>
+              <span class="chip">Microcontroller Based System Design</span>
+              <span class="chip">Artificial Intelligence &amp; Machine Learning</span>
+              <span class="chip">Biomedical Signal Processing</span>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Higher Secondary Certificate (HSC)</h3>
+            <span class="tl-date">2017 – 2019</span>
+          </div>
+          <p class="tl-org">Notre Dame College, Dhaka, Bangladesh</p>
+          <ul class="tl-list">
+            <li>Science background — GPA 5.00 / 5.00</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Secondary School Certificate (SSC)</h3>
+            <span class="tl-date">2015 – 2017</span>
+          </div>
+          <p class="tl-org">Dhaka Residential Model College, Dhaka, Bangladesh</p>
+          <ul class="tl-list">
+            <li>Science background — GPA 5.00 / 5.00</li>
+            <li>Dhaka Board — 121st place, General Scholarship</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       EXPERIENCE
+  ========================================================= -->
+  <section class="sheet sheet--paper" id="experience">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 03</span>
+      <span class="sheet__title">Experience</span>
+      <span class="sheet__scale">SCALE — 1:1</span>
+    </div>
+
+    <div class="timeline timeline--paper">
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Embedded Systems Engineer (R&amp;D)</h3>
+            <span class="tl-date">Jun 2024 – Present</span>
+          </div>
+          <p class="tl-org">Cybernetics Hi‑Tech Solutions (Pvt.) Ltd.</p>
+          <div class="img-placeholder img-placeholder--wide" data-fill="rnd_highlights.jpg">
+            <span class="ph-icon">◎</span>
+            <span class="ph-text">Add photo</span>
+            <span class="ph-file">assets/images/rnd_highlights.jpg</span>
+          </div>
+          <ul class="tl-list">
+            <li>Integrated sensors and camera pan‑tilt‑zoom for a 6‑DOF robotic‑arm ROV, improving precision, stability and functionality.</li>
+            <li>Developed wired (optical fiber) and wireless comms for a man‑transportable ROV with a 7‑DOF robotic arm.</li>
+            <li>Designed, manufactured and tested PCBs for communication and power‑management systems via CNC manufacturing.</li>
+            <li>Modeled power‑consumption dynamics for custom payload and surveillance drones — air drag, velocity, altitude, battery and motor performance.</li>
+            <li>Built a fully automated tollbooth system with real‑time vehicle detection, payment processing and security‑breach alerts.</li>
+            <li>Developed autonomous navigation and localization for a factory‑floor AGV to optimize logistics workflows.</li>
+            <li>Built an autonomous target‑tracking drone with onboard computer vision and flight‑controller integration.</li>
+            <li>Analyzed and implemented smart‑meter ICs; implemented UART, I2C, SPI and Modbus protocols.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Lecturer (Part‑time)</h3>
+            <span class="tl-date">Jul 2025 – Present</span>
+          </div>
+          <p class="tl-org">Ahsanullah University of Science &amp; Technology (AUST)</p>
+          <ul class="tl-list">
+            <li>Conducted hands‑on C++ programming labs for two sections (3 credit‑hours/week).</li>
+            <li>Delivered practical instruction in structured programming, debugging and algorithm implementation.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Contributing Author</h3>
+            <span class="tl-date">May 2025 – Present</span>
+          </div>
+          <p class="tl-org">EmbeddedThere (technical website)</p>
+          <ul class="tl-list">
+            <li>Writing articles on STM32 MCU programming.</li>
+            <li>Explaining hardware integrations such as the Wiznet Ethernet controller family.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Research &amp; Development Intern</h3>
+            <span class="tl-date">Jun 2023 – Mar 2024</span>
+          </div>
+          <p class="tl-org">Spectrum Engineering Consortium (Pvt.) Ltd. (SECL)</p>
+          <ul class="tl-list">
+            <li>Circuit designing, hardware integration and debugging.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Embedded System Design Intern</h3>
+            <span class="tl-date">Jan 2024 – Apr 2024</span>
+          </div>
+          <p class="tl-org">Pantech.ai (Remote)</p>
+          <ul class="tl-list">
+            <li>STM32 bare‑metal programming; sensor integration with STM32 Nucleo boards.</li>
+            <li>Implemented UART, SPI, I2C protocols.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>System Designer</h3>
+            <span class="tl-date">Jun 2023 – Apr 2024</span>
+          </div>
+          <p class="tl-org">Project Altair — IUT Mars Rover</p>
+          <ul class="tl-list">
+            <li>PCB designing, hardware integration and testing, debugging.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Project Coordinator</h3>
+            <span class="tl-date">Oct 2023 – Apr 2024</span>
+          </div>
+          <p class="tl-org">IUT Robotics Society</p>
+          <ul class="tl-list">
+            <li>Coordinated collaboration across sub‑teams; managed multiple concurrent projects.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-card">
+          <div class="tl-card__head">
+            <h3>Senior Electrical Member</h3>
+            <span class="tl-date">Mar 2021 – Mar 2023</span>
+          </div>
+          <p class="tl-org">IUT Mars Rover — Team Avijatrik</p>
+          <ul class="tl-list">
+            <li>PCB designing, wiring, debugging and hardware integration.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RESEARCH
+  ========================================================= -->
+  <section class="sheet sheet--navy" id="research">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 04</span>
+      <span class="sheet__title">Research</span>
+      <span class="sheet__scale">SCALE — N/A</span>
+    </div>
+
+    <div class="research__intro">
+      <h3>Interests</h3>
+      <div class="chip-row">
+        <span class="chip chip--accent">Robotics &amp; Autonomous Systems</span>
+        <span class="chip chip--accent">SLAM &amp; Localization (ROS)</span>
+        <span class="chip chip--accent">Control Systems (MPC / PID / SMC)</span>
+        <span class="chip chip--accent">Computer Vision &amp; Object Tracking</span>
+        <span class="chip chip--accent">Applied Machine Learning</span>
+        <span class="chip chip--accent">Real‑Time Embedded Systems</span>
+      </div>
+      <p class="hero__hint">↳ Expand this with your full Research → Interests and Research → Supervisors page content if you'd like a dedicated write‑up.</p>
+    </div>
+
+    <div class="research__block">
+      <h3>Thesis</h3>
+      <div class="paper-card">
+        <div class="img-placeholder img-placeholder--thumb" data-fill="thesis_diagram.jpg">
+          <span class="ph-icon">◎</span>
+          <span class="ph-text">Add figure</span>
+          <span class="ph-file">assets/images/thesis_diagram.jpg</span>
+        </div>
+        <div class="paper-card__body">
+          <h4>Development of a Testbed for Autonomous Vehicles: Integrating MPC Control with Monocular Camera Lane Detection</h4>
+          <ul class="tl-list">
+            <li>Ackermann steering system modeled and tested in ROS / Gazebo.</li>
+            <li>Compared Model Predictive Control (MPC) against PID control using a bicycle dynamics model with camera feedback.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research__block">
+      <h3>Published</h3>
+
+      <div class="paper-card">
+        <div class="img-placeholder img-placeholder--thumb" data-fill="paper_solar.jpg">
+          <span class="ph-icon">◎</span>
+          <span class="ph-text">Add figure</span>
+          <span class="ph-file">assets/images/paper_solar.jpg</span>
+        </div>
+        <div class="paper-card__body">
+          <span class="tag tag--journal">Journal · Solar Energy (IF 6.6)</span>
+          <h4>A deep learning based framework for solar panel segmentation and fault classification enhanced with explainable AI</h4>
+          <p class="paper-authors">Adib, A. U., Islam, M., Abid, Md. S., &amp; Ahshan, R. (2025). <em>Solar Energy</em>, 302, 114058.</p>
+          <ul class="tl-list">
+            <li>Explainable deep‑learning framework combining U‑Net–RefineNet segmentation with MobileNetV3‑Small classification for PV fault detection.</li>
+            <li>State‑of‑the‑art accuracy and interpretability via LIME.</li>
+          </ul>
+          <a class="paper-link" href="https://doi.org/10.1016/j.solener.2025.114058" target="_blank" rel="noopener">DOI: 10.1016/j.solener.2025.114058 ↗</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="img-placeholder img-placeholder--thumb" data-fill="paper_energy.jpg">
+          <span class="ph-icon">◎</span>
+          <span class="ph-text">Add figure</span>
+          <span class="ph-file">assets/images/paper_energy.jpg</span>
+        </div>
+        <div class="paper-card__body">
+          <span class="tag tag--conf">Conference · ICECIE 2024</span>
+          <h4>Long‑term Energy Demand Analysis using Machine Learning Algorithms: A Case Study in Bangladesh</h4>
+          <p class="paper-authors">Haque, H., Islam, M., Alvy, M.A.I., Islam, M.S. &amp; Razzak, M.A. (2024).</p>
+          <ul class="tl-list">
+            <li>Long‑term energy‑demand forecasting for Dhaka using 3 years of monthly data across diverse consumer types (1M+ samples).</li>
+            <li>Evaluated Random Forest, KNN, XGBoost and LightGBM.</li>
+          </ul>
+          <a class="paper-link" href="https://ieeexplore.ieee.org/document/10815643" target="_blank" rel="noopener">DOI: 10.1109/ICECIE63774.2024.10815643 ↗</a>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="img-placeholder img-placeholder--thumb" data-fill="paper_rs485.jpg">
+          <span class="ph-icon">◎</span>
+          <span class="ph-text">Add figure</span>
+          <span class="ph-file">assets/images/paper_rs485.jpg</span>
+        </div>
+        <div class="paper-card__body">
+          <span class="tag tag--conf">Conference · ICCIT 2024</span>
+          <h4>Optimizing Master‑Slave Broadcast Communication in Multi‑Node Network Using RS‑485</h4>
+          <p class="paper-authors">Tanvir, M.S., Tonmoy, F.A., Islam, M.M., Islam, M. &amp; Hasan, M. (2024). 27th ICCIT.</p>
+          <ul class="tl-list">
+            <li>Master‑slave broadcast comms over RS‑485 using daisy‑chained STM32 MCUs.</li>
+            <li>DMA‑based transfer, CRC error detection, and a synchronized multi‑node feedback mechanism.</li>
+          </ul>
+          <a class="paper-link" href="https://ieeexplore.ieee.org/document/11022430" target="_blank" rel="noopener">DOI: 10.1109/ICCIT64611.2024.11022430 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="research__block">
+      <h3>In progress / under review</h3>
+      <ul class="tl-list tl-list--grid">
+        <li>Novel buck converter using PID and sliding‑mode control (SMC)</li>
+        <li>Bangla license‑plate detection &amp; character recognition — custom YOLO model + vision transformer</li>
+        <li>A dual‑network feedback communication system for multi‑node unmanned robotic control</li>
+        <li>Differential‑drive synchronization using genetic‑algorithm‑optimized cascaded PID controllers on STM32</li>
+        <li>AGV localization via Aruco markers &amp; encoders using an Extended Kalman Filter, with LiDAR‑based dynamic obstacle avoidance</li>
+        <li>Live object tracking with a custom drone using YOLOv11 on Raspberry Pi 5</li>
+        <li>Review paper on fuel cells</li>
+      </ul>
+    </div>
+
+    <div class="research__block research__links">
+      <a href="https://scholar.google.com/citations?user=mHfGHugAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Google Scholar ↗</a>
+      <a href="https://www.researchgate.net/profile/Mainul-Islam-19/research" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">ResearchGate ↗</a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROJECTS
+  ========================================================= -->
+  <section class="sheet sheet--paper" id="projects">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 05</span>
+      <span class="sheet__title">Projects</span>
+      <span class="sheet__scale">SCALE — 1:1</span>
+    </div>
+
+    <h3 class="group-label">Professional / R&amp;D</h3>
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_rov.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_rov.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Specialized Remotely Operated Vehicle (ROV)</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Firmware for camera pan/tilt/zoom, battery charge‑curve and internal‑temperature monitoring.</li>
+            <li>Designed &amp; manufactured PCBs for power, sensor and camera‑control boards.</li>
+          </ul>
+          <a class="paper-link" href="https://brief-stream-853.notion.site/Jontro-Soinik-1-0-Version-2-0-26e1162dbc8f81daafa8c44a4a61de28" target="_blank" rel="noopener">Project notes ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_mtrov.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_mtrov.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Man‑Transportable ROV</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Optical‑fiber wired comms (UDP broadcast over ethernet/client).</li>
+            <li>Contributed to full system architecture, debugging and testing.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_tollbooth.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_tollbooth.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Tollbooth Automation</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Full system architecture &amp; firmware; auto payment, auto barrier, theft alert, tamper protection, time‑based automation.</li>
+            <li>PCB design and manufacturing for the complete setup.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_wallet.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_wallet.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Offline Hardware Crypto Wallet</h4>
+          <p class="project-org">Creative Factory Ltd.</p>
+          <ul class="tl-list">
+            <li>Display + touch response system; full state‑machine design.</li>
+            <li>Multi‑wallet support, network addition, QR address exchange, transaction history.</li>
+          </ul>
+          <a class="paper-link" href="https://www.linkedin.com/feed/update/urn:li:activity:7392635063831760896/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_agv.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_agv.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Autonomous Guided Vehicle (AGV)</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Aruco‑marker‑based localization via transformation matrix &amp; marker distance.</li>
+            <li>Firmware for encoder feedback &amp; motor commands via pymodbus.</li>
+            <li>Dynamic obstacle avoidance with 2D LiDAR; sensor fusion via Extended Kalman Filter built from scratch.</li>
+          </ul>
+          <a class="paper-link" href="https://vagabond-hollyhock-5a3.notion.site/Automated-Guided-Vehicle-AGV-26f1c47e0d4c80418684e98de3e663e1" target="_blank" rel="noopener">Project notes ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_drone_tracking.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_drone_tracking.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Autonomous Target‑Tracking Drone</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Built aerial datasets for signs and vehicles.</li>
+            <li>Live tracking of humans and trained objects using YOLOv11n on Raspberry Pi 5, onboard.</li>
+          </ul>
+          <a class="paper-link" href="https://vagabond-hollyhock-5a3.notion.site/Autonomous-Target-Tracking-Drone-27f1c47e0d4c80e3aec2ca2109cfaa6d" target="_blank" rel="noopener">Project notes ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_vtol.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_vtol.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Fixed‑Wing VTOL Drone</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Configured firmware in Mission Planner.</li>
+            <li>Achieved successful flight in cruise mode.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_surveillance_drone.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_surveillance_drone.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Surveillance Drone</h4>
+          <p class="project-org">Cybernetics Hi‑Tech Solutions</p>
+          <ul class="tl-list">
+            <li>Analyzed altitude, drag, battery capacity and motor thrust/current vs. flight time.</li>
+            <li>Optimized battery usage and weight allocation; ran real‑world mission &amp; reliability testing.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+
+    <h3 class="group-label">Undergraduate</h3>
+    <div class="project-grid">
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_pulse.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_pulse.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>Pulse Width Measurement &amp; Generation — AT89S52</h4>
+          <ul class="tl-list">
+            <li>Measures frequency &amp; duty cycle; alarms on threshold breach.</li>
+            <li>Measures two signal frequencies, sums them, and generates the resulting signal.</li>
+          </ul>
+          <a class="paper-link" href="https://github.com/Mainul-Islam-07/Pulse_Width_Measurement-by-8051-in-Assembly-Language" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_bms.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_bms.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>LiPo Battery Management System (BMS)</h4>
+          <ul class="tl-list">
+            <li>MATLAB simulation cutting load if any cell exceeds the 3.7V–4.2V range.</li>
+            <li>Contributed to PCB design; works across 2S–6S LiPo packs.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_sap1.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_sap1.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>8‑Bit SAP‑1 Computer</h4>
+          <ul class="tl-list">
+            <li>Simplified educational computer with fewer T‑states.</li>
+            <li>ALU, control unit, registers, limited memory, I/O and clock; runs fetch‑decode‑execute cycles.</li>
+          </ul>
+          <a class="paper-link" href="https://github.com/Mainul-Islam-07/SAP-1-8-Bit-Computer-Design" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_altair.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_altair.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>IUT Mars Rover — Project Altair</h4>
+          <ul class="tl-list">
+            <li>Integrated circuits across subsystems; debugging.</li>
+            <li>6th place, International Rover Challenge (IRC); Best Team — Science Task.</li>
+          </ul>
+          <a class="paper-link" href="https://www.facebook.com/projectaltair" target="_blank" rel="noopener">Team page ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="img-placeholder" data-fill="project_avijatrik.jpg">
+          <span class="ph-icon">◎</span><span class="ph-text">Add photo</span>
+          <span class="ph-file">assets/images/project_avijatrik.jpg</span>
+        </div>
+        <div class="project-card__body">
+          <h4>IUT Mars Rover — Team Avijatrik</h4>
+          <ul class="tl-list">
+            <li>Designed the wheel‑drive board and several PCBs/sub‑circuits.</li>
+            <li>Debugging; participated in ERC, IRDC and other competitions.</li>
+          </ul>
+          <a class="paper-link" href="https://www.facebook.com/iutavijatrik" target="_blank" rel="noopener">Team page ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SKILLS
+  ========================================================= -->
+  <section class="sheet sheet--navy" id="skills">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 06</span>
+      <span class="sheet__title">Skills</span>
+      <span class="sheet__scale">SCALE — N/A</span>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4>Programming</h4>
+        <div class="chip-row">
+          <span class="chip">C</span><span class="chip">Embedded C</span><span class="chip">C++</span>
+          <span class="chip">Python (TensorFlow, PyTorch)</span><span class="chip">MATLAB</span><span class="chip">Assembly</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>PCB &amp; Circuit Design</h4>
+        <div class="chip-row">
+          <span class="chip">Autodesk Eagle</span><span class="chip">KiCad</span><span class="chip">EasyEDA</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Embedded Systems &amp; MCUs</h4>
+        <div class="chip-row">
+          <span class="chip">STM32F103C8T6</span><span class="chip">STM32G431KBT6</span>
+          <span class="chip">ESP32</span><span class="chip">Arduino</span><span class="chip">8051/52 series</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Simulation</h4>
+        <div class="chip-row">
+          <span class="chip">MATLAB Simulink</span><span class="chip">Proteus</span><span class="chip">PSpice</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Machine Learning</h4>
+        <div class="chip-row">
+          <span class="chip">Jupyter</span><span class="chip">Kaggle</span><span class="chip">Colab</span><span class="chip">MATLAB</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Robotics &amp; Middleware</h4>
+        <div class="chip-row">
+          <span class="chip">ROS</span><span class="chip">Linux (Ubuntu)</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>CNC Machining</h4>
+        <div class="chip-row">
+          <span class="chip">FlatCAM</span><span class="chip">Universal G‑code Sender</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Flight Control</h4>
+        <div class="chip-row">
+          <span class="chip">ArduPilot</span><span class="chip">DroneKit</span><span class="chip">MAVProxy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ACHIEVEMENTS + CERTIFICATIONS
+  ========================================================= -->
+  <section class="sheet sheet--paper" id="achievements">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 07</span>
+      <span class="sheet__title">Achievements &amp; Certifications</span>
+      <span class="sheet__scale">SCALE — N/A</span>
+    </div>
+
+    <div class="achieve-grid">
+      <div class="achieve-card">
+        <span class="achieve-icon">🏆</span>
+        <h4>International Rover Challenge 2024</h4>
+        <p>Ranked 6th globally · Best Science Team Award — on behalf of Project Altair</p>
+      </div>
+      <div class="achieve-card">
+        <span class="achieve-icon">🥇</span>
+        <h4>Inter‑University PCB Design Champion</h4>
+      </div>
+      <div class="achieve-card">
+        <span class="achieve-icon">🥇</span>
+        <h4>Champion — Project Showcasing</h4>
+      </div>
+      <div class="achieve-card">
+        <span class="achieve-icon">📊</span>
+        <h4>MATLAB Cody</h4>
+        <p>Ranked 109th worldwide · 910+ problems solved</p>
+      </div>
+    </div>
+
+    <div class="cert-note">
+      <p class="hero__hint">↳ Add your Certifications and Participations page details here as a list or logo row — e.g. course certificates, workshops, and competitions attended. Placeholder below.</p>
+      <div class="chip-row">
+        <span class="chip">Certification name — issuer, year</span>
+        <span class="chip">Certification name — issuer, year</span>
+        <span class="chip">Workshop / competition — year</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT
+  ========================================================= -->
+  <section class="sheet sheet--navy sheet--contact" id="contact">
+    <div class="sheet__head">
+      <span class="sheet__no">SHEET 08</span>
+      <span class="sheet__title">Contact</span>
+      <span class="sheet__scale">END OF DOCUMENT</span>
+    </div>
+
+    <div class="contact__wrap">
+      <h2>Let's talk about robotics, control systems, or doctoral supervision.</h2>
+      <p>I'm actively reaching out to labs working on autonomous systems, SLAM, and applied
+        machine learning for robotics. Feel free to get in touch directly.</p>
+
+      <div class="contact__links">
+        <a href="mailto:mainulislam@iut-dhaka.edu" class="contact-pill">✉ mainulislam@iut-dhaka.edu</a>
+        <a href="https://www.linkedin.com/in/mainul-islam-254071205/" target="_blank" rel="noopener" class="contact-pill">LinkedIn ↗</a>
+        <a href="https://github.com/Mainul-Islam-07" target="_blank" rel="noopener" class="contact-pill">GitHub ↗</a>
+        <a href="https://scholar.google.com/citations?user=mHfGHugAAAAJ&hl=en" target="_blank" rel="noopener" class="contact-pill">Google Scholar ↗</a>
+        <a href="https://www.researchgate.net/profile/Mainul-Islam-19/research" target="_blank" rel="noopener" class="contact-pill">ResearchGate ↗</a>
+        <a href="https://www.youtube.com/channel/UCCSPx4xY8xQGVi7dKpVvhkQ" target="_blank" rel="noopener" class="contact-pill">YouTube ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© <span id="year"></span> Mainul Islam</span>
+  <span class="footer__dot">·</span>
+  <span>Built as a static site — deployable on GitHub Pages</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
