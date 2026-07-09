@@ -3,15 +3,20 @@
   "brand": "Portfolio",
   "headline": "Your Job Title / Role",
   "summary": "Write a few sentences about yourself here. What you do, what you specialize in, and what you're passionate about. This text is clamped to a few lines on the page and expands with the \"Read more\" link, so you can write as much as you like. Replace all of the placeholder content in this file with your own — the whole site is driven by this single JSON file.",
-  "avatar": "assets/img/profile-placeholder.svg",
+  "avatar": "assets/img/mainul-islam.jpg",
   "cv": "assets/files/cv.pdf",
   "themeColor": "#0ea5e9",
-  "email": "you@example.com",
-  "linkedin": "https://www.linkedin.com/in/your-handle/",
-  "github": "https://github.com/your-handle",
-  "scholar": "",
+  "email": "mainulislam@iut-dhaka.edu",
+  "linkedin": "https://www.linkedin.com/in/mainul-islam-254071205/",
+  "github": "https://github.com/Mainul-Islam-07",
+  "scholar": "https://scholar.google.com/citations?user=mHfGHugAAAAJ&hl=en",
   "orcid": "",
   "researchgate": "",
+  "youtube": "https://www.youtube.com/@mainulislamefan",
+  "whatsapp": "+880-185-607-3265",
+  "portfolios": [
+    { "label": "2nd Portfolio", "url": "https://sites.google.com/view/mainulislam-portfolio/home" }
+  ],
 
   "researchInterests": [
     { "title": "Control Systems", "icon": "fa-solid fa-sliders" },
@@ -31,6 +36,7 @@
       "note": "Impact Factor 6.6",
       "doi": "10.1016/j.solener.2025.114058",
       "pdf": "assets/files/Islam-2025-Solar-Panel-Segmentation-XAI.pdf",
+      "abstract": "With the increasing adoption of solar photovoltaic (PV) systems worldwide, efficient monitoring and fault detection have become essential to ensure optimal performance and longevity. Traditional PV panel inspection methods are often time-consuming, labor-intensive, and lack precision. To address these challenges, this study presents a deep learning-based framework for solar panel segmentation along with fault and abnormality classification enhanced with LIME-based Explainable AI (XAI). The proposed approach employs a hybrid segmentation model that combines the strengths of U-Net and RefineNet, leveraging DenseNet as the backbone. The segmentation module performs binary segmentation to ensure precise localization of solar panels before the fault classification stage. For fault classification, a MobileNetV3Small-based transfer-learning model is utilized, which can classify diverse real-world fault and abnormality conditions, including physical and electrical damage, dust, bird droppings, and snow cover. LIME-based XAI is incorporated to improve interpretability, providing insight into the model's decision-making. The segmentation model achieved an Intersection over Union (IoU) of 93.63% and 91.24% on two publicly available datasets, and the classification model attained 97.53% accuracy. The proposed method outperforms existing approaches in both segmentation and classification while maintaining computational efficiency, enabling automated solar panel monitoring with high reliability and transparency.",
       "highlights": [
         "Two-stage pipeline: pixel-wise semantic segmentation first isolates individual PV modules, then a downstream classifier assigns module-level fault categories — decoupling localization from diagnosis.",
         "Explainable-AI attribution maps expose the visual evidence behind each fault prediction, making the model auditable for field operations & maintenance rather than a black box.",
@@ -47,6 +53,7 @@
       "note": "B.Sc. Thesis",
       "doi": "10.1109/ICARA69401.2026.11480327",
       "pdf": "assets/files/Islam-2026-MonoSIM-ICARA.pdf",
+      "abstract": "This paper presents an open-source Software-in-the-Loop (SIL) simulation platform designed for autonomous Ackermann vehicle research and education. The proposed framework focuses on simplicity while making it easy to work with small-scale experimental setups such as the XTENTH-CAR platform. The system was designed using open-source tools, creating an environment with a monocular camera vision system to capture stimuli with minimal computational overhead through a sliding-window based lane detection method. The platform supports a flexible algorithm testing and validation environment, allowing researchers to implement and compare various control strategies within an easy-to-use virtual environment. To validate the platform, Model Predictive Control (MPC) and Proportional-Integral-Derivative (PID) algorithms were implemented within the SIL framework. The results confirm that the platform provides a reliable environment for algorithm verification, making it an ideal tool for future multi-agent system research, educational purposes, and low-cost AGV development. Code: https://github.com/shantanu404/monosim.git",
       "highlights": [
         "Software-in-the-loop (SIL) framework that closes the perception-to-control loop for Ackermann-steered vehicles entirely in simulation, removing hardware from early-stage algorithm validation.",
         "Uses a single monocular camera as the sole exteroceptive sensor, tackling scale-ambiguous perception without LiDAR or stereo depth.",
@@ -63,6 +70,7 @@
       "note": "",
       "doi": "arXiv:2603.10267",
       "pdf": "assets/files/Islam-2026-Bangla-LPR-YOLO-VLM-OCR.pdf",
+      "abstract": "An Automatic License Plate Recognition (ALPR) system constitutes a crucial element in an intelligent traffic management system. However, the detection of Bangla license plates remains challenging because of the complicated character scheme and uneven layouts. This paper presents a robust Bangla License Plate Recognition system that integrates a deep learning-based object detection model for license plate localization with Optical Character Recognition for text extraction. Multiple object detection architectures, including U-Net and several YOLO (You Only Look Once) variants, are compared for license plate localization. This study proposes a novel two-stage adaptive training strategy built upon the YOLOv8 architecture to improve localization performance. The proposed approach outperforms established models, achieving an accuracy of 97.83% and an Intersection over Union (IoU) of 91.3%. The text recognition problem is phrased as a sequence generation problem with a VisionEncoderDecoder architecture, and a combination of encoder-decoders is evaluated. The ViT + BanglaBERT model gives the best results at the character level, with a Character Error Rate of 0.1323 and Word Error Rate of 0.1068. The system also shows consistent performance on an external dataset curated for this study, offering completely different environment and lighting conditions from the training sample, indicating the robustness of the framework. Overall, the proposed system provides a robust and reliable solution for Bangla license plate recognition and performs effectively across diverse real-world scenarios, making it well suited for deployment in intelligent transportation applications such as automated law enforcement and access control.",
       "highlights": [
         "Cascades a YOLO detector for plate localization with a vision-language OCR stage for reading, separating 'where' from 'what' for robustness.",
         "Targets Bangla script — conjunct characters, non-Latin glyphs and compact multi-line layouts that break conventional OCR engines.",
@@ -79,6 +87,7 @@
       "note": "",
       "doi": "10.1109/ICECIE63774.2024.10815643",
       "pdf": "assets/files/Islam-2024-Energy-Demand-ML-ICECIE.pdf",
+      "abstract": "In every energy sector, from production to consumption, machine learning and statistical models have influenced the power system for the past few decades. Among these, energy demand analysis is an important research area in Bangladesh due to its necessity. This study introduces energy consumption forecasting along with the necessary environmental feature variables. Energy demand varies depending on short-term, medium-term, and long-term analysis; this paper focuses on long-term energy demand while predicting energy consumption. The dataset includes three years of monthly data comprising more than one million samples and diverse consumer types, with versatile features from the capital of Bangladesh, Dhaka (mainly Uttara). Different machine learning models — Random Forest, k-nearest Neighbors regression, Extreme Gradient Boosting (XGBoost), and Light Gradient Boosting (LightGBM) — were used, and various performance metrics were applied to evaluate them. Among the models, KNN performed considerably well, with an R-squared of about 0.9447, RMSE of 163.9, and MAE of 28.7. Such a study will help upgrade the power system management of Bangladesh.",
       "highlights": [
         "Comparative study of multiple machine-learning regressors for long-horizon electricity-demand forecasting on Bangladesh national data.",
         "Feature engineering over socio-economic and temporal demand drivers to capture long-term growth trends.",
@@ -88,13 +97,14 @@
     },
     {
       "type": "Conference Paper",
-      "title": "Optimizing Master–Slave Broadcast and Unicast Communication in Multi-Node STM32 Networks Using UART and RS485 Protocols",
+      "title": "Optimizing Master-Slave Broadcast Communication in Multi-Node Network Using RS485 Standard",
       "authors": "",
       "venue": "IEEE ICCIT",
       "year": "2024",
       "note": "",
       "doi": "10.1109/ICCIT64611.2024.11022430",
       "pdf": "assets/files/Islam-2024-STM32-RS485-ICCIT.pdf",
+      "abstract": "This paper presents a comprehensive study on the implementation of master-slave broadcast communication over a differential signalling standard (RS-485) that defines the electrical interface and physical layer for connecting electrical devices. The focus is on the design and timing analysis of a communication system involving multiple STM32 microcontrollers arranged in a daisy-chain configuration. The master device broadcasts commands to multiple slave devices, which, after receiving the commands, send feedback to the master as well as to other slaves. The system uses Direct Memory Access (DMA) for efficient data transfer, Cyclic Redundancy Check (CRC) for error detection, and precise timing control to ensure reliable communication. A key feature is its unique feedback mechanism, where all nodes receive data and execute commands, but only the addressed node provides feedback. Multiple nodes then accept this feedback, ensuring synchronized operation and real-time updates across the network. The system has been rigorously tested on a Remotely Operated Vehicle (ROV) with a 6-degree-of-freedom (DOF) arm and differential drive, demonstrating its reliability and efficiency in controlling complex robotic movements and feedback mechanisms.",
       "highlights": [
         "Designs and optimizes a master–slave communication scheme over UART/RS485 across multiple STM32 microcontroller nodes.",
         "Contrasts broadcast versus unicast messaging patterns and their impact on bus utilization and latency.",
@@ -145,16 +155,118 @@
 
   "experience": [
     {
-      "company": "Company Name",
-      "position": "Your Position",
-      "location": "City, Country",
-      "period": "2024-01-present",
-      "url": "",
+      "company": "Cybernetics Hi-Tech Solutions (Pvt.) Ltd. (CHSL)",
+      "location": "Dhaka, Bangladesh",
+      "position": "Embedded Systems Engineer (R&D)",
+      "period": "Oct 2024 - Present",
+      "url": "https://cyberneticsbd.com/",
+      "proof": "assets/proofs/experience/cybernetics-work-experience.pdf",
       "highlights": [
-        "Key responsibility or accomplishment #1.",
-        "Key responsibility or accomplishment #2."
-      ],
-      "tech": ["Skill A", "Skill B"]
+        "Developed the full electrical and software stack (CAN bus integration, inverse-kinematics solver, whole-system development under ROS 2, Android app development and control-mechanism integration) for a man-transportable remotely operated vehicle (ROV) with a 7-DOF robotic arm.",
+        "Developed wired (optical-fiber) and wireless communication for the man-transportable ROV with a 7-DOF robotic arm.",
+        "Developed a fully automated toll-booth system integrating real-time vehicle detection, payment processing, and security-breach alerts.",
+        "Developed autonomous navigation and localization systems for a factory-floor AGV to optimize logistics workflows.",
+        "Developed an autonomous target-tracking custom drone system with onboard computer vision, target tracking, and flight-controller integration.",
+        "Developed a comprehensive understanding of power-consumption dynamics in custom payload and surveillance drones, considering air drag, velocity, altitude, battery characteristics and motor performance.",
+        "Contributed to analyzing and implementing various smart-meter ICs to enhance system performance and efficiency."
+      ]
+    },
+    {
+      "company": "Ahsanullah University of Science & Technology (AUST)",
+      "location": "Dhaka, Bangladesh",
+      "position": "Lecturer (Part-time)",
+      "period": "Jul 2025 - Jun 2026",
+      "url": "https://www.aust.edu/",
+      "proof": "assets/proofs/experience/aust-teaching-experience.pdf",
+      "highlights": [
+        "Conducted hands-on C++ programming laboratory sessions (EEE-1110) for three sections (4.5 credit hours/week).",
+        "Conducted Digital Signal Processing laboratory sessions (EEE-3218) for one section (1.5 credit hours/week).",
+        "Delivered lectures, lab assessments, lab-manual preparation and attendance tracking across two consecutive semesters."
+      ]
+    },
+    {
+      "company": "EmbeddedThere",
+      "location": "Remote",
+      "position": "Contributing Author",
+      "period": "May 2025 - Jan 2026",
+      "url": "https://embeddedthere.com/",
+      "highlights": [
+        "Writing articles on STM32 MCU programming.",
+        "Explaining hardware integration such as WIZnet Ethernet modules."
+      ]
+    },
+    {
+      "company": "Spectrum Engineering Consortium Ltd. (SECL)",
+      "location": "Dhaka, Bangladesh",
+      "position": "Research and Development Engineer",
+      "period": "Jun 2024 - Sep 2024",
+      "url": "https://www.spectrum-bd.com/",
+      "proof": "assets/proofs/experience/spectrum-rnd-engineer.pdf",
+      "highlights": [
+        "Integrated sensors and camera PTZ capability for a remotely operated vehicle (ROV) with a 6-DOF robotic arm, improving precision, stability and functionality.",
+        "PCB design, verification and manufacturing.",
+        "Contributed to the development of an internal communication system (11 STM32 Nucleo boards, each acting as a joint to control specific actuation or collect sensor data)."
+      ]
+    },
+    {
+      "company": "Pantech.ai",
+      "location": "Remote",
+      "position": "Intern, Embedded System Design",
+      "period": "Jan 2024 - Apr 2024",
+      "url": "https://pantech.ai/",
+      "proof": "assets/proofs/experience/pantech-intern-certificate.png",
+      "highlights": [
+        "STM32 bare-metal programming.",
+        "Integration of various sensors with STM32 Nucleo boards.",
+        "Implementation of protocols such as UART, SPI and I2C."
+      ]
+    },
+    {
+      "company": "Spectrum Engineering Consortium Ltd.",
+      "location": "Dhaka, Bangladesh",
+      "position": "Intern, Research and Development Team",
+      "period": "Jun 2023 - Mar 2024",
+      "url": "https://www.spectrum-bd.com/",
+      "proof": "assets/proofs/experience/spectrum-intern-rnd.pdf",
+      "highlights": [
+        "Circuit designing.",
+        "Hardware integration.",
+        "Debugging."
+      ]
+    },
+    {
+      "company": "Project Altair (IUT Mars Rover)",
+      "location": "Gazipur, Bangladesh",
+      "position": "System Designer, Electrical Subteam",
+      "period": "Jun 2023 - Apr 2024",
+      "url": "https://www.facebook.com/projectaltair/",
+      "highlights": [
+        "PCB designing.",
+        "Hardware integration and testing.",
+        "Debugging."
+      ]
+    },
+    {
+      "company": "IUT Robotics Society",
+      "location": "Gazipur, Bangladesh",
+      "position": "Project Coordinator",
+      "period": "Oct 2023 - Apr 2024",
+      "highlights": [
+        "Collaboration among different subteams.",
+        "Management of multiple concurrent projects."
+      ]
+    },
+    {
+      "company": "IUT Mars Rover — Team Avijatrik",
+      "location": "Gazipur, Bangladesh",
+      "position": "Senior Electrical Member",
+      "period": "Mar 2021 - Mar 2023",
+      "url": "https://www.facebook.com/iutavijatrik",
+      "highlights": [
+        "PCB designing.",
+        "Wiring and debugging.",
+        "Hardware integration."
+      ]
     }
   ],
 

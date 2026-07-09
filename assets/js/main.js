@@ -172,6 +172,9 @@
     /* --- Blog --- */
     renderBlog(profile.blog);
 
+    /* --- Contact --- */
+    renderContact(profile);
+
     /* --- Projects --- */
     const projectsGrid = document.getElementById("projects-grid");
     if (projectsGrid && Array.isArray(profile.projects)) {
@@ -326,6 +329,8 @@
           highlights: item.highlights || [],
           tech: item.tech || [],
           url: item.url || "",
+          proof: item.proof || "",
+          proofPending: item.proofPending || false,
         };
       const posArr = Array.isArray(item.position) ? item.position : [item.position];
       const perArr = Array.isArray(item.period) ? item.period : [item.period];
@@ -338,17 +343,17 @@
       if (!entry.highlights.length && item.highlights) entry.highlights = item.highlights;
       if (!entry.tech.length && item.tech) entry.tech = item.tech;
       if (!entry.url && item.url) entry.url = item.url;
+      if (!entry.proof && item.proof) entry.proof = item.proof;
       map.set(key, entry);
     });
 
     expList.innerHTML = "";
     map.forEach((e) => {
-      const card = el(e.url ? "a" : "div", "experience-card");
-      if (e.url) {
-        card.href = e.url;
-        card.target = "_blank";
-        card.rel = "noopener noreferrer";
-      }
+      const card = el("div", "experience-card");
+      // Company website → clickable icon beside the name.
+      const siteLink = e.url
+        ? ` <a class="inst-link" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${esc(e.company)} website" title="Visit website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
+        : "";
       const roles = e.roles
         .map(
           (r) => `
@@ -367,11 +372,13 @@
         Array.isArray(e.tech) && e.tech.length
           ? `<p class="exp-tech"><strong>Technical Skills:</strong> ${e.tech.map(esc).join(", ")}</p>`
           : "";
+      const proof = proofButton(e, "View Document");
       card.innerHTML = `
-        <h4><span class="company">${esc(e.company)}</span>${
+        <h4><span class="company">${esc(e.company)}</span>${siteLink}${
         e.location ? ` <span class="location">${esc(e.location)}</span>` : ""
       }</h4>
-        ${roles}${hl}${tech}`;
+        ${roles}${hl}${tech}
+        ${proof ? `<div class="exp-actions">${proof}</div>` : ""}`;
       expList.appendChild(card);
     });
   }
@@ -389,6 +396,8 @@
     if (profile.scholar) links.push({ icon: "fa-solid fa-graduation-cap", href: profile.scholar, label: "Google Scholar" });
     if (profile.orcid) links.push({ icon: "fa-brands fa-orcid", href: profile.orcid, label: "ORCID" });
     if (profile.researchgate) links.push({ icon: "fa-brands fa-researchgate", href: profile.researchgate, label: "ResearchGate" });
+    if (profile.youtube) links.push({ icon: "fa-brands fa-youtube", href: profile.youtube, label: "YouTube" });
+    if (profile.whatsapp) links.push({ icon: "fa-brands fa-whatsapp", href: `https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`, label: "WhatsApp" });
     (profile.socials || []).forEach((s) => links.push(s));
     box.innerHTML = links
       .map(
@@ -469,13 +478,23 @@
             .join("")}</div>`
         : "";
 
-      // Collapsible technical summary (native <details> dropdown).
-      const detailsHtml =
+      // Two collapsible dropdowns (native <details>): Abstract (left) + Technical summary (right).
+      const abstractHtml = p.abstract
+        ? `<details class="pub-details">
+             <summary>Abstract</summary>
+             <p>${esc(p.abstract)}</p>
+           </details>`
+        : "";
+      const summaryHtml =
         Array.isArray(p.highlights) && p.highlights.length
           ? `<details class="pub-details">
                <summary>Technical summary</summary>
                <ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
              </details>`
+          : "";
+      const dropdownsHtml =
+        abstractHtml || summaryHtml
+          ? `<div class="pub-dropdowns">${abstractHtml}${summaryHtml}</div>`
           : "";
 
       card.innerHTML = `
@@ -485,7 +504,7 @@
         <p class="pub-venue">${[p.venue, p.year].filter(Boolean).map(esc).join(", ")}${
         p.note ? ` <span class="pub-badge">${esc(p.note)}</span>` : ""
       }</p>
-        ${detailsHtml}
+        ${dropdownsHtml}
         ${linksHtml}`;
       box.appendChild(card);
     });
@@ -595,6 +614,35 @@
         </div>`;
       box.appendChild(card);
     });
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Contact (data-driven list of all channels)
+   * ------------------------------------------------------------------ */
+  function renderContact(profile) {
+    const box = document.getElementById("contact-list");
+    if (!box) return;
+    const disp = (u) => String(u).replace(/^https?:\/\//, "").replace(/\/$/, "");
+    const rows = [];
+    if (profile.email) rows.push({ icon: "fa-solid fa-envelope", label: "Email", href: `mailto:${profile.email}`, text: profile.email });
+    if (profile.linkedin) rows.push({ icon: "fa-brands fa-linkedin", label: "LinkedIn", href: profile.linkedin, text: disp(profile.linkedin) });
+    if (profile.scholar) rows.push({ icon: "fa-solid fa-graduation-cap", label: "Google Scholar", href: profile.scholar, text: disp(profile.scholar) });
+    if (profile.github) rows.push({ icon: "fa-brands fa-github", label: "GitHub", href: profile.github, text: disp(profile.github) });
+    if (profile.youtube) rows.push({ icon: "fa-brands fa-youtube", label: "YouTube", href: profile.youtube, text: disp(profile.youtube) });
+    if (profile.whatsapp) rows.push({ icon: "fa-brands fa-whatsapp", label: "WhatsApp", href: `https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`, text: profile.whatsapp });
+    (profile.portfolios || []).forEach((p, i) => {
+      const url = typeof p === "string" ? p : p.url;
+      const label = typeof p === "string" ? "Portfolio" + (profile.portfolios.length > 1 ? ` ${i + 1}` : "") : p.label || "Portfolio";
+      if (url) rows.push({ icon: "fa-solid fa-globe", label, href: url, text: disp(url) });
+    });
+    box.innerHTML = rows
+      .map(
+        (r) =>
+          `<p><i class="${r.icon}"></i> <span class="contact-label">${esc(r.label)}:</span> <a href="${esc(r.href)}"${
+            r.href.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener"'
+          }>${esc(r.text)}</a></p>`
+      )
+      .join("");
   }
 
   /* ------------------------------------------------------------------ *

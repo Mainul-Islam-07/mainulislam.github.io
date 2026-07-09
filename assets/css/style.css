@@ -512,6 +512,10 @@ img {
     color: var(--muted);
 }
 
+.exp-actions {
+    margin-top: 12px;
+}
+
 .edu-links {
     display: flex;
     flex-wrap: wrap;
@@ -830,12 +834,39 @@ html[data-theme="dark"] .ach-badge.position {
     font-style: normal;
 }
 
+.pub-dropdowns {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    align-items: flex-start;
+}
+
+.pub-dropdowns > .pub-details {
+    flex: 1 1 0;
+    min-width: 0;
+    margin-top: 0;
+}
+
+@media (max-width: 640px) {
+    .pub-dropdowns {
+        flex-direction: column;
+    }
+}
+
 .pub-details {
     margin-top: 10px;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     background: var(--bg);
     overflow: hidden;
+}
+
+.pub-details > p {
+    margin: 0;
+    padding: 4px 16px 14px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-align: justify;
 }
 
 .pub-details > summary {
