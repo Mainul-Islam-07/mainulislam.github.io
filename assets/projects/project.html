@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .project-detail { padding: 40px 0 64px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; color: var(--primary); font-weight: 600; }
+        .project-hero-img { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 24px; }
+        .project-detail h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin-bottom: 6px; }
+        .project-detail .subtitle { color: var(--primary); font-weight: 600; margin-bottom: 16px; }
+        .project-detail .long { color: var(--muted); margin-bottom: 20px; white-space: pre-line; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 20px; }
+        .gallery img { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        .spec-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+        .spec-table td:first-child { font-weight: 600; width: 40%; }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../../index.html" class="brand"><span>Portfolio</span></a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="project-detail">
+        <div class="container" id="project-root">
+            <a href="../../index.html#projects" class="back-link"><i class="fa fa-arrow-left"></i> Back to projects</a>
+            <div id="project-content"><p>Loading…</p></div>
+        </div>
+    </main>
+
+    <footer>
+        <p><span id="footer-year">2026</span> | Portfolio</p>
+    </footer>
+
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const saved = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            root.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+            const themeToggle = document.getElementById("theme-toggle");
+            const icon = () => themeToggle.innerHTML = root.getAttribute("data-theme") === "light"
+                ? '<i class="fa-regular fa-moon"></i>' : '<i class="fa-regular fa-sun"></i>';
+            icon();
+            themeToggle.addEventListener("click", () => {
+                const t = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+                root.setAttribute("data-theme", t); localStorage.setItem("theme", t); icon();
+            });
+            document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+            const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+            const params = new URLSearchParams(location.search);
+            const idx = parseInt(params.get("i"), 10);
+            const container = document.getElementById("project-content");
+
+            fetch("../../data/profile.json")
+                .then(r => r.json())
+                .then(profile => {
+                    const p = (profile.projects || [])[idx];
+                    if (!p) { container.innerHTML = "<p>Project not found.</p>"; return; }
+                    document.title = (p.title || "Project") + " | Portfolio";
+
+                    const tags = (p.tags || []).map(t => `<span>${esc(t)}</span>`).join("");
+                    const gallery = (p.gallery || []).length
+                        ? `<div class="gallery">${p.gallery.map(g => `<img src="${esc(g)}" alt="" loading="lazy">`).join("")}</div>` : "";
+                    let specs = "";
+                    if (p.specs && Object.keys(p.specs).length) {
+                        specs = `<table class="spec-table">${Object.entries(p.specs).map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}</table>`;
+                    }
+
+                    container.innerHTML = `
+                        ${p.image ? `<img class="project-hero-img" src="${esc(p.image)}" alt="${esc(p.title)}">` : ""}
+                        <h1>${esc(p.title)}</h1>
+                        ${p.subtitle ? `<p class="subtitle">${esc(p.subtitle)}</p>` : ""}
+                        <div class="card-tags" style="margin-bottom:18px">${tags}</div>
+                        <div class="long">${esc(p.longDescription || p.description)}</div>
+                        ${specs}
+                        ${gallery}`;
+                })
+                .catch(() => container.innerHTML = "<p>Failed to load project.</p>");
+        })();
+    </script>
+</body>
+
+</html>

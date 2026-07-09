@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relevant Coursework | Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        .cw { padding: 40px 0 64px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; color: var(--primary); font-weight: 600; }
+        .cw-head h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 4px; }
+        .cw-head p { color: var(--muted); margin-bottom: 6px; }
+        .cw-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 8px; }
+        .cw-group { margin-top: 34px; }
+        .cw-group > h2 { font-size: 1.3rem; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--primary); display: inline-block; }
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+        .course { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 14px; box-shadow: var(--shadow); }
+        .course .code { font-size: 0.72rem; font-weight: 700; color: #fff; background: var(--primary); padding: 4px 8px; border-radius: 6px; white-space: nowrap; }
+        html[data-theme="dark"] .course .code { color: #06121f; }
+        .course .name { font-size: 0.92rem; }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="../../index.html" class="brand"><span>Portfolio</span></a>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme"></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="cw">
+        <div class="container">
+            <a href="../../index.html#education" class="back-link"><i class="fa fa-arrow-left"></i> Back to Education</a>
+            <div class="cw-head">
+                <h1>Relevant Coursework</h1>
+                <p>BSc in Electrical and Electronic Engineering — Islamic University of Technology (IUT)</p>
+            </div>
+            <div class="cw-actions">
+                <a class="btn btn-primary" href="../files/IUT-EEE-Course-Contents.pdf" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-file-lines"></i> Full Course Contents (PDF)</a>
+                <a class="btn btn-ghost" href="../files/Mainul-Islam-BSc-Transcript.pdf" target="_blank" rel="noopener">
+                    <i class="fa-solid fa-file-pdf"></i> Transcript (PDF)</a>
+            </div>
+            <div id="cw-root"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p><span id="footer-year">2026</span> | Mainul Islam</p>
+    </footer>
+
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const saved = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            root.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+            const themeToggle = document.getElementById("theme-toggle");
+            const icon = () => themeToggle.innerHTML = root.getAttribute("data-theme") === "light"
+                ? '<i class="fa-regular fa-moon"></i>' : '<i class="fa-regular fa-sun"></i>';
+            icon();
+            themeToggle.addEventListener("click", () => {
+                const t = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+                root.setAttribute("data-theme", t); localStorage.setItem("theme", t); icon();
+            });
+            document.getElementById("footer-year").textContent = new Date().getFullYear();
+
+            const groups = [
+                {
+                    title: "Core EEE Coursework",
+                    courses: [
+                        ["EEE 4101", "Electrical Circuit I"],
+                        ["EEE 4201", "Electrical Circuit II"],
+                        ["EEE 4203", "Electronics I"],
+                        ["EEE 4303", "Electronics II"],
+                        ["EEE 4305", "Energy Conversion I"],
+                        ["EEE 4405", "Energy Conversion II"],
+                        ["EEE 4301", "Power System I"],
+                        ["EEE 4401", "Power System II"],
+                        ["EEE 4403", "Communication Engineering I"],
+                        ["EEE 4703", "Communication Engineering II"],
+                        ["EEE 4307", "Digital Electronics"],
+                        ["EEE 4503", "Power Electronics"],
+                        ["Phy 4421", "Semiconductor Devices"],
+                        ["EEE 4501", "Electromagnetic Fields and Waves"],
+                        ["EEE 4541", "Wireless Communication"],
+                        ["EEE 4551", "Data Communication and Networking I"],
+                        ["EEE 4651", "Data Communication and Networking II"],
+                        ["EEE 4851", "Advanced Communication Techniques"],
+                        ["EEE 4601", "Signals and Systems"],
+                        ["EEE 4701", "Digital Signal Processing"],
+                        ["EEE 4605", "Control System Engineering I"],
+                        ["EEE 4603", "Measurement and Instrumentation"],
+                        ["EEE 4705", "Microcontroller Based System Design"],
+                        ["EEE 4761", "VLSI Circuits I"],
+                        ["EEE 4709", "Artificial Intelligence and Machine Learning"],
+                        ["EEE 4871", "Biomedical Signal Processing"]
+                    ]
+                },
+                {
+                    title: "Mathematics, Physics & Others",
+                    courses: [
+                        ["Math 4121", "Mathematics I — Calculus and Geometry"],
+                        ["Math 4123", "Mathematics II — Matrices and Differential Equations"],
+                        ["Math 4221", "Complex Variable, Vector Analysis and Statistics"],
+                        ["Math 4321", "Mathematics IV"],
+                        ["Math 4421", "Random Signals and Processes"],
+                        ["Math 4422", "Random Signals and Processes Lab"],
+                        ["Math 4521", "Numerical Methods"],
+                        ["Phy 4121", "Engineering Physics I"],
+                        ["Phy 4221", "Engineering Physics II"],
+                        ["CSE 4271", "Computer Programming"]
+                    ]
+                }
+            ];
+
+            const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+            document.getElementById("cw-root").innerHTML = groups.map(g => `
+                <section class="cw-group">
+                    <h2>${esc(g.title)}</h2>
+                    <div class="course-grid">
+                        ${g.courses.map(([code, name]) => `
+                            <div class="course">
+                                <span class="code">${esc(code)}</span>
+                                <span class="name">${esc(name)}</span>
+                            </div>`).join("")}
+                    </div>
+                </section>`).join("");
+        })();
+    </script>
+</body>
+
+</html>

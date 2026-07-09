@@ -1,0 +1,26 @@
+Journal Article
+
+“A deep learning based framework for solar panel segmentation
+and fault classification enhanced with explainable AI,” Solar Energy, vol. 302, 2025. (Impact Factor: 6.6)
+DOI: 10.1016/j.solener.2025.114058
+
+Conference Papers
+
+“MonoSIM: An open-source SIL framework for
+Ackermann vehicular systems with monocular vision,” IEEE 12th Intl. Conf. on Automation, Robotics and Appli
+cations (ICARA), 2026. (B.Sc. Thesis)
+DOI: 10.1109/ICARA69401.2026.11480327
+
+“A robust deep learning framework for Bangla license plate recognition using YOLO and vision
+language OCR,” IEEE Intl. Conf. on AI and Data Analytics (ICAD), 2026.
+DOI: arXiv:2603.10267
+
+“Long-term energy demand analysis using machine
+learning algorithms: A case study in Bangladesh,” IEEE ICECIE, 2024.
+DOI: 10.1109/ICECIE63774.2024.10815643
+
+“Optimizing master–slave broadcast and unicast communication in multi-node STM32 networks
+using UART and RS485 protocols,” IEEE ICCIT, 2024.
+DOI: 10.1109/ICCIT64611.2024.11022430
+
+Keep each summary like a drop down menu highlighting the work done more like from a technical perspective so that a phd prof might appreciate. keep the papers as such that upon pressing, it will be shown in browser (pdf showing in browser) in a subpage 
