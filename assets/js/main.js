@@ -448,9 +448,9 @@
     withIdx.forEach(({ p, idx }) => {
       const card = el("div", "publication-item");
 
-      // Links: View PDF (subpage viewer), DOI / arXiv, external link, code.
+      // Links: View PDF (opens the PDF in a new tab), DOI / arXiv, external link, code.
       const links = [];
-      if (p.pdf) links.push({ label: "View PDF", href: `assets/papers/paper.html?i=${idx}`, self: true, icon: "fa-solid fa-file-pdf" });
+      if (p.pdf) links.push({ label: "View PDF", href: p.pdf, icon: "fa-solid fa-file-pdf" });
       if (p.doi) {
         if (/^arxiv:/i.test(p.doi)) {
           links.push({ label: "arXiv", href: "https://arxiv.org/abs/" + p.doi.replace(/^arxiv:/i, ""), icon: "fa-solid fa-arrow-up-right-from-square" });
