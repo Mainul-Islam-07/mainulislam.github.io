@@ -1,0 +1,52 @@
+Programming Languages
+C
+Embedded C
+C++
+Python (tensorflow, pytorch)
+MATLAB
+Assembly
+
+PCB and Circuit Design
+Autodesk Eagle
+KiCad
+Easy-eda
+
+Embedded Systems & Microcontrollers
+STM32
+Arduino
+8051/52 series
+
+Simulation Software
+MATLAB Simulink
+Proteus
+Pspice
+
+Machine Learning environments
+Jupyter Notebook
+Kaggle
+Colab
+
+Robotics & Middleware
+ROS (Robot Operating Systems)
+Gazebo
+Linux (Ubuntu)
+
+CNC Machining Software
+FlatCAM
+LightBurn
+Universal G-code Sender (UGS)
+
+Flight Control Systems
+Ardupilot
+Dronekit
+Mavproxy
+
+Protocols
+Canbus
+Modbus
+Uart
+Sbus
+RTSP
+Ethernet (Wiznet)
+Spi
+I2C

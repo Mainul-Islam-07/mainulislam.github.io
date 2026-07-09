@@ -944,20 +944,35 @@ html[data-theme="dark"] .ach-badge.position {
    Supervisors / references
    ========================================================================== */
 .supervisors-grid {
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: var(--gap);
 }
 
 .supervisor-card {
-    flex-direction: row;
-    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.supervisor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.sup-head {
+    display: flex;
     gap: 14px;
-    padding: 16px 18px;
+    align-items: flex-start;
 }
 
 .sup-avatar {
-    width: 60px;
-    height: 60px;
-    flex: 0 0 60px;
+    width: 56px;
+    height: 56px;
+    flex: 0 0 56px;
     border-radius: 50%;
     overflow: hidden;
     background: var(--tag-bg);
@@ -965,7 +980,7 @@ html[data-theme="dark"] .ach-badge.position {
     align-items: center;
     justify-content: center;
     color: var(--muted);
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .sup-avatar img {
@@ -974,23 +989,138 @@ html[data-theme="dark"] .ach-badge.position {
     object-fit: cover;
 }
 
-.sup-body h4 {
-    font-size: 1.02rem;
+.sup-name {
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.sup-role {
-    font-size: 0.86rem;
+.sup-profile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 0.78rem;
     color: var(--primary);
-    font-weight: 600;
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    transition: background 0.2s, color 0.2s;
+}
+
+.sup-profile:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.sup-role-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin: 6px 0 4px;
 }
 
 .sup-aff,
+.sup-loc,
+.sup-spec,
 .sup-email {
-    font-size: 0.84rem;
+    font-size: 0.85rem;
     color: var(--muted);
+    margin-top: 2px;
+}
+
+.sup-spec strong {
+    color: var(--text);
 }
 
 .sup-email a:hover {
+    color: var(--primary);
+}
+
+.sup-topics {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.sup-topics-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--primary);
+}
+
+.sup-topics ul {
+    margin: 8px 0 0 18px;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+.sup-topics li {
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   Proof buttons (Certifications / Achievements / Participation)
+   ========================================================================== */
+.proof-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--primary);
+    background: var(--tag-bg);
+    border: 1px solid var(--tag-border);
+    font-family: inherit;
+    transition: background 0.2s, color 0.2s;
+}
+
+.proof-btn:hover:not([disabled]) {
+    background: var(--primary);
+    color: #fff;
+}
+
+.proof-btn[disabled] {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.cert-actions {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.part-side {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.achievement-orgline {
+    margin-top: 6px;
+}
+
+.achievement-org {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+a.achievement-org:hover {
     color: var(--primary);
 }
 

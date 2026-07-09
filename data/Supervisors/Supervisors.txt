@@ -1,0 +1,84 @@
+THESIS SUPERVISOR
+https://scholar.google.com/citations?user=3waAWaYAAAAJ&hl=en
+Dr. Golam Sarowar 
+Professor
+
+Department of Electrical and Electronic Engineering
+
+Islamic University of Technology (IUT)
+
+Dhaka, bangladesh
+
+Specialization : Power Electronics, Control System, Machine Learning
+
+My Research Topics under the Supervision of Dr. Golam Sarowar :
+
+Development of a testbed for autonomous vehicles: Integrating MPC control with monocular camera lane detection
+
+-----------------
+RESEARCH SUPERVISORS
+
+Razzaqul Ahshan, PhD, SMIEEE
+Associate Professor
+https://scholar.google.com/citations?user=hwFkaooAAAAJ&hl=en
+Electrical Engineering
+
+Sultan Qaboos University, Oman
+
+My Research Topics under the Supervision of Mr. Razzaqul Ahshan:
+
+A deep learning based framework for solar panel segmentation and fault classification enhanced with explainable AI. 
+
+-------------------
+
+
+Md. Abdur Razzak 
+Professor
+https://scholar.google.com/citations?hl=en&user=CTdGBm8AAAAJ
+Department of Electrical and Electronic Engineering
+
+Independent University, Bangladesh (IUB)
+
+My Research Topics under the Supervision of Md. Abdur Razzak :
+
+Long-term Energy Demand Analysis using Machine Learning Algorithms: A Case Study in Bangladesh.
+
+
+--------------------
+
+
+Mr. Asif Newaz
+Assistant Professor
+https://scholar.google.com/citations?user=7XXXXdwAAAAJ&hl=en
+Department of Electrical and Electronic Engineering
+
+Islamic University of Technology (IUT)
+
+My Research Topics under the Supervision of Mr. Asif Newaz :
+
+A Robust Deep Learning Framework for Bangla License Plate Recognition Using YOLO and Vision-Language OCR.
+
+
+-------------------
+
+Rashed Mujib Noman
+Country Director, Augmedix Bangladesh
+Ex-Senior Engineering Manager, Boeing
+https://www.linkedin.com/in/nomanrashed/
+Ex-Project Engineer/Performance Engineer, General Motors
+
+My Research Topics under the Supervision of Mr. Rashed Mujib Noman :
+
+Remotely Operated Vehicle (ROV) with 6-DOF Robotic Arm (Sensor and camera movement integration)
+
+Man-Transportable ROV with a 7-DOF (Communication systems)
+
+Analysis of effects of air drag, velocity, altitude, battery characteristics and motor performance in flight time of drones.
+
+Tollbooth controller Unit for toll automation with security features and scope of modularity and scalability.
+
+Autonomous Target-Tracking Drone (onboard computer vision)
+
+Autonomous Guided Vehicle (AGV)  (localization algorithms and autonomous navigation)
+
+the profile links will be attached with an icon beside the name written google scholar except for the last one which is linkedin.

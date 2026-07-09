@@ -1,0 +1,12 @@
+STM32 Ethernet Communication Tutorial using Wiznet W5500 Module
+This is a comprehensive guide on Ethernet communication using Wiznet W5500 module. We will demonstrate how to use Wiznet W5500 IC to send messages to a computer as well as receive messages from the computer. To help you get a hold of this, we will also build an example project on a very popular board from STM32, known as “Bluepill” (STM32F103C8T6)... continue
+
+https://embeddedthere.com/stm32-ethernet-communication-tutorial-using-w5500-module/
+
+
+Ethernet communication using STM32 Microcontroller and Wiznet (Interrupt Mode)
+The WIZnet module is a compact Ethernet networking module based on WIZnet’s W5x00 series chips (e.g., W5500), providing a hardwired TCP/IP stack for easy integration with microcontrollers via SPI. It allows stable, low-resource Ethernet communication with support for multiple sockets, ideal for IoT and embedded systems needing reliable wired networking... continue
+
+https://embeddedthere.com/ethernet-communication-using-stm32-microcontroller-and-wiznet-interrupt-mode/
+
+the links will be icons clickable by clicking "continue"

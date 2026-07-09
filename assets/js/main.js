@@ -55,6 +55,18 @@
     document.querySelectorAll(sel).forEach((n) => (n.textContent = val));
   };
 
+  // Proof button: if `proof` (an image/file path) is set it opens in a new tab;
+  // if `proofPending` is set the button is shown but inert (image not supplied yet);
+  // otherwise nothing renders.
+  const proofButton = (item, label) => {
+    const l = label || "View Image";
+    if (item.proof)
+      return `<a class="proof-btn" href="${esc(item.proof)}" target="_blank" rel="noopener"><i class="fa-regular fa-image"></i> ${esc(l)}</a>`;
+    if (item.proofPending)
+      return `<button class="proof-btn" disabled title="Image coming soon"><i class="fa-regular fa-image"></i> ${esc(l)}</button>`;
+    return "";
+  };
+
   function formatPeriod(period) {
     // "YYYY-MM-present" -> "YYYY-MM – Present" | "YYYY-MM-YYYY-MM" -> "YYYY-MM – YYYY-MM"
     if (!period) return "";
@@ -74,7 +86,7 @@
   /* ------------------------------------------------------------------ *
    * Load and render profile.json
    * ------------------------------------------------------------------ */
-  fetch("data/profile.json")
+  fetch("data/Profile/profile.json")
     .then((r) => {
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
@@ -253,17 +265,12 @@
     if (certList && Array.isArray(profile.certifications)) {
       certList.innerHTML = "";
       profile.certifications.forEach((c) => {
-        const card = el(c.link ? "a" : "div", "cert-card");
-        if (c.link) {
-          card.href = c.link;
-          card.target = "_blank";
-          card.rel = "noopener noreferrer";
-        }
+        const card = el("div", "cert-card");
         card.innerHTML = `
           <h4 class="cert-title">${esc(c.title)}</h4>
           ${c.issuer ? `<div class="cert-issuer">${esc(c.issuer)}</div>` : ""}
           ${c.description ? `<p class="cert-desc">${esc(c.description)}</p>` : ""}
-          ${c.link ? `<div class="cert-link">View Certificate →</div>` : ""}`;
+          <div class="cert-actions">${proofButton(c, "View Certificate")}</div>`;
         certList.appendChild(card);
       });
     }
@@ -279,31 +286,22 @@
       });
       sorted.forEach((a) => {
         const wrap = el("div", "achievement-item");
-        const top = el(a.link ? "a" : "div", "achievement-topblock");
-        if (a.link) {
-          top.href = a.link;
-          top.target = "_blank";
-          top.rel = "noopener noreferrer";
-        }
-        top.innerHTML = `
-          <h4 class="achievement-title">${esc(a.title)}</h4>
-          <div class="achievement-meta">
-            ${a.position ? `<span class="ach-badge position">${esc(a.position)}</span>` : ""}
-            ${a.year ? `<span class="ach-badge year">${esc(a.year)}</span>` : ""}
+        const orgHtml = a.organizer
+          ? a.organizerUrl
+            ? `<a class="achievement-org" href="${esc(a.organizerUrl)}" target="_blank" rel="noopener">${esc(a.organizer)}</a>`
+            : `<span class="achievement-org">${esc(a.organizer)}</span>`
+          : "";
+        wrap.innerHTML = `
+          <div class="achievement-topblock">
+            <h4 class="achievement-title">${esc(a.title)}</h4>
+            <div class="achievement-meta">
+              ${a.position ? `<span class="ach-badge position">${esc(a.position)}</span>` : ""}
+              ${a.year ? `<span class="ach-badge year">${esc(a.year)}</span>` : ""}
+            </div>
+            ${a.note ? `<div class="achievement-extra">${esc(a.note)}</div>` : ""}
+            ${orgHtml ? `<div class="achievement-orgline">${orgHtml}</div>` : ""}
           </div>
-          ${a.note ? `<div class="achievement-extra">${esc(a.note)}</div>` : ""}`;
-        wrap.appendChild(top);
-
-        if (a.organizer) {
-          const orgHref =
-            a.organizerUrl ||
-            `https://www.google.com/search?q=${encodeURIComponent(a.organizer)}`;
-          const bottom = el("a", "achievement-bottomblock", esc(a.organizer));
-          bottom.href = orgHref;
-          bottom.target = "_blank";
-          bottom.rel = "noopener noreferrer";
-          wrap.appendChild(bottom);
-        }
+          ${proofButton(a, "View Details")}`;
         achList.appendChild(wrap);
       });
     }
@@ -506,12 +504,7 @@
     });
     box.innerHTML = "";
     sorted.forEach((p) => {
-      const card = el(p.link ? "a" : "div", "participation-item");
-      if (p.link) {
-        card.href = p.link;
-        card.target = "_blank";
-        card.rel = "noopener noreferrer";
-      }
+      const card = el("div", "participation-item");
       const meta = [p.role, p.organizer, p.location].filter(Boolean).map(esc).join(" · ");
       card.innerHTML = `
         <div class="part-main">
@@ -519,7 +512,10 @@
           ${meta ? `<p class="part-meta">${meta}</p>` : ""}
           ${p.note ? `<p class="part-note">${esc(p.note)}</p>` : ""}
         </div>
-        ${p.year ? `<span class="ach-badge year">${esc(p.year)}</span>` : ""}`;
+        <div class="part-side">
+          ${p.year ? `<span class="ach-badge year">${esc(p.year)}</span>` : ""}
+          ${proofButton(p, "View Details")}
+        </div>`;
       box.appendChild(card);
     });
   }
@@ -532,24 +528,45 @@
     if (!box || !Array.isArray(items)) return;
     box.innerHTML = "";
     items.forEach((s) => {
-      const card = el(s.url ? "a" : "div", "card supervisor-card");
-      if (s.url) {
-        card.href = s.url;
-        card.target = "_blank";
-        card.rel = "noopener noreferrer";
+      const card = el("div", "supervisor-card");
+
+      // Profile icon link (Google Scholar or LinkedIn) beside the name.
+      const url = s.profileUrl || s.url || "";
+      let profileHtml = "";
+      if (url) {
+        const isLinked = s.profileType === "linkedin" || /linkedin\.com/i.test(url);
+        const icon = isLinked ? "fa-brands fa-linkedin" : "fa-solid fa-graduation-cap";
+        const label = isLinked ? "LinkedIn profile" : "Google Scholar profile";
+        profileHtml = `<a class="sup-profile" href="${esc(url)}" target="_blank" rel="noopener" aria-label="${label}" title="${label}"><i class="${icon}"></i></a>`;
       }
+
+      const topicsHtml =
+        Array.isArray(s.topics) && s.topics.length
+          ? `<div class="sup-topics">
+               <span class="sup-topics-label">Research topic${s.topics.length > 1 ? "s" : ""} supervised</span>
+               <ul>${s.topics.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+             </div>`
+          : "";
+
+      const metaLine = [s.title, s.affiliation].filter(Boolean).map(esc).join(" · ");
+
       card.innerHTML = `
-        <div class="sup-avatar">${
-          s.image
-            ? `<img src="${esc(s.image)}" alt="${esc(s.name)}" loading="lazy">`
-            : `<i class="fa-solid fa-user"></i>`
-        }</div>
-        <div class="sup-body">
-          <h4>${esc(s.name)}</h4>
-          ${s.role ? `<p class="sup-role">${esc(s.role)}</p>` : ""}
-          ${s.affiliation ? `<p class="sup-aff">${esc(s.affiliation)}</p>` : ""}
-          ${s.email ? `<p class="sup-email"><a href="mailto:${esc(s.email)}">${esc(s.email)}</a></p>` : ""}
-        </div>`;
+        <div class="sup-head">
+          <div class="sup-avatar">${
+            s.image
+              ? `<img src="${esc(s.image)}" alt="${esc(s.name)}" loading="lazy">`
+              : `<i class="fa-solid fa-user-tie"></i>`
+          }</div>
+          <div class="sup-body">
+            <h4 class="sup-name">${esc(s.name)}${profileHtml}</h4>
+            ${s.role ? `<span class="sup-role-badge">${esc(s.role)}</span>` : ""}
+            ${metaLine ? `<p class="sup-aff">${metaLine}</p>` : ""}
+            ${s.location ? `<p class="sup-loc">${esc(s.location)}</p>` : ""}
+            ${s.specialization ? `<p class="sup-spec"><strong>Specialization:</strong> ${esc(s.specialization)}</p>` : ""}
+            ${s.email ? `<p class="sup-email"><a href="mailto:${esc(s.email)}">${esc(s.email)}</a></p>` : ""}
+          </div>
+        </div>
+        ${topicsHtml}`;
       box.appendChild(card);
     });
   }
@@ -574,7 +591,7 @@
           ${b.date ? `<span class="blog-date">${esc(b.date)}</span>` : ""}
           <h3 class="card-title">${esc(b.title)}</h3>
           ${b.excerpt ? `<p class="card-text">${esc(b.excerpt)}</p>` : ""}
-          ${b.link ? `<span class="a-link" style="margin-top:8px;display:inline-block">Read →</span>` : ""}
+          ${b.link ? `<span class="a-link blog-continue">continue →</span>` : ""}
         </div>`;
       box.appendChild(card);
     });

@@ -1,0 +1,41 @@
+Udemy
+Applied Control Systems 1: autonomous cars: Math + PID + MPC
+Issued By: Mark Misin Engineering Ltd
+
+Coursera
+Introduction to Programming with MATLAB
+Issued By: Vanderbuilt University
+
+Coursera
+Python Functions, Files and Dictionaries
+Issued By: University of Michigan
+
+Coursera
+The Arduino Platform and C Programming
+Issued By: University of California, Irvine
+
+Udemy
+Design PCB using Autodesk Eagle for Everyone
+
+Udemy
+Design with KiCad
+
+MathWorks Training Services
+Simulink Onramp
+
+MathWorks Training Services
+Simscape Onramp
+
+MathWorks Training Services
+Control Design Onramp with Simulink
+
+MathWorks Training Services
+App Building Onramp
+
+Udemy
+Arduino Long Distance Communication
+
+Udemy
+Arduino Data Visualization Using Python
+
+I have certificate images of all. Add a button press for each will show the Images. For the time being i am not providing images so button press will do nothing.

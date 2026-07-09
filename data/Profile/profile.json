@@ -1,0 +1,338 @@
+{
+  "name": "Mainul Islam",
+  "brand": "Portfolio",
+  "headline": "Your Job Title / Role",
+  "summary": "Write a few sentences about yourself here. What you do, what you specialize in, and what you're passionate about. This text is clamped to a few lines on the page and expands with the \"Read more\" link, so you can write as much as you like. Replace all of the placeholder content in this file with your own — the whole site is driven by this single JSON file.",
+  "avatar": "assets/img/profile-placeholder.svg",
+  "cv": "assets/files/cv.pdf",
+  "themeColor": "#0ea5e9",
+  "email": "you@example.com",
+  "linkedin": "https://www.linkedin.com/in/your-handle/",
+  "github": "https://github.com/your-handle",
+  "scholar": "",
+  "orcid": "",
+  "researchgate": "",
+
+  "researchInterests": [
+    { "title": "Control Systems", "icon": "fa-solid fa-sliders" },
+    { "title": "Machine Learning", "icon": "fa-solid fa-brain" },
+    { "title": "Embedded Systems & IoT", "icon": "fa-solid fa-microchip" },
+    { "title": "Autonomous Systems", "icon": "fa-solid fa-car-side" },
+    { "title": "Robotics", "icon": "fa-solid fa-robot" }
+  ],
+
+  "publications": [
+    {
+      "type": "Journal Article",
+      "title": "A Deep Learning Based Framework for Solar Panel Segmentation and Fault Classification Enhanced with Explainable AI",
+      "authors": "",
+      "venue": "Solar Energy (Elsevier), vol. 302",
+      "year": "2025",
+      "note": "Impact Factor 6.6",
+      "doi": "10.1016/j.solener.2025.114058",
+      "pdf": "assets/files/Islam-2025-Solar-Panel-Segmentation-XAI.pdf",
+      "highlights": [
+        "Two-stage pipeline: pixel-wise semantic segmentation first isolates individual PV modules, then a downstream classifier assigns module-level fault categories — decoupling localization from diagnosis.",
+        "Explainable-AI attribution maps expose the visual evidence behind each fault prediction, making the model auditable for field operations & maintenance rather than a black box.",
+        "Handles real-world PV inspection imagery, addressing class imbalance across rare fault types and domain variability in illumination and panel condition.",
+        "Published in Solar Energy (Elsevier, IF 6.6), a leading venue for photovoltaic and solar-systems research."
+      ]
+    },
+    {
+      "type": "Conference Paper",
+      "title": "MonoSIM: An Open-Source SIL Framework for Ackermann Vehicular Systems with Monocular Vision",
+      "authors": "",
+      "venue": "IEEE 12th Intl. Conf. on Automation, Robotics and Applications (ICARA)",
+      "year": "2026",
+      "note": "B.Sc. Thesis",
+      "doi": "10.1109/ICARA69401.2026.11480327",
+      "pdf": "assets/files/Islam-2026-MonoSIM-ICARA.pdf",
+      "highlights": [
+        "Software-in-the-loop (SIL) framework that closes the perception-to-control loop for Ackermann-steered vehicles entirely in simulation, removing hardware from early-stage algorithm validation.",
+        "Uses a single monocular camera as the sole exteroceptive sensor, tackling scale-ambiguous perception without LiDAR or stereo depth.",
+        "Explicitly models Ackermann steering kinematics so control and path-tracking behaviour transfers meaningfully toward real platforms.",
+        "Released open-source for reproducibility; developed from the author's undergraduate thesis."
+      ]
+    },
+    {
+      "type": "Conference Paper",
+      "title": "A Robust Deep Learning Framework for Bangla License Plate Recognition Using YOLO and Vision-Language OCR",
+      "authors": "",
+      "venue": "IEEE Intl. Conf. on AI and Data Analytics (ICAD)",
+      "year": "2026",
+      "note": "",
+      "doi": "arXiv:2603.10267",
+      "pdf": "assets/files/Islam-2026-Bangla-LPR-YOLO-VLM-OCR.pdf",
+      "highlights": [
+        "Cascades a YOLO detector for plate localization with a vision-language OCR stage for reading, separating 'where' from 'what' for robustness.",
+        "Targets Bangla script — conjunct characters, non-Latin glyphs and compact multi-line layouts that break conventional OCR engines.",
+        "Leverages a vision-language model for recognition, moving beyond fixed-character-set classifiers toward context-aware transcription.",
+        "Emphasizes robustness under real traffic conditions: varied fonts, viewing angles, resolution and lighting."
+      ]
+    },
+    {
+      "type": "Conference Paper",
+      "title": "Long-Term Energy Demand Analysis Using Machine Learning Algorithms: A Case Study in Bangladesh",
+      "authors": "",
+      "venue": "IEEE ICECIE",
+      "year": "2024",
+      "note": "",
+      "doi": "10.1109/ICECIE63774.2024.10815643",
+      "pdf": "assets/files/Islam-2024-Energy-Demand-ML-ICECIE.pdf",
+      "highlights": [
+        "Comparative study of multiple machine-learning regressors for long-horizon electricity-demand forecasting on Bangladesh national data.",
+        "Feature engineering over socio-economic and temporal demand drivers to capture long-term growth trends.",
+        "Benchmarks model families to surface accuracy/robustness trade-offs relevant to energy-planning decisions.",
+        "Framed as a policy-relevant case study for a fast-growing developing-country grid."
+      ]
+    },
+    {
+      "type": "Conference Paper",
+      "title": "Optimizing Master–Slave Broadcast and Unicast Communication in Multi-Node STM32 Networks Using UART and RS485 Protocols",
+      "authors": "",
+      "venue": "IEEE ICCIT",
+      "year": "2024",
+      "note": "",
+      "doi": "10.1109/ICCIT64611.2024.11022430",
+      "pdf": "assets/files/Islam-2024-STM32-RS485-ICCIT.pdf",
+      "highlights": [
+        "Designs and optimizes a master–slave communication scheme over UART/RS485 across multiple STM32 microcontroller nodes.",
+        "Contrasts broadcast versus unicast messaging patterns and their impact on bus utilization and latency.",
+        "Addresses half-duplex RS485 bus arbitration and node addressing for reliable multi-node embedded networking.",
+        "A practical embedded-systems contribution for distributed sensor and actuator networks."
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "slug": "sample-project-one",
+      "title": "Sample Project One",
+      "subtitle": "Category / Role",
+      "description": "One-line description of what this project is and the impact it had.",
+      "longDescription": "A longer description shown on the project detail page. Explain the problem, your approach, and the outcome.",
+      "image": "assets/img/project-placeholder.svg",
+      "gallery": [],
+      "tags": ["Tag 1", "Tag 2", "Tag 3"],
+      "specs": {},
+      "url": ""
+    },
+    {
+      "slug": "sample-project-two",
+      "title": "Sample Project Two",
+      "subtitle": "Category / Role",
+      "description": "One-line description of what this project is and the impact it had.",
+      "longDescription": "A longer description shown on the project detail page.",
+      "image": "assets/img/project-placeholder.svg",
+      "gallery": [],
+      "tags": ["Tag 1", "Tag 2"],
+      "specs": {},
+      "url": ""
+    }
+  ],
+
+  "skillsGrouped": [
+    { "category": "Programming Languages", "items": ["C", "Embedded C", "C++", "Python (TensorFlow, PyTorch)", "MATLAB", "Assembly"] },
+    { "category": "PCB & Circuit Design", "items": ["Autodesk Eagle", "KiCad", "EasyEDA"] },
+    { "category": "Embedded Systems & Microcontrollers", "items": ["STM32", "Arduino", "8051/52 series"] },
+    { "category": "Simulation Software", "items": ["MATLAB Simulink", "Proteus", "PSpice"] },
+    { "category": "Machine Learning Environments", "items": ["Jupyter Notebook", "Kaggle", "Colab"] },
+    { "category": "Robotics & Middleware", "items": ["ROS (Robot Operating System)", "Linux (Ubuntu)"] },
+    { "category": "CNC Machining Software", "items": ["FlatCAM", "LightBurn", "Universal G-code Sender (UGS)"] },
+    { "category": "Flight Control Systems", "items": ["ArduPilot", "DroneKit", "MAVProxy"] },
+    { "category": "Protocols", "items": ["CAN bus", "Modbus", "UART", "SBUS", "RTSP", "Ethernet (WIZnet)", "SPI", "I2C"] }
+  ],
+
+  "experience": [
+    {
+      "company": "Company Name",
+      "position": "Your Position",
+      "location": "City, Country",
+      "period": "2024-01-present",
+      "url": "",
+      "highlights": [
+        "Key responsibility or accomplishment #1.",
+        "Key responsibility or accomplishment #2."
+      ],
+      "tech": ["Skill A", "Skill B"]
+    }
+  ],
+
+  "education": [
+    {
+      "institution": "Islamic University of Technology (IUT)",
+      "institutionUrl": "https://www.iutoic-dhaka.edu/",
+      "location": "Gazipur, Bangladesh",
+      "degree": "BSc in Electrical and Electronic Engineering",
+      "period": "2020-01-2024-06",
+      "highlights": [
+        "CGPA: 3.87/4.00 (4.00/4.00 in the last two semesters).",
+        "Full tuition-waiver merit scholarship."
+      ],
+      "links": [
+        { "label": "Relevant Coursework", "href": "assets/education/coursework.html" },
+        { "label": "Transcript", "href": "assets/files/Mainul-Islam-BSc-Transcript.pdf" },
+        { "label": "Course Contents", "href": "assets/files/IUT-EEE-Course-Contents.pdf" }
+      ]
+    },
+    {
+      "institution": "Notre Dame College (NDC)",
+      "institutionUrl": "https://ndc.edu.bd/",
+      "location": "Dhaka, Bangladesh",
+      "degree": "Higher Secondary Certificate (Science)",
+      "period": "2017-2019",
+      "highlights": ["GPA: 5.00/5.00."],
+      "links": [
+        { "label": "Transcript", "href": "assets/files/Mainul-Islam-HSC-Transcript.pdf" }
+      ]
+    },
+    {
+      "institution": "Dhaka Residential Model College",
+      "institutionUrl": "https://www.drmc.edu.bd/",
+      "location": "Dhaka, Bangladesh",
+      "degree": "Secondary School Certificate (Science)",
+      "period": "2015-2017",
+      "highlights": [
+        "GPA: 5.00/5.00.",
+        "Dhaka Board General Scholarship (rank 121st)."
+      ],
+      "links": [
+        { "label": "Transcript", "href": "assets/files/Mainul-Islam-SSC-Transcript.pdf" }
+      ]
+    }
+  ],
+
+  "certifications": [
+    { "title": "Applied Control Systems 1: Autonomous Cars — Math + PID + MPC", "issuer": "Udemy", "description": "Issued by Mark Misin Engineering Ltd", "proof": "assets/proofs/certifications/applied-control-systems-1.jpg" },
+    { "title": "Introduction to Programming with MATLAB", "issuer": "Coursera", "description": "Issued by Vanderbilt University", "proof": "assets/proofs/certifications/intro-programming-matlab.png" },
+    { "title": "Python Functions, Files and Dictionaries", "issuer": "Coursera", "description": "Issued by University of Michigan", "proof": "assets/proofs/certifications/python-functions-files-dictionaries.png" },
+    { "title": "The Arduino Platform and C Programming", "issuer": "Coursera", "description": "Issued by University of California, Irvine", "proof": "assets/proofs/certifications/arduino-platform-c-programming.png" },
+    { "title": "Design PCB using Autodesk Eagle for Everyone", "issuer": "Udemy", "proof": "assets/proofs/certifications/design-pcb-autodesk-eagle.jpg" },
+    { "title": "Design with KiCad", "issuer": "Udemy", "proof": "assets/proofs/certifications/design-with-kicad.jpg" },
+    { "title": "Simulink Onramp", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/simulink-onramp.pdf" },
+    { "title": "Simscape Onramp", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/simscape-onramp.pdf" },
+    { "title": "Control Design Onramp with Simulink", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/control-design-onramp-simulink.pdf" },
+    { "title": "App Building Onramp", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/app-building-onramp.pdf" },
+    { "title": "Arduino Long Distance Communication", "issuer": "Udemy", "proof": "assets/proofs/certifications/arduino-long-distance-communication.jpg" },
+    { "title": "Arduino Data Visualization Using Python", "issuer": "Udemy", "proof": "assets/proofs/certifications/arduino-python-visualization.jpg" }
+  ],
+
+  "achievements": [
+    {
+      "title": "International Rover Challenge (IRC) 2024",
+      "position": "6th Globally",
+      "year": "2024",
+      "note": "Best Science Team Award — on behalf of Project Altair.",
+      "proof": "assets/proofs/achievements/irc-2024.pdf"
+    },
+    {
+      "title": "Inter-University PCB Design Champion",
+      "position": "Champion",
+      "year": "2024",
+      "note": "Accelerate 2024.",
+      "proof": "assets/proofs/achievements/pcb-champion-accelerate-2024.png"
+    },
+    {
+      "title": "MATLAB Cody",
+      "position": "Ranked 116th Worldwide",
+      "organizer": "MathWorks",
+      "note": "Solved 900+ problems.",
+      "proof": "assets/proofs/achievements/matlab-cody.png"
+    },
+    {
+      "title": "Champion — Project Showcasing",
+      "position": "Champion",
+      "organizer": "IUT Computer Society (IUTCS)",
+      "proof": "assets/proofs/achievements/iutcs-project-showcasing.jpg"
+    }
+  ],
+
+  "participation": [
+    { "title": "International Rover Challenge (IRC) 2024", "year": "2024", "proof": "assets/proofs/participation/irc-2024.pdf" },
+    { "title": "European Rover Challenge (ERC) 2023", "year": "2023", "proof": "assets/proofs/participation/erc-2023.pdf" },
+    { "title": "International Rover Design Challenge (IRDC) 2022", "year": "2022", "proof": "assets/proofs/participation/irdc-2022.pdf" },
+    { "title": "European Rover Challenge (ERC) 2022", "year": "2022", "proof": "assets/proofs/participation/erc-2022.pdf" },
+    { "title": "International Rover Design Challenge (IRDC) 2021", "year": "2021", "proof": "assets/proofs/participation/irdc-2021.pdf" }
+  ],
+
+  "supervisors": [
+    {
+      "name": "Dr. Golam Sarowar",
+      "title": "Professor",
+      "role": "Thesis Supervisor",
+      "affiliation": "Department of Electrical and Electronic Engineering, Islamic University of Technology (IUT)",
+      "location": "Dhaka, Bangladesh",
+      "specialization": "Power Electronics, Control Systems, Machine Learning",
+      "profileUrl": "https://scholar.google.com/citations?user=3waAWaYAAAAJ&hl=en",
+      "profileType": "scholar",
+      "topics": [
+        "Development of a testbed for autonomous vehicles: integrating MPC control with monocular-camera lane detection."
+      ]
+    },
+    {
+      "name": "Razzaqul Ahshan, PhD, SMIEEE",
+      "title": "Associate Professor",
+      "role": "Research Supervisor",
+      "affiliation": "Department of Electrical Engineering, Sultan Qaboos University",
+      "location": "Muscat, Oman",
+      "profileUrl": "https://scholar.google.com/citations?user=hwFkaooAAAAJ&hl=en",
+      "profileType": "scholar",
+      "topics": [
+        "A deep-learning based framework for solar panel segmentation and fault classification enhanced with explainable AI."
+      ]
+    },
+    {
+      "name": "Md. Abdur Razzak",
+      "title": "Professor",
+      "role": "Research Supervisor",
+      "affiliation": "Department of Electrical and Electronic Engineering, Independent University, Bangladesh (IUB)",
+      "location": "Dhaka, Bangladesh",
+      "profileUrl": "https://scholar.google.com/citations?hl=en&user=CTdGBm8AAAAJ",
+      "profileType": "scholar",
+      "topics": [
+        "Long-term energy demand analysis using machine-learning algorithms: a case study in Bangladesh."
+      ]
+    },
+    {
+      "name": "Asif Newaz",
+      "title": "Assistant Professor",
+      "role": "Research Supervisor",
+      "affiliation": "Department of Electrical and Electronic Engineering, Islamic University of Technology (IUT)",
+      "location": "Dhaka, Bangladesh",
+      "profileUrl": "https://scholar.google.com/citations?user=7XXXXdwAAAAJ&hl=en",
+      "profileType": "scholar",
+      "topics": [
+        "A robust deep-learning framework for Bangla license plate recognition using YOLO and vision-language OCR."
+      ]
+    },
+    {
+      "name": "Rashed Mujib Noman",
+      "title": "Country Director, Augmedix Bangladesh",
+      "role": "Research Supervisor",
+      "affiliation": "Ex-Senior Engineering Manager, Boeing · Ex-Project/Performance Engineer, General Motors",
+      "profileUrl": "https://www.linkedin.com/in/nomanrashed/",
+      "profileType": "linkedin",
+      "topics": [
+        "Remotely Operated Vehicle (ROV) with 6-DOF robotic arm — sensor and camera movement integration.",
+        "Man-transportable ROV with 7-DOF — communication systems.",
+        "Analysis of air drag, velocity, altitude, battery and motor performance on drone flight time.",
+        "Tollbooth controller unit for toll automation with security, modularity and scalability.",
+        "Autonomous target-tracking drone with onboard computer vision.",
+        "Autonomous Guided Vehicle (AGV) — localization and autonomous navigation."
+      ]
+    }
+  ],
+
+  "blog": [
+    {
+      "title": "STM32 Ethernet Communication Tutorial using WIZnet W5500 Module",
+      "excerpt": "A comprehensive guide on Ethernet communication using the WIZnet W5500 module. We demonstrate how to use the W5500 IC to send messages to a computer as well as receive messages from it, building an example project on the popular STM32 \"Blue Pill\" (STM32F103C8T6) board.",
+      "link": "https://embeddedthere.com/stm32-ethernet-communication-tutorial-using-w5500-module/"
+    },
+    {
+      "title": "Ethernet Communication using STM32 Microcontroller and WIZnet (Interrupt Mode)",
+      "excerpt": "The WIZnet module is a compact Ethernet networking module based on WIZnet's W5x00 series chips (e.g. W5500), providing a hardwired TCP/IP stack for easy integration with microcontrollers via SPI. It enables stable, low-resource Ethernet with support for multiple sockets — ideal for IoT and embedded systems needing reliable wired networking.",
+      "link": "https://embeddedthere.com/ethernet-communication-using-stm32-microcontroller-and-wiznet-interrupt-mode/"
+    }
+  ]
+}

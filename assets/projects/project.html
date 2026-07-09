@@ -68,7 +68,7 @@
             const idx = parseInt(params.get("i"), 10);
             const container = document.getElementById("project-content");
 
-            fetch("../../data/profile.json")
+            fetch("../../data/Profile/profile.json")
                 .then(r => r.json())
                 .then(profile => {
                     const p = (profile.projects || [])[idx];
