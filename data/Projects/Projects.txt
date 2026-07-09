@@ -1,0 +1,89 @@
+Man Transportable EOD ROV
+
+An Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV) Designed to Be Carried and Deployed by a Soldier.
+Currently, we are developing a man-transportable EOD ROV based on our experience of previously developed medium platform EOD ROV, Jontro Soinik v1.0. Initially, we analyzed the limitations of previous robot and new challenges to develop a small platform robot.
+In Progress
+
+------------------------------
+Jontro Soinik 1.0
+
+A Medium Platfom EOD ROV (Updated Version of Smart Soinik 1.0)
+
+Jontro Soinik 1.0 (JS1.0) is Bangladesh’s third generation and most advanced indigenously developed Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV) with environmental adaptability and disrupter firing capacity, which is first of its kind, engineered for ...
+
+Delivered
+Operational under Bangladesh Army
+-------------------------------
+Smart Soinik 1.0
+
+A Medium Platfom Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV)
+Smart Soinik 1.0 (SS1.0) is the second-generation, indigenously developed Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV) from Bangladesh, designed for rapid deployment and unmatched performance in high-risk operational environments. Rigorously tested and validated.
+Delivered
+Operational under Peacekeeping Mission
+
+------------------------------
+Autonomous Guided Vehicle (AGV) - CYBERFLEET
+Delivered
+
+
+------------------------------
+Autonomous Target Tracking Drone
+Delivered
+
+------------------------------
+Fixed Wing VTOL UAV
+ 
+A Handmade Prototype Of Fixed Wing Unmanned Aerial Vehicle.
+
+This project involves the development, construction, and outdoor manual testing of a small-scale fixed-wing VTOL UAV prototype featuring a 2-meter rectangular wingspan, brushless motor-driven propulsion, and four aerodynamic control surfaces (two wing ailerons and two V-tail ruddervators).
+Completed
+
+-------------------------------
+Tollbooth Automation
+Completed
+
+------------------------------
+Offline Hardware CryptoWallet
+Completed
+
+------------------------------
+------------------------------
+Undergrad Projects:
+------------------------------
+Pulse Width Measurement and generation by AT89S52 Microcontroller
+Completed
+
+
+
+
+
+-----------------------------
+LiPo- Battery Management System- BMS
+Completed
+
+
+-----------------------------
+8 Bit SAP-1 
+Completed
+
+-----------------------------
+IUT Mars Rover - Project Altair
+Undergraduate Team Project
+
+
+------------------------------
+IUT Mars Rover - Team Avijatrik
+Undergraduate Team Project
+
+
+----------------------------
+
+
+In the main page, all will have a image placeholder at their left. There will be a dedicated subpage for each one of them (button name "Details"). Currently i am not providing images but i will soon.
+
+
+
+
+
+
+

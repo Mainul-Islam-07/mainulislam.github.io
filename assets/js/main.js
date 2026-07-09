@@ -30,12 +30,31 @@
   });
 
   /* ------------------------------------------------------------------ *
-   * Mobile nav
+   * Mobile nav + "Others" dropdown
    * ------------------------------------------------------------------ */
+  const othersDropdown = document.getElementById("nav-others");
+  const othersToggle = othersDropdown && othersDropdown.querySelector(".nav-dropdown-toggle");
+
   navToggle.addEventListener("click", () => navMenu.classList.toggle("show"));
   navMenu.addEventListener("click", (e) => {
-    if (e.target.closest("a")) navMenu.classList.remove("show");
+    // Clicking a nav link closes the mobile menu and the dropdown.
+    if (e.target.closest("a")) {
+      navMenu.classList.remove("show");
+      if (othersDropdown) othersDropdown.classList.remove("open");
+    }
   });
+
+  if (othersToggle) {
+    othersToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = othersDropdown.classList.toggle("open");
+      othersToggle.setAttribute("aria-expanded", String(open));
+    });
+    // Close the dropdown when clicking anywhere outside it.
+    document.addEventListener("click", (e) => {
+      if (!othersDropdown.contains(e.target)) othersDropdown.classList.remove("open");
+    });
+  }
 
   /* ------------------------------------------------------------------ *
    * Small helpers
@@ -179,22 +198,37 @@
     const projectsGrid = document.getElementById("projects-grid");
     if (projectsGrid && Array.isArray(profile.projects)) {
       projectsGrid.innerHTML = "";
+      const placeholder = "assets/img/project-placeholder.svg";
+      let lastCat = null;
       profile.projects.forEach((p, i) => {
-        const href = p.url ? p.url : `assets/projects/project.html?i=${i}`;
-        const card = el("a", "card");
-        card.href = href;
-        if (p.url) {
-          card.target = "_blank";
-          card.rel = "noopener noreferrer";
+        // Group subheading (e.g. "Undergrad Projects") when the category changes.
+        const cat = p.category || "";
+        if (cat && cat !== lastCat) {
+          projectsGrid.appendChild(el("h3", "project-group-title", esc(cat)));
         }
+        lastCat = cat;
+
+        const external = !!p.url;
+        const href = external ? p.url : `assets/projects/project.html?i=${i}`;
+        const tgt = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+        const img = p.image ? esc(p.image) : placeholder;
+        const statusClass = p.status ? p.status.toLowerCase().replace(/[^a-z0-9]+/g, "-") : "";
+
+        const card = el("div", "project-card");
         card.innerHTML = `
-          ${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.title || "Project")}" loading="lazy" decoding="async">` : ""}
-          <div class="card-body">
-            <h3 class="card-title">${esc(p.title)}</h3>
-            ${p.subtitle ? `<p class="card-subtitle">${esc(p.subtitle)}</p>` : ""}
-            <p class="card-text">${esc(p.description)}</p>
-            <div class="card-tags">${(p.tags || []).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
-            <span class="a-link" style="margin-top:8px;display:inline-block">View details →</span>
+          <a class="project-img" href="${href}"${tgt} aria-label="${esc(p.title)} details">
+            <img src="${img}" alt="${esc(p.title || "Project")}" loading="lazy" decoding="async">
+          </a>
+          <div class="project-body">
+            <div class="project-head">
+              <h3 class="project-title">${esc(p.title)}</h3>
+              ${p.status ? `<span class="status-badge ${statusClass}">${esc(p.status)}</span>` : ""}
+            </div>
+            ${p.subtitle ? `<p class="project-subtitle">${esc(p.subtitle)}</p>` : ""}
+            ${p.description ? `<p class="project-desc">${esc(p.description)}</p>` : ""}
+            ${p.note ? `<p class="project-note">${esc(p.note)}</p>` : ""}
+            ${(p.tags || []).length ? `<div class="card-tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
+            <a class="btn btn-ghost project-details" href="${href}"${tgt}>Details</a>
           </div>`;
         projectsGrid.appendChild(card);
       });

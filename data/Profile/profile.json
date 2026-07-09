@@ -116,28 +116,145 @@
 
   "projects": [
     {
-      "slug": "sample-project-one",
-      "title": "Sample Project One",
-      "subtitle": "Category / Role",
-      "description": "One-line description of what this project is and the impact it had.",
-      "longDescription": "A longer description shown on the project detail page. Explain the problem, your approach, and the outcome.",
-      "image": "assets/img/project-placeholder.svg",
+      "slug": "man-transportable-eod-rov",
+      "title": "Man-Transportable EOD ROV",
+      "subtitle": "An Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle designed to be carried and deployed by a single soldier.",
+      "description": "Currently developing a man-transportable EOD ROV building on our experience with the previously developed medium-platform EOD ROV, Jontro Soinik v1.0. We began by analyzing the limitations of the previous robot and the new challenges of developing a small-platform robot.",
+      "status": "In Progress",
+      "image": "",
       "gallery": [],
-      "tags": ["Tag 1", "Tag 2", "Tag 3"],
-      "specs": {},
-      "url": ""
+      "tags": [],
+      "specs": {}
     },
     {
-      "slug": "sample-project-two",
-      "title": "Sample Project Two",
-      "subtitle": "Category / Role",
-      "description": "One-line description of what this project is and the impact it had.",
-      "longDescription": "A longer description shown on the project detail page.",
-      "image": "assets/img/project-placeholder.svg",
+      "slug": "jontro-soinik-1",
+      "title": "Jontro Soinik 1.0",
+      "subtitle": "A medium-platform EOD ROV (updated version of Smart Soinik 1.0).",
+      "description": "Jontro Soinik 1.0 (JS1.0) is Bangladesh's third-generation and most advanced indigenously developed Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV), with environmental adaptability and disrupter-firing capacity — the first of its kind.",
+      "status": "Delivered",
+      "note": "Operational under the Bangladesh Army.",
+      "image": "",
       "gallery": [],
-      "tags": ["Tag 1", "Tag 2"],
-      "specs": {},
-      "url": ""
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "smart-soinik-1",
+      "title": "Smart Soinik 1.0",
+      "subtitle": "A medium-platform Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV).",
+      "description": "Smart Soinik 1.0 (SS1.0) is the second-generation, indigenously developed EOD ROV from Bangladesh, designed for rapid deployment and unmatched performance in high-risk operational environments. Rigorously tested and validated.",
+      "status": "Delivered",
+      "note": "Operational under a Peacekeeping Mission.",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "agv-cyberfleet",
+      "title": "Autonomous Guided Vehicle (AGV) — CYBERFLEET",
+      "status": "Delivered",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "autonomous-target-tracking-drone",
+      "title": "Autonomous Target-Tracking Drone",
+      "status": "Delivered",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "fixed-wing-vtol-uav",
+      "title": "Fixed-Wing VTOL UAV",
+      "subtitle": "A handmade prototype of a fixed-wing unmanned aerial vehicle.",
+      "description": "Development, construction and outdoor manual testing of a small-scale fixed-wing VTOL UAV prototype featuring a 2-meter rectangular wingspan, brushless-motor-driven propulsion, and four aerodynamic control surfaces (two wing ailerons and two V-tail ruddervators).",
+      "status": "Completed",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "tollbooth-automation",
+      "title": "Tollbooth Automation",
+      "status": "Completed",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "offline-hardware-cryptowallet",
+      "title": "Offline Hardware CryptoWallet",
+      "status": "Completed",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "pwm-at89s52",
+      "title": "Pulse-Width Measurement and Generation using the AT89S52 Microcontroller",
+      "category": "Undergrad Projects",
+      "status": "Completed",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "lipo-bms",
+      "title": "LiPo Battery Management System (BMS)",
+      "category": "Undergrad Projects",
+      "status": "Completed",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "sap-1-8bit",
+      "title": "8-bit SAP-1 Computer",
+      "category": "Undergrad Projects",
+      "status": "Completed",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "iut-mars-rover-project-altair",
+      "title": "IUT Mars Rover — Project Altair",
+      "category": "Undergrad Projects",
+      "subtitle": "Undergraduate Team Project",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
+    },
+    {
+      "slug": "iut-mars-rover-avijatrik",
+      "title": "IUT Mars Rover — Team Avijatrik",
+      "category": "Undergrad Projects",
+      "subtitle": "Undergraduate Team Project",
+      "description": "",
+      "image": "",
+      "gallery": [],
+      "tags": [],
+      "specs": {}
     }
   ],
 
@@ -335,7 +452,7 @@
       "position": "6th Globally",
       "year": "2024",
       "note": "Best Science Team Award — on behalf of Project Altair.",
-      "proof": "assets/proofs/achievements/irc-2024.pdf"
+      "proof": "assets/proofs/achievements/irc-2024.jpg"
     },
     {
       "title": "Inter-University PCB Design Champion",
@@ -355,7 +472,7 @@
       "title": "Champion — Project Showcasing",
       "position": "Champion",
       "organizer": "IUT Computer Society (IUTCS)",
-      "proof": "assets/proofs/achievements/iutcs-project-showcasing.jpg"
+      "proof": "assets/proofs/achievements/iutcs-project-showcasing.pdf"
     }
   ],
 
