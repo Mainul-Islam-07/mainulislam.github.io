@@ -117,89 +117,163 @@
   "projects": [
     {
       "slug": "man-transportable-eod-rov",
-      "title": "Man-Transportable EOD ROV",
-      "subtitle": "An Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle designed to be carried and deployed by a single soldier.",
-      "description": "Currently developing a man-transportable EOD ROV building on our experience with the previously developed medium-platform EOD ROV, Jontro Soinik v1.0. We began by analyzing the limitations of the previous robot and the new challenges of developing a small-platform robot.",
+      "title": "Man-Transportable EOD ROV (JS2.0)",
+      "subtitle": "A single-soldier-deployable Explosive Ordnance Disposal (EOD) robot with a 7-DOF arm.",
+      "description": "A compact, man-transportable EOD ROV with a tracked base, telescopic 7-DOF arm and integrated disrupter, built on lessons from the medium-platform Jontro Soinik.",
       "status": "In Progress",
+      "descriptionFile": "data/Projects/Manportable EOD JS2.0/Description.md",
+      "specsFile": "data/Projects/Manportable EOD JS2.0/Electrical and Mechanical Specs.md",
+      "contribution": [
+        "Primary developer of a real-time, safety-critical **EOD robot** — tracked base, 7-DOF arm, integrated disrupter, and a redundant wired/wireless control link — implementing most of the system across the **full stack from embedded firmware to operator HMI**.",
+        "Developed a **custom CANopen (CiA-402) control library** driving **11 servo drives on two 1 Mbit/s CAN buses** in position, velocity and torque modes — cyclic SDO setpoints at 50 Hz with interrupt-driven TPDO telemetry, plus differential-joint, lead-screw and worm-gear drivetrain modeling.",
+        "Wrote **STM32F103 firmware** that transparently tunnels the SBUS RC stream over a WIZnet-W5500 UDP link (UART-DMA idle-line framing, interrupt-driven sockets, PHY-loss recovery) with automatic **hardware failover to a wireless backup** on wired-link loss.",
+        "Derived and shipped a **closed-form inverse-kinematics solver** for the telescoping 7-DOF arm, verified against the URDF and integrated with **MoveIt 2** for collision-validity checks and home-pose planning.",
+        "Engineered a **layered fail-safe system** for a weaponized platform: asymmetric per-bus fault isolation with full-disarm, latched safe states, a degraded loopback mode, an encoder-battery startup gate, and fail-safe disrupter fire-control that disarms the instant the operator link drops.",
+        "Built the **operator console** (Android/Kotlin): 5-feed low-latency RTSP switching (hardware MediaCodec), a real-time telemetry dashboard (Jetpack Compose), a **3D digital-twin OpenGL overlay**, two-way echo-cancelled intercom, gimbal control and the fire-control UI."
+      ],
+      "links": [
+        { "label": "System Overview", "href": "assets/projects/onepagers/js2-system-overview.html", "icon": "fa-solid fa-file-lines" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "jontro-soinik-1",
       "title": "Jontro Soinik 1.0",
       "subtitle": "A medium-platform EOD ROV (updated version of Smart Soinik 1.0).",
-      "description": "Jontro Soinik 1.0 (JS1.0) is Bangladesh's third-generation and most advanced indigenously developed Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV), with environmental adaptability and disrupter-firing capacity — the first of its kind.",
+      "description": "Bangladesh's third-generation, most advanced indigenously developed EOD ROV, with environmental adaptability and disrupter-firing capacity — the first of its kind.",
       "status": "Delivered",
       "note": "Operational under the Bangladesh Army.",
+      "descriptionFile": "data/Projects/Jontro Soinik 1.0 JS1.0/Description.md",
+      "specsFile": "data/Projects/Jontro Soinik 1.0 JS1.0/Electrical and Mechanical Specs.md",
+      "contribution": [
+        "Developed embedded firmware for real-time actuation and sensor-feedback loops.",
+        "Integrated a custom addressable UART-based modular architecture for scalable control and diagnostics.",
+        "Conducted field testing and iterative refinement under constrained environments."
+      ],
+      "links": [
+        { "label": "More details", "href": "https://brief-stream-853.notion.site/Jontro-Soinik-1-0-Version-2-0-26e1162dbc8f81daafa8c44a4a61de28", "icon": "fa-solid fa-arrow-up-right-from-square" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "smart-soinik-1",
       "title": "Smart Soinik 1.0",
       "subtitle": "A medium-platform Explosive Ordnance Disposal (EOD) Remotely Operated Vehicle (ROV).",
-      "description": "Smart Soinik 1.0 (SS1.0) is the second-generation, indigenously developed EOD ROV from Bangladesh, designed for rapid deployment and unmatched performance in high-risk operational environments. Rigorously tested and validated.",
+      "description": "The second-generation, indigenously developed EOD ROV from Bangladesh — gifted to the Peruvian Armed Forces and deployed under a UN Peacekeeping Mission.",
       "status": "Delivered",
       "note": "Operational under a Peacekeeping Mission.",
+      "descriptionFile": "data/Projects/Smart Soinik 1.0 SS1,0/Description.md",
+      "specsFile": "data/Projects/Smart Soinik 1.0 SS1,0/Mechanical and Electrical Specification.md",
+      "contribution": [
+        "Integrated sensors to help the robot understand its position and surroundings.",
+        "Contributed to the power-system design and development, up to PCB fabrication.",
+        "Took part in testing the robot and fixing issues during trials."
+      ],
+      "links": [
+        { "label": "More details", "href": "https://brief-stream-853.notion.site/Jontro-Soinik-1-0-Version-1-0-26e1162dbc8f8143bbe7c4b47a0e29d7", "icon": "fa-solid fa-arrow-up-right-from-square" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "agv-cyberfleet",
       "title": "Autonomous Guided Vehicle (AGV) — CYBERFLEET",
-      "status": "Delivered",
+      "subtitle": "An autonomous 3-robot warehouse AGV fleet built on ROS 2.",
       "description": "",
+      "status": "Delivered",
+      "contribution": [
+        "Architected and built an end-to-end **ROS 2 (rclpy)** autonomy platform for a 3-robot AGV fleet delivering goods between warehouse stations — spanning perception, localization, planning, control, actuation, safety and fleet orchestration.",
+        "Developed a **5-state EKF** (`x, y, theta` + linear/angular velocity biases) fusing wheel odometry (predict @ 50 Hz) with absolute **AprilTag 36h11** camera observations; implemented **Joseph-form** covariance updates and **OOSM rewind/replay** to correctly fuse latency-delayed measurements.",
+        "Built the **AprilTag localization front end** — OpenCV calibration/undistortion, planar tag-pose estimation, multi-gate outlier rejection, and a surveyed 120-tag world map with per-tag orientation resolution.",
+        "Implemented **space-time A-star** path planning over a discretized 63x171 grid with headings and per-move timing; added a peer **reservation table** with head-on swap detection and a turn-minimizing cost model.",
+        "Wrote the **plan-manager orchestrator** (async non-blocking planning, exponential replan backoff, obstacle-triggered replanning) plus a 50 Hz **feedforward + PD trajectory-tracking controller** with cubic-Bezier interpolation and differential-drive mixing.",
+        "Engineered **FleetCore**, the central coordinator: 3 concurrent per-robot FSMs (~20 states), FIFO dispatch, atomic **lift/scanner mutual exclusion** with staging queues, and publish-until-accept command delivery."
+      ],
+      "links": [
+        { "label": "System Overview", "href": "assets/projects/onepagers/agv-system-overview.html", "icon": "fa-solid fa-file-lines" },
+        { "label": "YouTube", "href": "https://www.youtube.com/watch?v=ooK1592gYgM", "icon": "fa-brands fa-youtube" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "autonomous-target-tracking-drone",
       "title": "Autonomous Target-Tracking Drone",
-      "status": "Delivered",
+      "subtitle": "An onboard-vision drone that detects and tracks moving targets in real time.",
       "description": "",
+      "status": "Delivered",
+      "contribution": [
+        "**Version 1** — Created datasets of aerial views of various signs and cars.",
+        "Tracked moving humans and trained objects live, on-board, using YOLOv11n on a Raspberry Pi 5.",
+        "Optimized battery usage by tuning thrust allocation and flight profiles for extended mission time.",
+        "Conducted simulation and real-world validation of flight stability and mission execution, and collaborated on hardware-software co-design.",
+        "**Version 2** — Deployed on a Raspberry Pi 5 AI HAT, benchmarking YOLO26 performance.",
+        "Implemented tracking algorithms including DeepSORT and KCF."
+      ],
+      "links": [
+        { "label": "Details (v1)", "href": "https://vagabond-hollyhock-5a3.notion.site/Autonomous-Target-Tracking-Drone-27f1c47e0d4c80e3aec2ca2109cfaa6d", "icon": "fa-solid fa-arrow-up-right-from-square" },
+        { "label": "YouTube (v2)", "href": "https://www.youtube.com/watch?v=MLrD0SuG4Q0", "icon": "fa-brands fa-youtube" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "fixed-wing-vtol-uav",
       "title": "Fixed-Wing VTOL UAV",
-      "subtitle": "A handmade prototype of a fixed-wing unmanned aerial vehicle.",
-      "description": "Development, construction and outdoor manual testing of a small-scale fixed-wing VTOL UAV prototype featuring a 2-meter rectangular wingspan, brushless-motor-driven propulsion, and four aerodynamic control surfaces (two wing ailerons and two V-tail ruddervators).",
+      "subtitle": "A handmade prototype of a fixed-wing VTOL unmanned aerial vehicle.",
+      "description": "A small-scale fixed-wing VTOL UAV prototype (2 m wingspan) built as an empirical platform to study aerodynamic stability, control response and VTOL/fixed-wing transition dynamics.",
       "status": "Completed",
+      "descriptionFile": "data/Projects/Fixed Wing VTOL UAV/Description.md",
+      "contribution": [
+        "Analytical calculation of required thrust, lift and drag forces, aspect ratio, wing area, stall speed and airspeed.",
+        "Configuration of the flight controller for proper flight.",
+        "Contributed to the manufacturing and assembly."
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "tollbooth-automation",
       "title": "Tollbooth Automation",
+      "subtitle": "A fully automated toll-collection system.",
+      "description": "A fully automated toll-booth system integrating real-time vehicle detection, payment processing and security-breach alerts.",
       "status": "Completed",
-      "description": "",
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "offline-hardware-cryptowallet",
       "title": "Offline Hardware CryptoWallet",
-      "status": "Completed",
+      "subtitle": "An air-gapped hardware wallet for cryptocurrency keys.",
       "description": "",
+      "status": "Completed",
+      "contribution": [
+        "Integrated the display and touch-response system.",
+        "Designed the state machine of the whole system.",
+        "Implemented auto power-on and delayed power-off.",
+        "Implemented features such as multi-wallet support, network addition, QR-based address exchange and transaction-history storage."
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
+    },
+    {
+      "slug": "surveillance-drone",
+      "title": "Surveillance Drone",
+      "subtitle": "A long-endurance surveillance UAV (Cybernetics SD15-N).",
+      "description": "",
+      "status": "Completed",
+      "contribution": [
+        "Analyzed altitude, drag generation, battery capacity, and motor thrust-versus-current consumption as they affect flight time.",
+        "Optimized battery usage and weight allocation to extend flight time.",
+        "Conducted real-world testing for mission execution and system reliability."
+      ],
+      "links": [
+        { "label": "Details", "href": "https://brief-stream-853.notion.site/Cybernetics-SD15-N-Surveillance-Drone-26e1162dbc8f81279ad3df81d7548969", "icon": "fa-solid fa-arrow-up-right-from-square" }
+      ],
+      "image": "",
+      "gallery": []
     },
     {
       "slug": "pwm-at89s52",
@@ -207,10 +281,15 @@
       "category": "Undergrad Projects",
       "status": "Completed",
       "description": "",
+      "contribution": [
+        "Measured the frequency and duty cycle of a signal, with an alarm when the frequency crosses a threshold.",
+        "Measured the frequencies of two signals, summed them, and generated a signal at the summed frequency."
+      ],
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/Mainul-Islam-07/Pulse_Width_Measurement-by-8051-in-Assembly-Language", "icon": "fa-brands fa-github" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "lipo-bms",
@@ -218,10 +297,13 @@
       "category": "Undergrad Projects",
       "status": "Completed",
       "description": "",
+      "contribution": [
+        "Developed a MATLAB simulation that cuts the load off the battery if any cell leaves the 3.7 V - 4.2 V range.",
+        "Contributed to the PCB design.",
+        "The circuit works for a wide range of cell counts, from 2S up to 6S LiPo batteries."
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "sap-1-8bit",
@@ -229,10 +311,16 @@
       "category": "Undergrad Projects",
       "status": "Completed",
       "description": "",
+      "contribution": [
+        "Developed a simplified educational computer model to demonstrate computer-architecture concepts, customized with fewer T-states.",
+        "Features an ALU, control unit, registers, limited instruction/data memory, I/O devices and a clock, executing instructions through fetch-decode-execute cycles.",
+        "Supports basic instructions such as addition and subtraction."
+      ],
+      "links": [
+        { "label": "GitHub", "href": "https://github.com/Mainul-Islam-07/SAP-1-8-Bit-Computer-Design", "icon": "fa-brands fa-github" }
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "iut-mars-rover-project-altair",
@@ -240,10 +328,13 @@
       "category": "Undergrad Projects",
       "subtitle": "Undergraduate Team Project",
       "description": "",
+      "contribution": [
+        "Contributed to the integration of different circuits.",
+        "Debugging.",
+        "6th place in the International Rover Challenge (IRC); Best Team Award for the Science Task."
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     },
     {
       "slug": "iut-mars-rover-avijatrik",
@@ -251,20 +342,25 @@
       "category": "Undergrad Projects",
       "subtitle": "Undergraduate Team Project",
       "description": "",
+      "contribution": [
+        "Designed the wheel-drive board.",
+        "Designed several PCBs and sub-circuits.",
+        "Debugging.",
+        "Participated in ERC, IRDC and other rover challenges."
+      ],
       "image": "",
-      "gallery": [],
-      "tags": [],
-      "specs": {}
+      "gallery": []
     }
   ],
 
   "skillsGrouped": [
     { "category": "Programming Languages", "items": ["C", "Embedded C", "C++", "Python (TensorFlow, PyTorch)", "MATLAB", "Assembly"] },
     { "category": "PCB & Circuit Design", "items": ["Autodesk Eagle", "KiCad", "EasyEDA"] },
+    { "category": "3D Design", "items": ["Autodesk Fusion", "Onshape"] },
     { "category": "Embedded Systems & Microcontrollers", "items": ["STM32", "Arduino", "8051/52 series"] },
     { "category": "Simulation Software", "items": ["MATLAB Simulink", "Proteus", "PSpice"] },
     { "category": "Machine Learning Environments", "items": ["Jupyter Notebook", "Kaggle", "Colab"] },
-    { "category": "Robotics & Middleware", "items": ["ROS (Robot Operating System)", "Linux (Ubuntu)"] },
+    { "category": "Robotics & Middleware", "items": ["ROS (Robot Operating System)", "Gazebo", "Linux (Ubuntu)"] },
     { "category": "CNC Machining Software", "items": ["FlatCAM", "LightBurn", "Universal G-code Sender (UGS)"] },
     { "category": "Flight Control Systems", "items": ["ArduPilot", "DroneKit", "MAVProxy"] },
     { "category": "Protocols", "items": ["CAN bus", "Modbus", "UART", "SBUS", "RTSP", "Ethernet (WIZnet)", "SPI", "I2C"] }

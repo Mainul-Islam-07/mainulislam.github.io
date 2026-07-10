@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JS2.0 EOD Robot — One Pager</title>
+<style>
+  :root{
+    --ink:#0f1720; --muted:#4a5866; --line:#d7dee5;
+    --accent:#b4232a;      /* disrupter red */
+    --accent2:#12507a;     /* robotics blue */
+    --chip:#eef2f5; --band:#f4f6f8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Segoe UI",Arial,Helvetica,sans-serif;
+    color:var(--ink); font-size:9.6px; line-height:1.38;
+    background:#fff;
+  }
+  .page{ width:210mm; min-height:297mm; margin:0 auto; padding:10mm 11mm 8mm; }
+  header{border-bottom:2.5px solid var(--accent); padding-bottom:7px; margin-bottom:9px;}
+  .title{font-size:20px; font-weight:800; letter-spacing:.2px; line-height:1.12;}
+  .title .sub{color:var(--accent); }
+  .tagline{font-size:10px; color:var(--muted); margin-top:3px; font-weight:600;}
+  .meta{margin-top:6px; display:flex; flex-wrap:wrap; gap:5px;}
+  .chip{background:var(--chip); border:1px solid var(--line); border-radius:11px;
+        padding:2px 8px; font-size:8.4px; font-weight:600; color:var(--accent2);}
+  .role{align-self:center; font-size:8.6px; color:var(--muted); text-align:right; font-style:italic;}
+  .cols{display:flex; gap:12px; margin-top:9px;}
+  .main{flex:1 1 63%;}
+  .side{flex:1 1 37%;}
+  h2{font-size:8.8px; text-transform:uppercase; letter-spacing:1.1px;
+     color:var(--accent2); margin:0 0 4px; padding-bottom:2px;
+     border-bottom:1px solid var(--line); font-weight:800;}
+  .block{margin-bottom:8px;}
+  p.lead{margin:0 0 4px;}
+  ul{margin:0; padding-left:13px;}
+  li{margin-bottom:2.5px;}
+  li b{color:var(--ink);}
+  .side .card{background:var(--band); border:1px solid var(--line);
+              border-radius:6px; padding:7px 9px; margin-bottom:7px;}
+  .stat{display:flex; align-items:baseline; gap:6px; margin-bottom:3px;}
+  .stat .n{font-size:13px; font-weight:800; color:var(--accent); min-width:44px;}
+  .stat .l{font-size:8.4px; color:var(--muted);}
+  .stackline{font-size:8.5px; line-height:1.6;}
+  .stackline b{color:var(--accent2);}
+  .diagram{margin-top:3px; border:1px solid var(--line); border-radius:6px;
+           background:var(--band); padding:7px 9px 5px;}
+  pre.arch{font-family:"Consolas","Courier New",monospace; font-size:6.3px;
+           line-height:1.25; margin:0; white-space:pre; color:#1d2a33; overflow:hidden;}
+  footer{margin-top:7px; border-top:1px solid var(--line); padding-top:5px;
+          font-size:7.8px; color:var(--muted); display:flex; justify-content:space-between;}
+  @media print{
+    @page{size:A4; margin:0;}
+    body{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .page{margin:0;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div style="display:flex;align-items:flex-start;gap:10px;">
+      <div style="flex:1;">
+        <div class="title">JS2.0 — Teleoperated <span class="sub">EOD (Bomb-Disposal) Robot</span></div>
+        <div class="tagline">Tracked mobile manipulator + disrupter · redundant wired/wireless link · full-stack, safety-critical robotics</div>
+      </div>
+      <div class="role">Primary developer<br>Embedded firmware → ROS 2 → HMI</div>
+    </div>
+    <div class="meta">
+      <span class="chip">STM32 / Embedded C</span>
+      <span class="chip">WIZnet W5500</span>
+      <span class="chip">ROS 2</span>
+      <span class="chip">MoveIt 2</span>
+      <span class="chip">CANopen / CiA-402</span>
+      <span class="chip">Python</span>
+      <span class="chip">Kotlin / Compose</span>
+      <span class="chip">OpenGL ES</span>
+      <span class="chip">Raspberry Pi 5</span>
+    </div>
+  </header>
+
+  <div class="cols">
+    <div class="main">
+
+      <div class="block">
+        <h2>Overview</h2>
+        <p class="lead">An operator drives a tracked robot and its 7-DOF manipulator arm from a
+        handheld console — over wireless RF <b>or</b> a redundant wired serial-over-Ethernet link
+        (intended for optical fiber) — to remotely inspect and neutralize suspect ordnance, with live
+        multi-camera video, a 3D digital twin, real-time motor telemetry, two-way audio, and remote
+        disrupter fire-control. Onboard a Raspberry Pi 5, a ROS 2 graph translates RC commands into
+        coordinated motion across two CAN buses of servo drives via a custom CANopen stack, using a
+        closed-form IK solver with MoveIt 2 for collision-validity and home planning. Because the
+        platform carries a disrupter, fail-safe behavior was a first-class design constraint.</p>
+      </div>
+
+      <div class="block">
+        <h2>What I Built</h2>
+        <ul>
+          <li><b>Redundant control link (dual STM32 firmware)</b> — STM32F103 firmware that
+          transparently tunnels the raw SBUS RC stream over a WIZnet-W5500 UDP link, with a hardware
+          watchdog that fails over to a wireless backup if the wired path goes silent.</li>
+          <li><b>Custom CANopen (CiA-402) control stack</b> — a library on python-canopen driving
+          <b>11 servo drives on two 1 Mbit/s CAN buses</b> in position / velocity / torque modes, with
+          50 Hz SDO setpoints and interrupt-driven TPDO telemetry.</li>
+          <li><b>Closed-form inverse kinematics + selective MoveIt 2</b> — an analytic solver for the
+          telescoping arm (2R shoulder/elbow + additive wrist-pitch; six of the seven DOF integrated),
+          verified against the URDF; MoveIt handles collision-validity and the home pose, not the
+          operator's real-time path.</li>
+          <li><b>Layered fault-tolerance &amp; fail-safe system</b> — asymmetric per-bus fault isolation
+          with full-disarm, latched safe states, a loopback degraded mode when motors drop out, and an
+          encoder-battery startup gate.</li>
+          <li><b>Fail-safe remote disrupter fire-control</b> — bounded-hold firing over TCP with an
+          operator-presence heartbeat that disarms the instant the ground-station link is lost.</li>
+          <li><b>Android operator console</b> — 5-feed low-latency RTSP switching (hardware MediaCodec),
+          a Compose telemetry dashboard, a 3D digital-twin OpenGL overlay, echo-cancelled intercom,
+          gimbal control, and the fire-control UI.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2>Engineering Depth</h2>
+        <ul>
+          <li><b>Embedded firmware:</b> UART-DMA idle-line framing at the SBUS line rate (100k, 8E2);
+          interrupt-driven W5500 sockets (EXTI deferred-flag pattern); PHY-loss socket recovery; a TIM1
+          watchdog that drives GPIO relays to a wireless backup on wired-link loss.</li>
+          <li><b>Real-time control:</b> 50 Hz cyclic SDO setpoints with asynchronous TPDO telemetry;
+          software drivetrain modeling — differential shoulder/elbow pair, lead-screw telescope, worm-gear
+          flippers.</li>
+          <li><b>Safety architecture:</b> drive-bus fault → disarm both buses + safe shutdown; arm-bus
+          heartbeat loss → latched arm safe state while the base runs; firing defaults to <i>not armed</i>
+          on link loss.</li>
+          <li><b>Kinematics &amp; coordination:</b> analytic 2R + additive-pitch IK verified vs the URDF;
+          a single-consumer/multi-producer coordinator (4-thread executor) with goal rollback and a re-arm
+          anti-thrash guard.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="side">
+      <div class="card">
+        <h2 style="border:none;margin-bottom:5px;">By the Numbers</h2>
+        <div class="stat"><span class="n">~12.7k</span><span class="l">lines of Python (+1.3k C, 3.7k Kotlin)</span></div>
+        <div class="stat"><span class="n">6</span><span class="l">ROS 2 packages</span></div>
+        <div class="stat"><span class="n">11</span><span class="l">CANopen servo drives</span></div>
+        <div class="stat"><span class="n">2</span><span class="l">CAN buses @ 1 Mbit/s</span></div>
+        <div class="stat"><span class="n">2</span><span class="l">STM32 firmware images (C)</span></div>
+        <div class="stat"><span class="n">16</span><span class="l">RC teleop channels</span></div>
+        <div class="stat"><span class="n">5</span><span class="l">onboard camera feeds</span></div>
+      </div>
+
+      <div class="card">
+        <h2 style="border:none;margin-bottom:5px;">Stack</h2>
+        <div class="stackline">
+          <b>Embedded:</b> STM32F103, HAL, C, UART DMA, SPI, EXTI, TIM<br>
+          <b>Wired link:</b> WIZnet W5500, UDP over Ethernet/fiber<br>
+          <b>Robotics:</b> ROS 2 (rclpy), MoveIt 2, URDF, ros2_control<br>
+          <b>Motor control:</b> CANopen/CiA-402 (on python-canopen)<br>
+          <b>Teleop:</b> SBUS 100k 8E2 · SIYI MK32 · custom msgs<br>
+          <b>Compute:</b> Raspberry Pi 5, gpiozero / lgpio, socketcan<br>
+          <b>Ground station:</b> Android, Kotlin, Jetpack Compose<br>
+          <b>Media / net:</b> rtsp-client/MediaCodec, OpenGL ES, UDP/TCP<br>
+          <b>Audio:</b> sounddevice + SpeexDSP echo cancellation
+        </div>
+      </div>
+
+      <div class="card" style="background:#fbeceb;border-color:#e8b7b6;">
+        <h2 style="border:none;margin-bottom:4px;color:var(--accent);">Domain</h2>
+        <div class="stackline" style="color:#5b2321;">
+          Explosive Ordnance Disposal (EOD) — safety-critical, human-in-the-loop
+          teleoperation of a disrupter-equipped mobile robot, with a redundant
+          wired control link and hardware wireless failover for RF-denied settings.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block" style="margin-top:1px;">
+    <h2>System Architecture</h2>
+    <div class="diagram">
+<pre class="arch">
+   OPERATOR GROUND STATION (SIYI MK32 handheld)
+   [ Operator console: RTSP · 3D twin · intercom · gimbal · fire-control UI ]   [ Telemetry dashboard (Compose) ]
+        |                                                                              |
+   SBUS  (RF radio  --OR--  wired link below)   RTSP / UDP / TCP (5555·37260·5005·5006)  |  UDP/JSON :9870
+        |                                                                              |
+   [ STM32 SENDER ] SBUS-UART -> W5500/UDP                                              |
+        |  Ethernet                                                                    |
+   === MEDIA CONVERTER == OPTICAL FIBER == MEDIA CONVERTER ===   wired redundant link (UDP :8000, one-way)         |
+        |  Ethernet                                                                    |
+   [ STM32 RECEIVER ] UDP -> SBUS-UART   ·  TIM1 ~4.3s watchdog -> hardware failover to WIRELESS backup            |
+        |                                                                              |
+ =================================== ONBOARD (Raspberry Pi 5) =========================================
+        v                                                                             v
+  [ sbus_driver ] --/sbus/control--> [ COORDINATOR: closed-form IK + SCMP state machine ] --> 50 Hz joint commands
+   16-ch · 100k 8E2 · 200Hz               IDLE -> VALIDATE -> PLAN -> EXECUTE (rollback + re-arm)
+                                          (MoveIt 2: collision-validity + HOME planning only)
+                              +--------------------+--------------------+
+                              v                                         v
+                    [ arm_controller ]                        [ drive_controller ]
+                     (Arm_CAN · 7 drives)                      (Drive_CAN · 4 drives)
+                              +--------------------+--------------------+
+                                                   v
+                                      [ HEARTBEAT NODE - owns BOTH CAN buses ]
+                                       2 Hz liveness · 5 Hz diagnostics · fault -> disarm both buses
+                                                   |  CANopen CiA-402: CSP / CSV / CST · SDO setpoints · async TPDO
+                              +--------------------+--------------------+
+                              v                                         v
+                    [ Arm_CAN: 7-DOF arm + gripper ]         [ Drive_CAN: 2 tracks + 2 flippers ]
+
+   [ DISRUPTER FIRE SERVER ] TCP :5005 bounded-hold GPIO fire · :5006 presence · disarms on operator-link loss
+</pre>
+    </div>
+  </div>
+
+  <footer>
+    <span>JS2.0 EOD Robot — full-stack development (embedded → ROS 2 → HMI) · primary developer · built from source analysis</span>
+    <span>STM32 · WIZnet · ROS 2 · CANopen · MoveIt 2 · Android · Pi 5</span>
+  </footer>
+
+</div>
+</body>
+</html>

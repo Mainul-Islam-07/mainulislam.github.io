@@ -1,0 +1,10 @@
+- Architected and built an end-to-end **ROS 2 (rclpy)** autonomy platform for a 3-robot AGV fleet delivering goods between warehouse stations, spanning perception, localization, planning, control, actuation, safety, and fleet orchestration.
+- Developed a **5-state EKF** (`x, y, θ` + linear/angular velocity biases) fusing wheel odometry (predict @ 50 Hz) with absolute **AprilTag 36h11** camera observations; implemented **Joseph-form** covariance updates and **OOSM rewind/replay** (ring-buffered state history + binary search) to correctly fuse latency-delayed measurements.
+- Built the **AprilTag localization front end** — OpenCV calibration/undistortion, planar tag-pose estimation, multi-gate outlier rejection (Hamming, decision margin, distance/bearing, orientation sanity), and a surveyed 120-tag world map with per-tag orientation resolution.
+- Implemented **space-time A\*** path planning over a discretized 63×171 grid with headings and per-move timing; added a peer **reservation table** (5×5 spatial + time-toleranced vertex conflicts, head-on swap detection, parked-robot reservations) and a turn-minimizing cost model.
+- Wrote the **plan-manager orchestrator**: async non-blocking planning service calls, exponential replan backoff, obstacle-triggered replanning, and continuous plan re-timing (deadbanded, clamped, smoothed) to keep multi-robot ETAs consistent; plus a 50 Hz **feedforward + PD trajectory-tracking controller** with cubic-Bézier interpolation and differential-drive mixing.
+- Engineered **FleetCore**, the central coordinator: 3 concurrent per-robot FSMs (~20 states), FIFO dispatch, atomic **lift/scanner mutual exclusion** with staging queues, publish-until-accept command delivery.
+
+
+more info: youtube link: https://www.youtube.com/watch?v=ooK1592gYgM
+show it as a button.
