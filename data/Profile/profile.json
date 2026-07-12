@@ -135,8 +135,15 @@
       "links": [
         { "label": "System Overview", "href": "assets/projects/onepagers/js2-system-overview.html", "icon": "fa-solid fa-file-lines" }
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/Manportable EOD JS2.0/main image.jpg",
+      "gallery": [
+        "data/Projects/Manportable EOD JS2.0/Coding, Developing, Debugging (Hardware and Software).JPG",
+        "data/Projects/Manportable EOD JS2.0/Developing App.JPG",
+        "data/Projects/Manportable EOD JS2.0/Final electronics wiring.JPG",
+        "data/Projects/Manportable EOD JS2.0/Soldering and Setup.JPG",
+        "data/Projects/Manportable EOD JS2.0/System setup and debug.JPG",
+        "data/Projects/Manportable EOD JS2.0/Version (Without Full Arm mounted).JPG"
+      ]
     },
     {
       "slug": "jontro-soinik-1",
@@ -155,8 +162,15 @@
       "links": [
         { "label": "More details", "href": "https://brief-stream-853.notion.site/Jontro-Soinik-1-0-Version-2-0-26e1162dbc8f81daafa8c44a4a61de28", "icon": "fa-solid fa-arrow-up-right-from-square" }
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/Jontro Soinik 1.0 JS1.0/main image.jpg",
+      "gallery": [
+        "data/Projects/Jontro Soinik 1.0 JS1.0/custom circuit making.jpg",
+        "data/Projects/Jontro Soinik 1.0 JS1.0/custom circuit to be placed anywhere.JPG",
+        "data/Projects/Jontro Soinik 1.0 JS1.0/problem identification.jpg",
+        "data/Projects/Jontro Soinik 1.0 JS1.0/prototype circuits.jpg",
+        "data/Projects/Jontro Soinik 1.0 JS1.0/sensor calibration.jpg",
+        "data/Projects/Jontro Soinik 1.0 JS1.0/thermal camera attached.png"
+      ]
     },
     {
       "slug": "smart-soinik-1",
@@ -175,8 +189,10 @@
       "links": [
         { "label": "More details", "href": "https://brief-stream-853.notion.site/Jontro-Soinik-1-0-Version-1-0-26e1162dbc8f8143bbe7c4b47a0e29d7", "icon": "fa-solid fa-arrow-up-right-from-square" }
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/Smart Soinik 1.0 SS1,0/main image.jpg",
+      "gallery": [
+        "data/Projects/Smart Soinik 1.0 SS1,0/PCB Manufacturing.JPG"
+      ]
     },
     {
       "slug": "agv-cyberfleet",
@@ -196,8 +212,14 @@
         { "label": "System Overview", "href": "assets/projects/onepagers/agv-system-overview.html", "icon": "fa-solid fa-file-lines" },
         { "label": "YouTube", "href": "https://www.youtube.com/watch?v=ooK1592gYgM", "icon": "fa-brands fa-youtube" }
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/Autonomous Ground Vehicle AGV/main image.png",
+      "gallery": [
+        "data/Projects/Autonomous Ground Vehicle AGV/All 3 in operation.PNG",
+        "data/Projects/Autonomous Ground Vehicle AGV/calibration.png",
+        "data/Projects/Autonomous Ground Vehicle AGV/debugging code.png",
+        "data/Projects/Autonomous Ground Vehicle AGV/first prototype.jpg",
+        "data/Projects/Autonomous Ground Vehicle AGV/second prototype.jpg"
+      ]
     },
     {
       "slug": "autonomous-target-tracking-drone",
@@ -217,7 +239,7 @@
         { "label": "Details (v1)", "href": "https://vagabond-hollyhock-5a3.notion.site/Autonomous-Target-Tracking-Drone-27f1c47e0d4c80e3aec2ca2109cfaa6d", "icon": "fa-solid fa-arrow-up-right-from-square" },
         { "label": "YouTube (v2)", "href": "https://www.youtube.com/watch?v=MLrD0SuG4Q0", "icon": "fa-brands fa-youtube" }
       ],
-      "image": "",
+      "image": "data/Projects/Autonomous Target Tracking Drone/main image - prototype one.jpg",
       "gallery": []
     },
     {
@@ -232,32 +254,62 @@
         "Configuration of the flight controller for proper flight.",
         "Contributed to the manufacturing and assembly."
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/Fixed Wing VTOL UAV/main image.jpg",
+      "gallery": [
+        "data/Projects/Fixed Wing VTOL UAV/Configuring drone.jpg"
+      ]
     },
     {
       "slug": "tollbooth-automation",
       "title": "Tollbooth Automation",
-      "subtitle": "A fully automated toll-collection system.",
+      "subtitle": "An industrial multi-lane toll-booth controller (STM32 firmware + custom PCBs).",
       "description": "A fully automated toll-booth system integrating real-time vehicle detection, payment processing and security-breach alerts.",
       "status": "Completed",
-      "image": "",
-      "gallery": []
+      "contribution": [
+        "Architected bare-metal **STM32 (Cortex-M3) firmware** in C — a table-driven **finite-state machine** (6 states, 12 event types) fusing sensor-edge and remote-command inputs.",
+        "Implemented **glitch-resistant sensor edge detection** (previous-state latching with single-cycle suppression) for inductive loop coils, an IR exit sensor and a tamper switch, avoiding blocking delays.",
+        "Built a robust **DMA UART stack** with idle-line frame detection and an error-recovery path that clears parity/noise/framing/overrun faults and auto-restarts DMA, hardening the link against field line noise.",
+        "Integrated a **WIZnet W5500** over SPI as an **interrupt-driven, multi-socket TCP server**, latching per-socket events in the ISR and draining them in the main loop for deterministic timing.",
+        "Designed the firmware for **multi-lane, multi-site deployment** from a single codebase using **compile-time configuration** (per-lane static IP selection and per-site FSM variants), eliminating per-unit source forks.",
+        "Engineered **fault tolerance** into the control logic: every sensor-driven transition has a manual operator override, plus a safe `HARD_RESET` sequence (safe-state outputs + audible warning) via `NVIC_SystemReset()`.",
+        "Designed **three custom PCBs** in Autodesk EAGLE (controller, relay and LED boards, across two iterations) for a controller operating in a high-voltage, electrically noisy environment.",
+        "Implemented full **galvanic isolation** between the microcontroller and all field I/O using optocouplers on both input and output stages, with TVS diodes and reverse-polarity protection.",
+        "Designed **relay (BC557-driven) and MOSFET load-drive** stages for boom barriers, sirens and RGB/indicator lighting, including bias-network tuning discovered during bring-up.",
+        "**Simulated the analog front-end in Proteus** (input sensing, output driving, reverse-polarity and RGB-LED subsystems) prior to fabrication, and modeled a 3D-printed enclosure in SolidWorks.",
+        "Performed **hardware bring-up and debugging**, cataloguing first-iteration issues (signal routing, divider values, regulator needs) and specifying fixes for the second iteration."
+      ],
+      "links": [
+        { "label": "System Overview", "href": "assets/projects/onepagers/tollbooth-system-overview.html", "icon": "fa-solid fa-file-lines" }
+      ],
+      "image": "data/Projects/Tollbooth Automation/main image.jpg",
+      "gallery": [
+        "data/Projects/Tollbooth Automation/circuit stack.jpg",
+        "data/Projects/Tollbooth Automation/onsite setup.jpg",
+        "data/Projects/Tollbooth Automation/whole testing setup.jpg"
+      ]
     },
     {
       "slug": "offline-hardware-cryptowallet",
       "title": "Offline Hardware CryptoWallet",
       "subtitle": "An air-gapped hardware wallet for cryptocurrency keys.",
-      "description": "",
+      "description": "A standalone hardware cryptocurrency wallet built around a touchscreen display module (with QR-scanning camera) and a custom embedded control board. It generates, stores and manages private keys and seed phrases entirely offline — the device never connects to the internet or any network. All communication with the outside world (e.g. broadcasting a transaction) happens through QR codes, keeping the signing keys physically isolated (\"air-gapped\") from any online system. This protects against remote hacking, malware and network-based key theft: a signed transaction can only leave the device visually via QR, and unsigned transaction data can only enter it the same way.",
       "status": "Completed",
       "contribution": [
-        "Integrated the display and touch-response system.",
-        "Designed the state machine of the whole system.",
-        "Implemented auto power-on and delayed power-off.",
-        "Implemented features such as multi-wallet support, network addition, QR-based address exchange and transaction-history storage."
+        "Built a standalone, fully **air-gapped** hardware cryptocurrency wallet around a touchscreen module (with QR camera) and a custom embedded control board — keys and seed phrases generated and stored **entirely offline**.",
+        "Designed the whole-system **state machine** and UI flows, including PIN set/reset with PIN-gated access and **BIP-39 seed-phrase** generation (12/24 words) with word-by-word verification.",
+        "Implemented **multi-wallet management** (create, rename, delete, switch) and **custom network management** (add/edit/delete networks — EVM/UTXO/XRP, symbol, chain ID).",
+        "Implemented **QR-based transaction flows**: scan unsigned transactions, sign offline, and display the signed transaction as a (multi-page) QR code, with manual input as an alternative.",
+        "Integrated the **display and touch-response** system; implemented auto power-on and a ~3 s hold-to-power-off sequence.",
+        "Added UI theming (Dark/Light/Contrast), layout options (Grid/Compact/List), two keyboard styles (Semi-QWERTY, Numeric), and invalid-input handling."
       ],
-      "image": "",
-      "gallery": []
+      "links": [
+        { "label": "YouTube", "href": "https://youtu.be/bSHUT5XJSNQ", "icon": "fa-brands fa-youtube" },
+        { "label": "Manual (PDF)", "href": "data/Projects/Airgapped/Airgapped Manual.pdf", "icon": "fa-solid fa-file-pdf" }
+      ],
+      "image": "data/Projects/Airgapped/main image.jpeg",
+      "gallery": [
+        "data/Projects/Airgapped/actual image.jpeg"
+      ]
     },
     {
       "slug": "surveillance-drone",
@@ -273,7 +325,7 @@
       "links": [
         { "label": "Details", "href": "https://brief-stream-853.notion.site/Cybernetics-SD15-N-Surveillance-Drone-26e1162dbc8f81279ad3df81d7548969", "icon": "fa-solid fa-arrow-up-right-from-square" }
       ],
-      "image": "",
+      "image": "data/Projects/Surveillance Drone/main image.jpg",
       "gallery": []
     },
     {
@@ -289,7 +341,7 @@
       "links": [
         { "label": "GitHub", "href": "https://github.com/Mainul-Islam-07/Pulse_Width_Measurement-by-8051-in-Assembly-Language", "icon": "fa-brands fa-github" }
       ],
-      "image": "",
+      "image": "data/Projects/Pulse Width Measurement and generation by AT89S52 Microcontroller/main image.png",
       "gallery": []
     },
     {
@@ -303,8 +355,11 @@
         "Contributed to the PCB design.",
         "The circuit works for a wide range of cell counts, from 2S up to 6S LiPo batteries."
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/LiPo-Battery Management System- BMS/main image.jpg",
+      "gallery": [
+        "data/Projects/LiPo-Battery Management System- BMS/final version.jpg",
+        "data/Projects/LiPo-Battery Management System- BMS/previous version.png"
+      ]
     },
     {
       "slug": "sap-1-8bit",
@@ -320,7 +375,7 @@
       "links": [
         { "label": "GitHub", "href": "https://github.com/Mainul-Islam-07/SAP-1-8-Bit-Computer-Design", "icon": "fa-brands fa-github" }
       ],
-      "image": "",
+      "image": "data/Projects/8 Bit SAP-1/main image.png",
       "gallery": []
     },
     {
@@ -334,8 +389,11 @@
         "Debugging.",
         "6th place in the International Rover Challenge (IRC); Best Team Award for the Science Task."
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/IUT Mars Rover - Project Altair/main image.jpg",
+      "gallery": [
+        "data/Projects/IUT Mars Rover - Project Altair/final version.jpg",
+        "data/Projects/IUT Mars Rover - Project Altair/previous version.jpeg"
+      ]
     },
     {
       "slug": "iut-mars-rover-avijatrik",
@@ -349,8 +407,10 @@
         "Debugging.",
         "Participated in ERC, IRDC and other rover challenges."
       ],
-      "image": "",
-      "gallery": []
+      "image": "data/Projects/IUT Mars Rover - Team Avijatrik/main image.jpeg",
+      "gallery": [
+        "data/Projects/IUT Mars Rover - Team Avijatrik/pcb design manufacture and component assembly.jpg"
+      ]
     }
   ],
 
@@ -451,6 +511,7 @@
     {
       "company": "Project Altair (IUT Mars Rover)",
       "location": "Gazipur, Bangladesh",
+      "kind": "Undergraduate Rover Team",
       "position": "System Designer, Electrical Subteam",
       "period": "Jun 2023 - Apr 2024",
       "url": "https://www.facebook.com/projectaltair/",
@@ -463,6 +524,7 @@
     {
       "company": "IUT Robotics Society",
       "location": "Gazipur, Bangladesh",
+      "kind": "Undergraduate Club",
       "position": "Project Coordinator",
       "period": "Oct 2023 - Apr 2024",
       "highlights": [
@@ -473,6 +535,7 @@
     {
       "company": "IUT Mars Rover — Team Avijatrik",
       "location": "Gazipur, Bangladesh",
+      "kind": "Undergraduate Rover Team",
       "position": "Senior Electrical Member",
       "period": "Mar 2021 - Mar 2023",
       "url": "https://www.facebook.com/iutavijatrik",

@@ -36,8 +36,19 @@
         .spec-table th { text-align: left; padding: 9px 12px; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--primary); border-bottom: 2px solid var(--border); }
         .spec-table td { padding: 8px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top; }
         .spec-table td:first-child { font-weight: 600; width: 42%; color: var(--text); }
+        .spec-details { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card); margin-bottom: 10px; overflow: hidden; }
+        .spec-details > summary { cursor: pointer; padding: 12px 16px; font-weight: 600; color: var(--primary); list-style: none; display: flex; align-items: center; gap: 9px; user-select: none; }
+        .spec-details > summary::-webkit-details-marker { display: none; }
+        .spec-details > summary::before { content: "\f078"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 0.7rem; transition: transform 0.2s; }
+        .spec-details[open] > summary::before { transform: rotate(180deg); }
+        .spec-details > .detail-body { padding: 0 16px 8px; }
+        .spec-details .spec-table { margin-top: 0; }
         .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 16px; }
-        .gallery img { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+        .gallery-item { margin: 0; }
+        .gallery-item a { display: block; overflow: hidden; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+        .gallery-item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; transition: transform 0.25s; }
+        .gallery-item a:hover img { transform: scale(1.05); }
+        .gallery-item figcaption { margin-top: 7px; font-size: 0.82rem; color: var(--muted); text-align: center; line-height: 1.35; }
     </style>
 </head>
 
@@ -117,6 +128,35 @@
                 return html;
             }
 
+            // Split a specs markdown file into collapsible <details> per "## Heading" section.
+            function renderSpecsDropdowns(mdText) {
+                const lines = String(mdText || "").replace(/\r/g, "").split("\n");
+                const sections = [];
+                let cur = null;
+                for (const ln of lines) {
+                    const h2 = ln.match(/^##\s+(.*)$/);
+                    if (h2) { cur = { title: h2[1].trim(), body: [] }; sections.push(cur); continue; }
+                    if (/^#\s+/.test(ln)) continue; // skip a top-level title line
+                    if (cur) cur.body.push(ln);
+                }
+                if (!sections.length) {
+                    return `<details class="spec-details"><summary>Specifications</summary><div class="detail-body">${renderMarkdown(mdText)}</div></details>`;
+                }
+                return sections.map(s =>
+                    `<details class="spec-details"><summary>${esc(s.title)}</summary><div class="detail-body">${renderMarkdown(s.body.join("\n"))}</div></details>`
+                ).join("");
+            }
+
+            // Turn an image file path into a readable caption.
+            const ACRONYMS = ["PCB", "UAV", "AGV", "ROV", "EOD", "IR", "GPS", "LED", "VTOL", "RGB", "UART", "SPI", "I2C", "CAN", "MCU", "AI", "OCR", "IMU", "RTSP", "3D", "2D"];
+            function prettyName(path) {
+                let n = String(path).split("/").pop().replace(/\.[^.]+$/, "");
+                n = n.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+                n = n.charAt(0).toUpperCase() + n.slice(1);
+                n = n.replace(/[A-Za-z0-9]+/g, (w) => ACRONYMS.includes(w.toUpperCase()) ? w.toUpperCase() : w);
+                return n;
+            }
+
             const fetchMd = (path) => fetch("../../" + encodeURI(path)).then(r => r.ok ? r.text() : "").catch(() => "");
 
             const idx = parseInt(new URLSearchParams(location.search).get("i"), 10);
@@ -152,13 +192,16 @@
                             ? `<h2 class="detail-section-title">My Contribution</h2><ul class="contribution-list">${p.contribution.map(c => `<li>${inline(c)}</li>`).join("")}</ul>` : "";
 
                         const specsHtml = md.specs
-                            ? `<h2 class="detail-section-title">Specifications</h2><div class="detail-body">${renderMarkdown(md.specs)}</div>` : "";
+                            ? `<h2 class="detail-section-title">Specifications</h2>${renderSpecsDropdowns(md.specs)}` : "";
 
                         const galleryHtml = (p.gallery || []).length
-                            ? `<h2 class="detail-section-title">Gallery</h2><div class="gallery">${p.gallery.map(g => `<img src="${esc(g)}" alt="" loading="lazy">`).join("")}</div>` : "";
+                            ? `<h2 class="detail-section-title">Gallery</h2><div class="gallery">${p.gallery.map(g => {
+                                const src = esc(resolveHref(g)); const cap = esc(prettyName(g));
+                                return `<figure class="gallery-item"><a href="${src}" target="_blank" rel="noopener"><img src="${src}" alt="${cap}" loading="lazy"></a><figcaption>${cap}</figcaption></figure>`;
+                              }).join("")}</div>` : "";
 
                         container.innerHTML = `
-                            ${p.image ? `<img class="project-hero-img" src="${esc(p.image)}" alt="${esc(p.title)}">` : ""}
+                            ${p.image ? `<img class="project-hero-img" src="${esc(resolveHref(p.image))}" alt="${esc(p.title)}">` : ""}
                             <h1>${esc(p.title)}</h1>
                             ${p.subtitle ? `<p class="subtitle">${esc(p.subtitle)}</p>` : ""}
                             <div class="detail-meta">

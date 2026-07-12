@@ -1,0 +1,12 @@
+## Embedded / Firmware Engineer emphasis
+- Architected bare-metal **STM32 (Cortex-M3) firmware** in C, table-driven **finite-state machine** (6 states, 12 event types) fusing sensor-edge and remote-command inputs.
+- Implemented **glitch-resistant sensor edge detection** (previous-state latching with single-cycle suppression) for inductive loop coils, an IR exit sensor, and a tamper switch, avoiding blocking delays.
+- Built a robust **DMA UART stack** with idle-line frame detection and an error-recovery path that clears parity/noise/framing/overrun faults and auto-restarts DMA, hardening the link against field line noise.
+- Integrated a **Wiznet W5500** over SPI as an **interrupt-driven, multi-socket TCP server**, latching per-socket events in the ISR and draining them in the main loop for deterministic timing.
+- Designed the firmware for **multi-lane, multi-site deployment** from a single codebase using **compile-time configuration** (per-lane static IP selection and per-site FSM variants), eliminating per-unit source forks.
+- Engineered **fault tolerance** into the control logic: every sensor-driven transition has a manual operator override, plus a safe `HARD_RESET` sequence (safe-state outputs + audible warning) via `NVIC_SystemReset()`.
+- Designed **three custom PCBs** in Autodesk EAGLE (controller, relay, and LED boards, across two iterations) for an industrial toll-lane controller operating in a high-voltage, electrically noisy environment.
+- Implemented full **galvanic isolation** between the microcontroller and all field I/O using optocouplers on both input and output stages, with TVS diodes and reverse-polarity protection.
+- Designed **relay (BC557-driven) and MOSFET load-drive** stages for boom barriers, sirens, and RGB/indicator lighting, including bias-network tuning discovered during bring-up.
+- **Simulated the analog front-end in Proteus** (input sensing, output driving, reverse-polarity, RGB-LED subsystems) prior to fabrication, and modeled a 3D-printed enclosure in SolidWorks.
+- Performed **hardware bring-up and debugging**, cataloguing first-iteration issues (signal routing, divider values, regulator needs) and specifying fixes for the second iteration.

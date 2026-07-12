@@ -216,7 +216,7 @@
         const external = !!p.url;
         const href = external ? p.url : `assets/projects/project.html?i=${i}`;
         const tgt = external ? ' target="_blank" rel="noopener noreferrer"' : "";
-        const img = p.image ? esc(p.image) : placeholder;
+        const img = p.image ? esc(encodeURI(p.image)) : placeholder;
         const statusClass = p.status ? p.status.toLowerCase().replace(/[^a-z0-9]+/g, "-") : "";
 
         const card = el("div", "project-card");
@@ -370,6 +370,7 @@
           url: item.url || "",
           proof: item.proof || "",
           proofPending: item.proofPending || false,
+          kind: item.kind || "",
         };
       const posArr = Array.isArray(item.position) ? item.position : [item.position];
       const perArr = Array.isArray(item.period) ? item.period : [item.period];
@@ -383,6 +384,7 @@
       if (!entry.tech.length && item.tech) entry.tech = item.tech;
       if (!entry.url && item.url) entry.url = item.url;
       if (!entry.proof && item.proof) entry.proof = item.proof;
+      if (!entry.kind && item.kind) entry.kind = item.kind;
       map.set(key, entry);
     });
 
@@ -416,6 +418,7 @@
         <h4><span class="company">${esc(e.company)}</span>${siteLink}${
         e.location ? ` <span class="location">${esc(e.location)}</span>` : ""
       }</h4>
+        ${e.kind ? `<span class="exp-kind">${esc(e.kind)}</span>` : ""}
         ${roles}${hl}${tech}
         ${proof ? `<div class="exp-actions">${proof}</div>` : ""}`;
       expList.appendChild(card);

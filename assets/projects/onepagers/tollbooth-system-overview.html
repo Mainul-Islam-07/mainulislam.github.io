@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Tollbooth Control System — One Pager</title>
+<style>
+  :root{
+    --ink:#12213a; --muted:#5a6a82; --line:#d9e0ea;
+    --brand:#0f5ea8; --brand2:#0a3d6b; --accent:#d98324;
+    --panic:#c0392b; --ok:#1f8a52; --chip:#eef3f9; --chipink:#274b73;
+    --bg:#ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:#eceff3;}
+  body{
+    font-family:"Segoe UI",-apple-system,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink); font-size:9px; line-height:1.4;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{
+    width:210mm; min-height:297mm; margin:10px auto; background:var(--bg);
+    padding:11mm 11mm 8mm; box-shadow:0 2px 14px rgba(0,0,0,.15);
+    display:flex; flex-direction:column;
+  }
+  @page{ size:A4; margin:0; }
+  @media print{
+    html,body{background:#fff;}
+    .page{margin:0; box-shadow:none; width:auto; min-height:auto;}
+  }
+
+  /* ---------- header ---------- */
+  header{display:flex; align-items:flex-end; justify-content:space-between;
+    border-bottom:2.5px solid var(--brand); padding-bottom:7px; gap:14px;}
+  h1{font-size:20px; line-height:1.05; letter-spacing:-.3px; color:var(--brand2);}
+  h1 .sub{display:block; font-size:9.5px; font-weight:600; color:var(--accent);
+    letter-spacing:.6px; text-transform:uppercase; margin-top:3px;}
+  .tagline{font-size:9px; color:var(--muted); max-width:78mm; text-align:right; line-height:1.35;}
+  .tagline b{color:var(--ink);}
+
+  /* ---------- chips ---------- */
+  .stack{display:flex; flex-wrap:wrap; gap:4px; margin:7px 0 2px;}
+  .chip{background:var(--chip); color:var(--chipink); border:1px solid #dbe6f2;
+    padding:1.5px 6px; border-radius:9px; font-size:7.6px; font-weight:600; white-space:nowrap;}
+
+  /* ---------- layout ---------- */
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:9px; flex:1;}
+  section{break-inside:avoid;}
+  h2{font-size:9.5px; text-transform:uppercase; letter-spacing:.8px; color:var(--brand);
+    border-bottom:1px solid var(--line); padding-bottom:3px; margin-bottom:6px; display:flex; align-items:center; gap:5px;}
+  h2::before{content:""; width:5px; height:5px; background:var(--accent); border-radius:50%; display:inline-block;}
+  p{margin-bottom:5px;}
+  .lead{font-size:9.3px; color:#33455f;}
+
+  ul{list-style:none; margin-bottom:4px;}
+  li{position:relative; padding-left:11px; margin-bottom:3.5px;}
+  li::before{content:"▹"; position:absolute; left:0; color:var(--accent); font-size:8px; top:.5px;}
+  li b{color:var(--brand2);}
+
+  /* ---------- SVG diagram wrap ---------- */
+  .diagram{width:100%; border:1px solid var(--line); border-radius:6px; background:#fafcfe; padding:6px;}
+
+  /* ---------- FSM table ---------- */
+  table{width:100%; border-collapse:collapse; font-size:8px;}
+  th,td{text-align:left; padding:3px 5px; border-bottom:1px solid var(--line);}
+  th{background:var(--brand2); color:#fff; font-size:7.4px; text-transform:uppercase; letter-spacing:.4px; font-weight:600;}
+  td code{font-family:"Consolas",monospace; font-weight:700; color:var(--brand2); font-size:8px;}
+  .b-up{color:var(--ok); font-weight:700;} .b-dn{color:var(--muted);}
+  .s-on{color:var(--panic); font-weight:700;} .s-off{color:var(--muted);}
+  tr:last-child td{border-bottom:none;}
+
+  /* ---------- feature grid ---------- */
+  .feat{display:grid; grid-template-columns:1fr 1fr; gap:4px 10px;}
+  .feat li{margin-bottom:2px;}
+
+  /* ---------- telemetry code ---------- */
+  .code{font-family:"Consolas",monospace; background:#0f2540; color:#7fd1ff;
+    padding:5px 7px; border-radius:4px; font-size:7.8px; letter-spacing:.2px; word-break:break-all;}
+  .kv{display:flex; gap:5px; margin-bottom:2.5px;}
+  .kv .k{color:var(--muted); min-width:52px; font-weight:600;}
+  .kv .v{color:var(--ink);}
+
+  footer{margin-top:9px; padding-top:6px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; font-size:7.6px; color:var(--muted);}
+  footer b{color:var(--brand2);}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <h1>Automated Tollbooth Control System
+        <span class="sub">Cybernetics Toll Controller Unit&nbsp;·&nbsp;STM32F103</span>
+      </h1>
+    </div>
+    <div class="tagline">
+      A <b>networked, fault-tolerant embedded controller</b> that automates an entire highway toll lane —
+      vehicle detection, payment, boom-barrier, lighting &amp; violation alarms — under real-time remote supervision.
+    </div>
+  </header>
+
+  <div class="stack">
+    <span class="chip">STM32F103C8T6</span>
+    <span class="chip">ARM Cortex-M3</span>
+    <span class="chip">Embedded C</span>
+    <span class="chip">Finite State Machine</span>
+    <span class="chip">Wiznet W5500 / TCP</span>
+    <span class="chip">DMA UART</span>
+    <span class="chip">DS3231 RTC · I²C</span>
+    <span class="chip">EAGLE PCB ×3</span>
+    <span class="chip">Opto-isolation</span>
+    <span class="chip">Proteus</span>
+    <span class="chip">SolidWorks</span>
+  </div>
+
+  <!-- ARCHITECTURE DIAGRAM (full width) -->
+  <section style="margin-top:9px;">
+    <h2>System Architecture</h2>
+    <div class="diagram">
+      <svg viewBox="0 0 820 236" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI,Arial,sans-serif">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#0a3d6b"/>
+          </marker>
+          <marker id="arrO" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#d98324"/>
+          </marker>
+        </defs>
+
+        <!-- Operator PC -->
+        <rect x="14" y="86" width="118" height="64" rx="7" fill="#eef3f9" stroke="#0f5ea8" stroke-width="1.5"/>
+        <text x="73" y="110" text-anchor="middle" font-size="12" font-weight="700" fill="#0a3d6b">Operator PC</text>
+        <text x="73" y="124" text-anchor="middle" font-size="9" fill="#5a6a82">Console</text>
+        <text x="73" y="138" text-anchor="middle" font-size="8" fill="#5a6a82">commands · telemetry</text>
+
+        <!-- link -->
+        <line x1="132" y1="107" x2="300" y2="107" stroke="#0a3d6b" stroke-width="1.4" marker-end="url(#arr)"/>
+        <line x1="300" y1="128" x2="132" y2="128" stroke="#0a3d6b" stroke-width="1.4" marker-end="url(#arr)"/>
+        <text x="216" y="101" text-anchor="middle" font-size="8" font-weight="700" fill="#0f5ea8">Ethernet · TCP</text>
+        <text x="216" y="142" text-anchor="middle" font-size="8" fill="#5a6a82">UART (comms + debug)</text>
+
+        <!-- MCU -->
+        <rect x="300" y="70" width="150" height="96" rx="8" fill="#0a3d6b" stroke="#0a3d6b"/>
+        <text x="375" y="94" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Toll Controller Unit</text>
+        <text x="375" y="109" text-anchor="middle" font-size="9" fill="#bcd6ef">STM32F103C8T6 · 72 MHz</text>
+        <rect x="315" y="120" width="120" height="34" rx="4" fill="#12406e"/>
+        <text x="375" y="133" text-anchor="middle" font-size="8.5" font-weight="700" fill="#fff">Finite State Machine</text>
+        <text x="375" y="146" text-anchor="middle" font-size="7.5" fill="#9ec4e8">W5500 · DMA UART · HAL</text>
+
+        <!-- INPUTS box -->
+        <rect x="470" y="8" width="336" height="98" rx="7" fill="#fbfdff" stroke="#1f8a52" stroke-width="1.3"/>
+        <text x="482" y="24" font-size="9" font-weight="700" fill="#1f8a52">INPUTS — opto-isolated, edge-detected</text>
+        <text x="486" y="42" font-size="8.4" fill="#12213a">• Entry loop coil</text>
+        <text x="486" y="58" font-size="8.4" fill="#12213a">• Exit loop coil</text>
+        <text x="486" y="74" font-size="8.4" fill="#12213a">• IR exit-confirm sensor</text>
+        <text x="486" y="90" font-size="8.4" fill="#12213a">• TCU tamper switch</text>
+        <text x="648" y="42" font-size="8.4" fill="#5a6a82">→ EVT_CAR_DETECTED</text>
+        <text x="648" y="58" font-size="8.4" fill="#5a6a82">→ EVT_ACTIVATE_SIREN</text>
+        <text x="648" y="74" font-size="8.4" fill="#5a6a82">→ EVT_CAR_PASSED</text>
+        <text x="648" y="90" font-size="8.4" fill="#5a6a82">→ TCU_OPEN / CLOSE</text>
+
+        <!-- OUTPUTS box -->
+        <rect x="470" y="130" width="336" height="98" rx="7" fill="#fffaf3" stroke="#d98324" stroke-width="1.3"/>
+        <text x="482" y="146" font-size="9" font-weight="700" fill="#b56a12">OUTPUTS — relay / MOSFET, opto-isolated</text>
+        <text x="486" y="164" font-size="8.4" fill="#12213a">• Boom barrier</text>
+        <text x="486" y="180" font-size="8.4" fill="#12213a">• Siren</text>
+        <text x="486" y="196" font-size="8.4" fill="#12213a">• Lane-operation light</text>
+        <text x="486" y="212" font-size="8.4" fill="#12213a">• Overhead light</text>
+        <text x="648" y="164" font-size="8.4" fill="#5a6a82">• 3× spare channels</text>
+        <text x="648" y="180" font-size="8.4" fill="#5a6a82">• Camera LED</text>
+        <text x="648" y="196" font-size="8.4" fill="#5a6a82">• Payment LED</text>
+        <text x="648" y="212" font-size="8.4" fill="#5a6a82">• Ping LED</text>
+
+        <!-- connectors MCU->inputs/outputs -->
+        <path d="M450,96 C462,96 462,57 470,57" fill="none" stroke="#1f8a52" stroke-width="1.4" marker-end="url(#arr)"/>
+        <path d="M450,140 C462,140 462,179 470,179" fill="none" stroke="#d98324" stroke-width="1.4" marker-end="url(#arrO)"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="grid">
+    <!-- LEFT COLUMN -->
+    <div>
+      <section>
+        <h2>What It Does</h2>
+        <ul>
+          <li>Detects vehicles entering/leaving via <b>inductive loop coils</b> + an <b>IR exit sensor</b>.</li>
+          <li>Coordinates payment and drives the <b>boom barrier</b> only for authorized passage.</li>
+          <li>Triggers a <b>siren</b> on unpaid passage or enclosure <b>tampering</b>.</li>
+          <li>Manages lane, overhead &amp; RGB status lighting and a camera-capture trigger.</li>
+          <li>Streams <b>real-time telemetry</b> to the operator console every 500&nbsp;ms.</li>
+        </ul>
+      </section>
+
+      <section style="margin-top:8px;">
+        <h2>Engineered For Reliability</h2>
+        <ul class="feat">
+          <li><b>Fault-tolerant:</b> manual override for every sensor path</li>
+          <li><b>Safe HARD_RESET</b> with audible warning</li>
+          <li><b>Galvanic isolation</b> on all field I/O</li>
+          <li><b>Auto-recovering</b> DMA UART link</li>
+          <li><b>Multi-socket</b> TCP server</li>
+          <li><b>Fleet-ready</b> compile-time config</li>
+        </ul>
+      </section>
+
+      <section style="margin-top:8px;">
+        <h2>Command Protocol &amp; Telemetry</h2>
+        <p style="font-size:8.3px; margin-bottom:4px;">Compact ASCII, transport-agnostic across <b>TCP &amp; UART</b>; responses fan out to every connected client.</p>
+        <div class="code">CONNECT_ON BARRIER_OFF SIREN_OFF LIGHT_ON<br>LANE_ON TCU_CLOSE 0000001234</div>
+        <p style="font-size:7.7px; color:var(--muted); margin-top:3px;">PAID · BARRIER_ON/OFF · SIREN_ON/OFF · CAMERA_CAPTURE · LIGHT/LANE_ON/OFF · RESET · HARD_RESET</p>
+      </section>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+      <section>
+        <h2>Finite State Machine</h2>
+        <table>
+          <thead><tr><th>State</th><th>Meaning</th><th>Barrier</th><th>Siren</th></tr></thead>
+          <tbody>
+            <tr><td><code>IDLE</code></td><td>Waiting for a vehicle</td><td class="b-dn">down</td><td class="s-off">off</td></tr>
+            <tr><td><code>PAYMENT</code></td><td>Detected, awaiting payment</td><td class="b-dn">down</td><td class="s-off">off</td></tr>
+            <tr><td><code>WAIT_CAR</code></td><td>Paid; waiting to reach exit</td><td class="b-up">up</td><td class="s-off">off</td></tr>
+            <tr><td><code>CLOSE</code></td><td>Car confirmed leaving</td><td class="b-up">up→dn</td><td class="s-off">off</td></tr>
+            <tr><td><code>FLEET</code></td><td>Force-open / manual override</td><td class="b-up">up</td><td class="s-off">off</td></tr>
+            <tr><td><code>PANIC</code></td><td>Violation / tamper / alarm</td><td class="b-dn">down</td><td class="s-on">ON</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section style="margin-top:8px;">
+        <h2>Hardware &amp; Design</h2>
+        <ul>
+          <li><b>3 custom PCBs</b> (EAGLE): controller, relay &amp; LED boards — opto-isolation, TVS + reverse-polarity protection.</li>
+          <li>Relay (BC557) &amp; <b>MOSFET</b> load drivers; validated in <b>Proteus</b> before fabrication.</li>
+          <li><b>3D-printed enclosure</b> (SolidWorks) for the indicator board.</li>
+        </ul>
+      </section>
+
+      <section style="margin-top:8px;">
+        <h2>Snapshot</h2>
+        <div class="kv"><span class="k">Firmware</span><span class="v">Bare-metal C · STM32 HAL · super-loop + FSM</span></div>
+        <div class="kv"><span class="k">FSM</span><span class="v">6 states · 12 event types · table dispatch</span></div>
+        <div class="kv"><span class="k">Network</span><span class="v">W5500 interrupt-driven TCP · static per-lane IP</span></div>
+        <div class="kv"><span class="k">Deployed</span><span class="v">Multi-lane · sites: Mukhterpur &amp; Kalna</span></div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <span><b>Automated Tollbooth Control System</b> — firmware · hardware · systems design</span>
+    <span>Cybernetics R&amp;D</span>
+  </footer>
+
+</div>
+</body>
+</html>
