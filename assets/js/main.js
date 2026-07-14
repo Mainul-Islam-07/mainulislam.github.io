@@ -86,6 +86,15 @@
     return "";
   };
 
+  // Turn an image file path into a readable caption.
+  const ACRONYMS = ["PCB", "UAV", "AGV", "ROV", "EOD", "IR", "GPS", "LED", "VTOL", "RGB", "UART", "SPI", "I2C", "CAN", "MCU", "AI", "OCR", "IMU", "RTSP", "SMD", "3D", "2D"];
+  const prettyName = (path) => {
+    let n = String(path).split("/").pop().replace(/\.[^.]+$/, "");
+    n = n.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+    n = n.charAt(0).toUpperCase() + n.slice(1);
+    return n.replace(/[A-Za-z0-9]+/g, (w) => (ACRONYMS.includes(w.toUpperCase()) ? w.toUpperCase() : w));
+  };
+
   function formatPeriod(period) {
     // "YYYY-MM-present" -> "YYYY-MM – Present" | "YYYY-MM-YYYY-MM" -> "YYYY-MM – YYYY-MM"
     if (!period) return "";
@@ -195,6 +204,9 @@
 
     /* --- Blog --- */
     renderBlog(profile.blog);
+
+    /* --- Gallery --- */
+    renderGallery(profile.gallery);
 
     /* --- Contact --- */
     renderContact(profile);
@@ -371,6 +383,7 @@
           proof: item.proof || "",
           proofPending: item.proofPending || false,
           kind: item.kind || "",
+          links: item.links || [],
         };
       const posArr = Array.isArray(item.position) ? item.position : [item.position];
       const perArr = Array.isArray(item.period) ? item.period : [item.period];
@@ -385,16 +398,23 @@
       if (!entry.url && item.url) entry.url = item.url;
       if (!entry.proof && item.proof) entry.proof = item.proof;
       if (!entry.kind && item.kind) entry.kind = item.kind;
+      if (!entry.links.length && item.links) entry.links = item.links;
       map.set(key, entry);
     });
 
     expList.innerHTML = "";
     map.forEach((e) => {
       const card = el("div", "experience-card");
-      // Company website → clickable icon beside the name.
+      // Company website + any extra links (e.g. YouTube) → clickable icons beside the name.
       const siteLink = e.url
         ? ` <a class="inst-link" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${esc(e.company)} website" title="Visit website"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
         : "";
+      const extraLinks = (e.links || [])
+        .map(
+          (l) =>
+            ` <a class="inst-link" href="${esc(l.href)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(l.label || "")}" title="${esc(l.label || "")}"><i class="${esc(l.icon || "fa-solid fa-arrow-up-right-from-square")}"></i></a>`
+        )
+        .join("");
       const roles = e.roles
         .map(
           (r) => `
@@ -415,7 +435,7 @@
           : "";
       const proof = proofButton(e, "View Document");
       card.innerHTML = `
-        <h4><span class="company">${esc(e.company)}</span>${siteLink}${
+        <h4><span class="company">${esc(e.company)}</span>${siteLink}${extraLinks}${
         e.location ? ` <span class="location">${esc(e.location)}</span>` : ""
       }</h4>
         ${e.kind ? `<span class="exp-kind">${esc(e.kind)}</span>` : ""}
@@ -656,6 +676,31 @@
         </div>`;
       box.appendChild(card);
     });
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Gallery (collapsible; images revealed on click)
+   * ------------------------------------------------------------------ */
+  function renderGallery(items) {
+    const box = document.getElementById("gallery-list");
+    if (!box) return;
+    const section = box.closest("section");
+    if (!Array.isArray(items) || !items.length) {
+      if (section) section.style.display = "none";
+      return;
+    }
+    const grid = items
+      .map((g) => {
+        const src = esc(encodeURI(g));
+        const cap = esc(prettyName(g));
+        return `<figure class="gallery-item"><a href="${src}" target="_blank" rel="noopener"><img src="${src}" alt="${cap}" loading="lazy"></a><figcaption>${cap}</figcaption></figure>`;
+      })
+      .join("");
+    box.innerHTML = `
+      <details class="gallery-dropdown">
+        <summary>Show gallery (${items.length} image${items.length > 1 ? "s" : ""})</summary>
+        <div class="site-gallery">${grid}</div>
+      </details>`;
   }
 
   /* ------------------------------------------------------------------ *

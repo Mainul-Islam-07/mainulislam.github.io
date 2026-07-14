@@ -295,7 +295,8 @@ img {
 
 .hero-summary {
     color: var(--muted);
-    max-width: 60ch;
+    max-width: 62ch;
+    white-space: pre-line;
 }
 
 .hero-summary.clamp {
@@ -1398,6 +1399,83 @@ a.achievement-org:hover {
     font-size: 0.78rem;
     color: var(--muted);
     font-weight: 600;
+}
+
+/* ==========================================================================
+   Gallery (collapsible)
+   ========================================================================== */
+.gallery-dropdown {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.gallery-dropdown > summary {
+    cursor: pointer;
+    padding: 14px 18px;
+    font-weight: 600;
+    color: var(--primary);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    user-select: none;
+}
+
+.gallery-dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+.gallery-dropdown > summary::before {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.72rem;
+    transition: transform 0.2s;
+}
+
+.gallery-dropdown[open] > summary::before {
+    transform: rotate(180deg);
+}
+
+.site-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 4px 18px 18px;
+}
+
+.site-gallery .gallery-item {
+    margin: 0;
+}
+
+.site-gallery .gallery-item a {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+.site-gallery .gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s;
+}
+
+.site-gallery .gallery-item a:hover img {
+    transform: scale(1.05);
+}
+
+.site-gallery .gallery-item figcaption {
+    margin-top: 7px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.35;
 }
 
 /* ==========================================================================

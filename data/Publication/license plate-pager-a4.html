@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bangla ALPR (YOLO + Vision–Language OCR) — One-Pager</title>
+<style>
+  :root{
+    --ink:#14202b; --muted:#5b6b7a; --faint:#8a99a6;
+    --line:#e4eaef; --line-strong:#cdd8df;
+    --primary:#0e7c66; --primary-2:#0a5c4c; --primary-soft:#e7f2ef;
+    --accent:#c8442e; --accent-soft:#fbecea;
+    --bg:#ffffff; --soft:#f6f9f8; --card:#ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{
+    background:#eef1f3;
+    font-family:"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    color:var(--ink); line-height:1.4; font-size:10px; padding:16px;
+  }
+  .bn{ font-family:"Noto Sans Bengali","Nirmala UI","Vrinda","Kalpurush",sans-serif; }
+
+  .sheet{
+    width:210mm; min-height:297mm; margin:0 auto; background:var(--bg);
+    padding:11mm 12mm 8mm; box-shadow:0 8px 40px rgba(20,32,43,.18);
+    display:flex; flex-direction:column; gap:8px;
+  }
+
+  /* header */
+  header{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px;
+    border-bottom:2.5px solid var(--primary); padding-bottom:8px; }
+  .brand-kicker{ font-size:8.4px; letter-spacing:.15em; text-transform:uppercase; color:var(--primary); font-weight:700; }
+  h1{ font-size:17.5px; line-height:1.12; letter-spacing:-.01em; margin:2px 0 3px; max-width:120mm; }
+  h1 .thin{ color:var(--primary-2); }
+  .subtitle{ font-size:9.9px; color:var(--muted); max-width:120mm; }
+  .meta{ font-size:8.2px; color:var(--faint); margin-top:4px; }
+  .meta .arx{ color:var(--accent); font-weight:700; }
+
+  .plate{ flex:0 0 auto; text-align:center; border:2px solid var(--ink); border-radius:6px;
+    padding:7px 12px 6px; background:linear-gradient(#fff,#f3f5f6);
+    box-shadow:inset 0 0 0 2px #fff, 0 1px 0 rgba(0,0,0,.05); min-width:50mm; }
+  .plate .bn{ font-size:14px; font-weight:600; letter-spacing:.02em; white-space:nowrap; }
+  .plate .romanized{ font-size:7.6px; color:var(--muted); margin-top:3px; letter-spacing:.04em; }
+  .plate .cap{ font-size:7px; text-transform:uppercase; letter-spacing:.14em; color:var(--faint); margin-bottom:3px; }
+
+  /* pipeline */
+  .pipeline{ display:flex; align-items:stretch; }
+  .stage{ flex:1; background:var(--soft); border:1px solid var(--line); border-radius:7px; padding:6px 9px; }
+  .stage.pri{ background:var(--primary-soft); border-color:#bfe0d8; }
+  .stage .tag{ font-size:7.2px; letter-spacing:.11em; text-transform:uppercase; color:var(--primary-2); font-weight:700; }
+  .stage .st-title{ font-size:10.6px; font-weight:700; margin:1px 0 1px; }
+  .stage .st-desc{ font-size:8.4px; color:var(--muted); }
+  .arrow{ flex:0 0 18px; display:flex; align-items:center; justify-content:center; color:var(--primary); font-size:14px; font-weight:700; }
+
+  /* KPIs */
+  .kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+  .kpi{ border:1px solid var(--line); border-top:3px solid var(--primary); border-radius:7px; padding:6px 9px 5px; background:var(--card); }
+  .kpi .num{ font-size:18px; font-weight:800; color:var(--primary-2); letter-spacing:-.02em; line-height:1; }
+  .kpi .num .u{ font-size:10px; font-weight:600; color:var(--primary); }
+  .kpi .lbl{ font-size:8px; color:var(--muted); margin-top:3px; line-height:1.25; }
+  .kpi.alt{ border-top-color:var(--accent); }
+  .kpi.alt .num{ color:var(--accent); }
+
+  /* body */
+  .cols{ display:grid; grid-template-columns:1.18fr .82fr; gap:12px; flex:1; }
+  .sec-title{ font-size:8.8px; letter-spacing:.12em; text-transform:uppercase; color:var(--primary);
+    font-weight:700; margin-bottom:5px; padding-bottom:3px; border-bottom:1px solid var(--line); }
+
+  table.res{ width:100%; border-collapse:collapse; }
+  table.res th{ font-size:7.4px; text-transform:uppercase; letter-spacing:.04em; color:var(--faint);
+    text-align:right; padding:2px 3px; border-bottom:1px solid var(--line-strong); }
+  table.res th:first-child{ text-align:left; }
+  table.res td{ font-size:8.4px; padding:2.4px 3px; text-align:right; border-bottom:1px solid var(--line); color:#33424e; }
+  table.res td:first-child{ text-align:left; font-weight:600; color:var(--ink); white-space:nowrap; }
+  table.res tr.win td{ background:var(--primary-soft); color:var(--primary-2); font-weight:700; }
+  table.res tr.win td:first-child{ color:var(--primary-2); }
+  .tnote{ font-size:7.4px; color:var(--faint); margin-top:3px; }
+
+  .mini{ margin-top:8px; }
+  .mini .mh{ font-size:9.4px; font-weight:700; margin-bottom:2px; }
+  .mini .mh .bn{ font-size:10px; }
+  .mini p{ font-size:8.5px; color:var(--muted); }
+
+  ul.hl{ list-style:none; display:flex; flex-direction:column; gap:5px; margin-top:1px; }
+  ul.hl li{ font-size:8.7px; padding-left:13px; position:relative; color:#26333d; }
+  ul.hl li::before{ content:""; position:absolute; left:0; top:3.5px; width:6px; height:6px;
+    background:var(--primary); border-radius:2px; transform:rotate(45deg); }
+  ul.hl li b{ color:var(--ink); }
+  ul.hl li .bn{ font-size:9.2px; }
+
+  table.ocr{ width:100%; border-collapse:collapse; margin-top:2px; }
+  table.ocr th{ font-size:7.2px; text-transform:uppercase; color:var(--faint); text-align:right; padding:2px 3px; border-bottom:1px solid var(--line-strong); }
+  table.ocr th:first-child{ text-align:left; }
+  table.ocr td{ font-size:8.3px; padding:2.3px 3px; text-align:right; border-bottom:1px solid var(--line); color:#33424e; }
+  table.ocr td:first-child{ text-align:left; font-weight:600; color:var(--ink); }
+  table.ocr tr.win td{ background:var(--primary-soft); color:var(--primary-2); font-weight:700; }
+
+  /* footer */
+  footer{ border-top:1px solid var(--line); padding-top:6px; display:flex; justify-content:space-between; align-items:flex-end; gap:12px; }
+  .stack{ display:flex; flex-wrap:wrap; gap:3px; max-width:130mm; }
+  .stack .t{ font-size:7.4px; background:var(--soft); border:1px solid var(--line); border-radius:4px; padding:1.5px 5px; color:#334; }
+  .foot-note{ font-size:7px; color:var(--faint); text-align:right; max-width:54mm; line-height:1.35; }
+  .foot-note b{ color:var(--muted); }
+
+  @media print{ body{ background:#fff; padding:0; } .sheet{ box-shadow:none; margin:0; width:auto; min-height:auto; } }
+  @page{ size:A4; margin:0; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="brand-kicker">Computer Vision · Deep Learning · Vision–Language OCR</div>
+      <h1>Robust Bangla License Plate Recognition <span class="thin">— YOLO + Vision–Language OCR</span></h1>
+      <div class="subtitle">A two-stage framework that <b>localizes</b> Bangladeshi plates with YOLO and <b>reads</b> the Bengali script with a VisionEncoderDecoder — introducing a novel adaptive training strategy and validated robustness on low-light CCTV.</div>
+      <div class="meta"><span class="arx">arXiv:2603.10267</span> · Hasin · Nishat · Islam · Al Hasan · Newaz — IUT / BUET · github.com/Snap0dragon/Bangla-ALPR-using-Vision-Transformer</div>
+    </div>
+    <div class="plate">
+      <div class="cap">Target output</div>
+      <div class="bn">ঢাকা মেট্রো গ ১১-৫২৯৪</div>
+      <div class="romanized">Dhaka · Metro · Ga · 11-5294</div>
+    </div>
+  </header>
+
+  <!-- PIPELINE -->
+  <div class="pipeline">
+    <div class="stage">
+      <div class="tag">Input</div>
+      <div class="st-title">Scene image</div>
+      <div class="st-desc">Real-world capture · variable light</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage pri">
+      <div class="tag">Stage 1 · Localize</div>
+      <div class="st-title">⭐ Adaptive YOLOv8m</div>
+      <div class="st-desc">vs U-Net · YOLOv5/7/9/11-m → plate crop</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage pri">
+      <div class="tag">Stage 2 · Read</div>
+      <div class="st-title">⭐ ViT + BanglaBERT</div>
+      <div class="st-desc">VisionEncoderDecoder · seq2seq OCR</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="stage">
+      <div class="tag">Output</div>
+      <div class="st-title">Bengali string</div>
+      <div class="st-desc">District · zone · class · 6 digits</div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="num">97.83<span class="u">%</span></div>
+      <div class="lbl">Localization accuracy — proposed YOLOv8m + multi-stage</div>
+    </div>
+    <div class="kpi">
+      <div class="num">91.3<span class="u">%</span></div>
+      <div class="lbl">IoU of the proposed detector (best of 7 models)</div>
+    </div>
+    <div class="kpi">
+      <div class="num">0.1323</div>
+      <div class="lbl">OCR CER — ViT + BanglaBERT (WER 0.1068)</div>
+    </div>
+    <div class="kpi alt">
+      <div class="num">92.10<span class="u">%</span></div>
+      <div class="lbl">External-set F1 — low-light CCTV robustness</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="cols">
+    <!-- LEFT: localization -->
+    <div>
+      <div class="sec-title">Stage 1 — Localization: 7-model comparison</div>
+      <table class="res">
+        <thead>
+          <tr><th>Model</th><th>Acc %</th><th>IoU %</th><th>F1 %</th><th>Ext F1 %</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>U-Net</td><td>91.43</td><td>82.1</td><td>91.41</td><td>80.79</td></tr>
+          <tr><td>YOLOv5m</td><td>90.97</td><td>83.9</td><td>93.06</td><td>72.81</td></tr>
+          <tr><td>YOLOv7m</td><td>67.15</td><td>63.5</td><td>69.42</td><td>75.43</td></tr>
+          <tr><td>YOLOv8m</td><td>97.11</td><td>89.7</td><td>97.79</td><td>79.30</td></tr>
+          <tr class="win"><td>YOLOv8m + Multi-Stage ⭐</td><td>97.83</td><td>91.3</td><td>98.37</td><td>92.10</td></tr>
+          <tr><td>YOLOv9m</td><td>95.67</td><td>88.8</td><td>97.24</td><td>75.83</td></tr>
+          <tr><td>YOLOv11m</td><td>96.39</td><td>89.2</td><td>97.51</td><td>78.02</td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">Binary accuracy at IoU&nbsp;&gt;&nbsp;0.7. On external low-light CCTV, baselines overfit (Ext F1 ≈ 73–79%); the proposed model holds <b>92.10%</b>.</div>
+
+      <div class="mini">
+        <div class="mh">Novel two-stage adaptive training (YOLOv8m)</div>
+        <p><b>Stage 1</b> (35 ep): aggressive feature learning · progressive unfreezing <b>12→8→4</b> · spatial aug (mosaic, mix-up, copy-paste). <b>Stage 2</b> (45/55 ep, adaptive on Stage-1 mAP): photometric aug · reduced spatial · cosine-annealed LR · dynamic convergence checking.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: OCR + highlights -->
+    <div>
+      <div class="sec-title">Stage 2 — Vision–Language OCR</div>
+      <table class="ocr">
+        <thead><tr><th>Model</th><th>CER ↓</th><th>WER ↓</th></tr></thead>
+        <tbody>
+          <tr class="win"><td>ViT + BanglaBERT ⭐</td><td>0.1323</td><td>0.1068</td></tr>
+          <tr><td>TrOCR-Base</td><td>0.1363</td><td>0.1583</td></tr>
+          <tr><td>ViT + mBART-50</td><td>0.4438</td><td>0.0935</td></tr>
+        </tbody>
+      </table>
+      <div class="tnote">HF <b>VisionEncoderDecoder</b>, seq2seq · beam search (3) · Levenshtein 3.02 · val loss 0.4101.</div>
+
+      <div class="sec-title" style="margin-top:9px;">Engineering highlights</div>
+      <ul class="hl">
+        <li><b>Phase-aware training regimen</b> — augmentation & layer-freezing adapt to the training phase; Stage 2 auto-selects 45 vs 55 epochs on convergence.</li>
+        <li><b>OOD validation by design</b> — curated a 276-image low-light CCTV set to prove generalization, not just in-domain accuracy.</li>
+        <li><b>Domain-correct decoding</b> — disabled n-gram repetition blocking so valid repeated digits (<span class="bn">১১</span>, <span class="bn">১১-১১</span>) aren't suppressed.</li>
+        <li><b>Diagnosed the mBART anomaly</b> — lowest WER yet worst CER: word-level right, intra-word characters wrong.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="stack">
+      <span class="t">PyTorch</span><span class="t">🤗 Transformers</span><span class="t">VisionEncoderDecoder</span>
+      <span class="t">Seq2SeqTrainer</span><span class="t">Ultralytics YOLO v5–v11</span><span class="t">U-Net</span>
+      <span class="t">ViT-Base</span><span class="t">BanglaBERT</span><span class="t">mBART-50</span><span class="t">TrOCR</span>
+      <span class="t">OpenCV</span><span class="t">Roboflow</span><span class="t">CER · WER · Levenshtein</span><span class="t">Colab · fp16</span>
+    </div>
+    <div class="foot-note">
+      <b>Datasets:</b> Loc 6,517 imgs · OCR 13,629 crops / 64 districts / 102 classes · External 276 CCTV.<br>
+      All metrics from arXiv:2603.10267 (Tables II–V).
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
