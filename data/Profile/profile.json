@@ -163,6 +163,7 @@
       ],
       "image": "data/Projects/Jontro Soinik 1.0 JS1.0/main image.jpg",
       "gallery": [
+        "data/Projects/Jontro Soinik 1.0 JS1.0/Team.jpeg",
         "data/Projects/Jontro Soinik 1.0 JS1.0/custom circuit making.jpg",
         "data/Projects/Jontro Soinik 1.0 JS1.0/custom circuit to be placed anywhere.JPG",
         "data/Projects/Jontro Soinik 1.0 JS1.0/problem identification.jpg",
@@ -307,6 +308,8 @@
       ],
       "image": "data/Projects/Airgapped/main image.jpeg",
       "gallery": [
+        "data/Projects/Airgapped/3D_bottom.png",
+        "data/Projects/Airgapped/3D_top.png",
         "data/Projects/Airgapped/actual image.jpeg"
       ]
     },
@@ -625,9 +628,9 @@
     },
     {
       "title": "MATLAB Cody",
-      "position": "Ranked 116th Worldwide",
+      "position": "Ranked 117th Worldwide",
       "organizer": "MathWorks",
-      "note": "Solved 900+ problems.",
+      "note": "Solved 914 problems.",
       "proof": "assets/proofs/achievements/matlab-cody.png"
     },
     {
