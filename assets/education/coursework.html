@@ -63,7 +63,7 @@
             const root = document.documentElement;
             const saved = localStorage.getItem("theme");
             const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-            root.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+            root.setAttribute("data-theme", saved || "light");
             const themeToggle = document.getElementById("theme-toggle");
             const icon = () => themeToggle.innerHTML = root.getAttribute("data-theme") === "light"
                 ? '<i class="fa-regular fa-moon"></i>' : '<i class="fa-regular fa-sun"></i>';

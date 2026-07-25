@@ -12,7 +12,7 @@
   const savedTheme = localStorage.getItem("theme");
   const prefersDark =
     window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  root.setAttribute("data-theme", savedTheme || (prefersDark ? "dark" : "light"));
+  root.setAttribute("data-theme", savedTheme || "light");
   updateThemeIcon();
 
   function updateThemeIcon() {
@@ -540,25 +540,6 @@
             .join("")}</div>`
         : "";
 
-      // Two collapsible dropdowns (native <details>): Abstract (left) + Technical summary (right).
-      const abstractHtml = p.abstract
-        ? `<details class="pub-details">
-             <summary>Abstract</summary>
-             <p>${esc(p.abstract)}</p>
-           </details>`
-        : "";
-      const summaryHtml =
-        Array.isArray(p.highlights) && p.highlights.length
-          ? `<details class="pub-details">
-               <summary>Technical summary</summary>
-               <ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
-             </details>`
-          : "";
-      const dropdownsHtml =
-        abstractHtml || summaryHtml
-          ? `<div class="pub-dropdowns">${abstractHtml}${summaryHtml}</div>`
-          : "";
-
       card.innerHTML = `
         ${p.type ? `<span class="pub-type">${esc(p.type)}</span>` : ""}
         <h4 class="pub-title">${esc(p.title)}</h4>
@@ -566,7 +547,6 @@
         <p class="pub-venue">${[p.venue, p.year].filter(Boolean).map(esc).join(", ")}${
         p.note ? ` <span class="pub-badge">${esc(p.note)}</span>` : ""
       }</p>
-        ${dropdownsHtml}
         ${linksHtml}`;
       box.appendChild(card);
     });

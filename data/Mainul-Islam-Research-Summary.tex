@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+\titlespacing{\section}{0pt}{10pt}{4pt}
+\setlist[itemize]{leftmargin=1.4em, itemsep=3pt, topsep=2pt}
+\pagestyle{empty}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+    {\LARGE\bfseries Mainul Islam}\\[3pt]
+    {\large Research Experience, Skills, and Interests}\\[4pt]
+    Department of EEE, Islamic University of Technology, Gazipur, Bangladesh
+    \;\textbar\;
+    \href{mailto:mainulislam@iut-dhaka.edu}{mainulislam@iut-dhaka.edu}
+\end{center}
+
+\vspace{2pt}
+
+My background sits at the intersection of embedded control systems, robotics, and applied
+machine learning. Across five research projects and two years of hands-on robotics
+engineering, I have moved from designing the low-level control and communication backbone of
+multi-node robotic systems to validating control algorithms in simulation and applying deep
+learning to real-world perception problems. I am seeking a Ph.D.\ position to formalize this
+experience into rigorous research on AI-enabled digital twins and control co-design for
+autonomous systems.
+
+\section*{Control Systems, Robotics \& Simulation}
+\begin{itemize}
+    \item \textbf{MonoSIM} (published, IEEE): Co-developed an open-source Software-in-the-Loop
+    framework for Ackermann-steered vehicles, built to validate control algorithms before
+    hardware deployment. Implemented and compared Model Predictive Control (MPC) and PID
+    controllers against a monocular-vision lane-detection pipeline --- direct experience with
+    the simulate-design-validate loop central to control co-design and digital twins.
+
+    \item \textbf{Multi-node Real-Time Control} (published, IEEE ICCIT): Designed and timed a
+    master-slave RS485/UART communication architecture across 11+ STM32 microcontrollers
+    coordinating a 6-DOF robotic arm and drive system, using DMA and CRC for reliable,
+    low-latency feedback --- foundational experience in the real-time data pipelines that
+    AI-enabled digital twins depend on.
+
+    \item \textbf{Teleoperated Robotic Manipulator} (``Manportable''): Built the system
+    architecture for an 11-motor, dual-CAN-bus robot with a custom inverse-kinematics solver
+    for a 7-DOF arm, ROS2-based integration with full sensor feedback, and fault/failsafe
+    logic --- practical exposure to the design-control interaction that motivates control
+    co-design.
+
+    \item \textbf{Autonomous Ground Vehicle}: Contributed an Extended Kalman Filter built from
+    scratch to fuse dual-camera AprilTag detections with wheel odometry, and helped build the
+    ROS2 stack for localization, path planning, and LIDAR-based obstacle avoidance --- core
+    state-estimation skills for model-based and learning-based control.
+\end{itemize}
+
+\section*{Machine Learning \& Deep Learning}
+\begin{itemize}
+    \item \textbf{Bangla License Plate Recognition} (published, ICARA): Designed a two-stage
+    adaptive YOLOv8 training strategy with phase-aware augmentation for detection, paired with
+    a ViT + BanglaBERT OCR pipeline, validated on real low-light CCTV data --- hands-on deep
+    learning model design and rigorous benchmarking.
+
+    \item \textbf{Solar Panel Fault Detection} (published, Solar Energy): Contributed to a
+    hybrid RefineU-Net segmentation and MobileNetV3 classification framework for multi-class
+    fault detection, incorporating explainable AI (LIME) for interpretability --- experience
+    with efficient architectures and trustworthy-model considerations relevant to AI-driven
+    decision-making.
+
+    \item \textbf{Long-Term Energy Demand Forecasting} (published, IEEE): Benchmarked Random
+    Forest, KNN, XGBoost, and LightGBM on a million-sample utility dataset for long-term
+    demand prediction --- direct experience with data-driven modeling and comparative
+    optimization of learning algorithms.
+\end{itemize}
+
+\section*{Technical Skills}
+Python (PyTorch, scikit-learn), C/C++ (embedded, STM32), ROS2, real-time embedded control
+(UART, RS485, CAN bus, Modbus, DMA), classical estimation and control (EKF, PID, MPC), PCB
+design, Git, and end-to-end deployment of vision and forecasting models from data collection
+through publication.
+
+\section*{Research Interests}
+My core research interests span control systems, machine learning, computer vision, embedded
+systems \& IoT, autonomous systems, and robotics.
+
+My experience validating controllers in simulation before hardware deployment (MonoSIM) and
+building the real-time sensing/communication backbone for multi-agent robots naturally
+extends toward AI-enabled digital twins: systems that continuously learn from live data to
+inform design and control decisions. I am especially drawn to control co-design that couples
+reinforcement learning with physical design optimization, and to multi-fidelity,
+simulation-grounded approaches for dynamic autonomous and robotic systems, and I am eager to
+bring my combined control, embedded-systems, and deep-learning background to that work.
+
+\end{document}

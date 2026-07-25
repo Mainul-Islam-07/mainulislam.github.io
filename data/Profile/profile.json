@@ -131,9 +131,6 @@
         "Engineered a **layered fail-safe system** for a weaponized platform: asymmetric per-bus fault isolation with full-disarm, latched safe states, a degraded loopback mode, an encoder-battery startup gate, and fail-safe disrupter fire-control that disarms the instant the operator link drops.",
         "Built the **operator console** (Android/Kotlin): 5-feed low-latency RTSP switching (hardware MediaCodec), a real-time telemetry dashboard (Jetpack Compose), a **3D digital-twin OpenGL overlay**, two-way echo-cancelled intercom, gimbal control and the fire-control UI."
       ],
-      "links": [
-        { "label": "System Overview", "href": "assets/projects/onepagers/js2-system-overview.html", "icon": "fa-solid fa-file-lines" }
-      ],
       "image": "data/Projects/Manportable EOD JS2.0/main image.jpg",
       "gallery": [
         "data/Projects/Manportable EOD JS2.0/Coding, Developing, Debugging (Hardware and Software).JPG",
@@ -209,7 +206,6 @@
         "Engineered **FleetCore**, the central coordinator: 3 concurrent per-robot FSMs (~20 states), FIFO dispatch, atomic **lift/scanner mutual exclusion** with staging queues, and publish-until-accept command delivery."
       ],
       "links": [
-        { "label": "System Overview", "href": "assets/projects/onepagers/agv-system-overview.html", "icon": "fa-solid fa-file-lines" },
         { "label": "YouTube", "href": "https://www.youtube.com/watch?v=ooK1592gYgM", "icon": "fa-brands fa-youtube" }
       ],
       "image": "data/Projects/Autonomous Ground Vehicle AGV/main image.png",
@@ -277,9 +273,6 @@
         "Designed **relay (BC557-driven) and MOSFET load-drive** stages for boom barriers, sirens and RGB/indicator lighting, including bias-network tuning discovered during bring-up.",
         "**Simulated the analog front-end in Proteus** (input sensing, output driving, reverse-polarity and RGB-LED subsystems) prior to fabrication, and modeled a 3D-printed enclosure in SolidWorks.",
         "Performed **hardware bring-up and debugging**, cataloguing first-iteration issues (signal routing, divider values, regulator needs) and specifying fixes for the second iteration."
-      ],
-      "links": [
-        { "label": "System Overview", "href": "assets/projects/onepagers/tollbooth-system-overview.html", "icon": "fa-solid fa-file-lines" }
       ],
       "image": "data/Projects/Tollbooth Automation/main image.jpg",
       "gallery": [
