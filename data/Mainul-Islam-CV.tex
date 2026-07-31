@@ -1,0 +1,157 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\definecolor{linkblue}{HTML}{0B5FA5}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue, citecolor=linkblue}
+\usepackage{parskip}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[{\vspace{-5pt}\rule{\linewidth}{0.6pt}}]
+\titlespacing{\section}{0pt}{6pt}{3pt}
+\setlist[itemize]{leftmargin=1.2em, itemsep=1.2pt, topsep=1pt}
+\pagestyle{empty}
+\setlength{\parskip}{2pt}
+\newcommand{\me}{\textbf{M.\ Islam}}
+
+\begin{document}
+
+%========================= HEADER =========================
+\begin{center}
+    {\LARGE\bfseries Mainul Islam}\\[3pt]
+    \href{mailto:mainulislam@iut-dhaka.edu}{mainulislam@iut-dhaka.edu} \;\textbar\;
+    \href{https://scholar.google.com/citations?user=mHfGHugAAAAJ\&hl=en}{Google Scholar} \;\textbar\;
+    \href{https://www.linkedin.com/in/mainul-islam-254071205/}{LinkedIn} \;\textbar\;
+    \href{https://mainul-islam-07.github.io/mainulislam.github.io/}{Portfolio} \;\textbar\;
+    \href{https://www.youtube.com/@mainulislamefan}{YouTube}
+\end{center}
+
+%========================= EDUCATION =========================
+\section*{Education}
+\textbf{B.Sc.\ in Electrical and Electronic Engineering (EEE)} \hfill Jan 2020 -- Jun 2024\\
+\href{https://www.iutoic-dhaka.edu/}{Islamic University of Technology (IUT), Gazipur, Bangladesh} \hfill CGPA: 3.87 / 4.00
+
+\smallskip
+\textit{Thesis --- MonoSIM:} Developed an open-source Software-in-the-Loop (SIL) framework for
+autonomous Ackermann vehicles using a monocular-vision, sliding-window lane-detection pipeline,
+and implemented and benchmarked Model Predictive Control (MPC) and PID strategies for path
+tracking within the simulation environment (published and presented).
+
+%========================= PROFESSIONAL EXPERIENCE =========================
+\section*{Professional Experience}
+\textbf{Research and Development Engineer / Embedded Systems Engineer} ---
+\href{https://cyberneticsbd.com/}{Cybernetics Hi-Tech Solutions Pvt.\ Ltd.} \hfill Oct 2024 -- Present
+\begin{itemize}
+    \item \textbf{Autonomous Ground Vehicle (AGV):} Built a sensor-fusion system combining cameras,
+    wheel odometry, and visual markers for accurate self-localization. Added LiDAR-based obstacle
+    avoidance and unified navigation, localization, and motion control into a single ROS2 system.
+    Resolved a network bottleneck limiting inter-robot communication, and engineered unattended
+    system bring-up so the full autonomy stack self-initializes and comes online automatically at
+    power-up.
+    \item \textbf{Man-Portable Teleoperated Robot:} Built the communication and control system for an
+    11-motor robot, including safety interlocks and a fault-monitoring suite with automated fault
+    handling and recovery (over-current, communication-loss, and low-battery conditions). Added a
+    redundant wireless / fiber-optic link so the robot stays controllable if the primary connection
+    drops. Designed the manipulator-arm motion control and a low-latency live-video system with 5
+    cameras, a 3D digital-twin viewer, and remote camera control.
+    \item \textbf{Toll-Booth Automation:} Built an automated system to detect vehicles, verify
+    payment, and flag potential theft, using vehicle sensors and license-plate recognition. Designed
+    a custom control PCB with tamper protection and galvanic isolation.
+\end{itemize}
+
+\textbf{Part-Time Lecturer, Department of EEE} --- \href{https://www.aust.edu/}{Ahsanullah University
+of Science and Technology (AUST)} \hfill Jul 2025 -- Jun 2026
+\begin{itemize}
+    \item Instructed the \textbf{C++ Programming (EEE-1110)} and \textbf{Digital Signal Processing
+    (EEE-3218)} laboratories across two consecutive semesters, including lecturing, lab-manual
+    preparation, and student assessment.
+\end{itemize}
+
+%========================= PUBLICATIONS =========================
+\section*{Publications}
+
+\textbf{Peer-Reviewed Journal Articles}
+\begin{itemize}
+    \item A.\ U.\ R.\ Adib, \me, M.\ S.\ Abid, R.\ Ahshan, ``A deep learning based framework for
+    solar panel segmentation and fault classification enhanced with explainable AI,'' \textit{Solar
+    Energy}, vol.\ 302, 2025. (Impact Factor: 6.6) \\
+    DOI: \href{https://doi.org/10.1016/j.solener.2025.114058}{10.1016/j.solener.2025.114058}
+\end{itemize}
+
+\textbf{Peer-Reviewed Conference Papers}
+\begin{itemize}
+    \item S.\ Rahman, N.\ Hasin, \me, M.\ Z.\ A.\ Rony, G.\ Sarowar, ``MonoSIM: An open-source SIL
+    framework for Ackermann vehicular systems with monocular vision,'' \textit{IEEE 12th Intl.\ Conf.\
+    on Automation, Robotics and Applications (ICARA)}, 2026. \\
+    DOI: \href{https://doi.org/10.1109/ICARA69401.2026.11480327}{10.1109/ICARA69401.2026.11480327}
+    \item N.\ Hasin, M.\ A.\ R.\ Nishat, \me, K.\ S.\ A.\ Hasan, A.\ Newaz, ``A robust deep learning
+    framework for Bangla license plate recognition using YOLO and vision-language OCR,'' \textit{IEEE
+    Intl.\ Conf.\ on AI and Data Analytics (ICAD)}, 2026. \\
+    DOI: \href{https://doi.org/10.1109/ICAD69378.2026.11608728}{10.1109/ICAD69378.2026.11608728}
+    \item H.\ Haque, \me, M.\ A.\ I.\ Alvy, M.\ S.\ Islam, M.\ A.\ Razzak, ``Long-term energy demand
+    analysis using machine learning algorithms: A case study in Bangladesh,'' \textit{IEEE ICECIE},
+    2024. \\
+    DOI: \href{https://doi.org/10.1109/ICECIE63774.2024.10815643}{10.1109/ICECIE63774.2024.10815643}
+    \item M.\ S.\ Tanvir, F.\ A.\ Tonmoy, M.\ M.\ Islam, \me, M.\ Hasan, ``Optimizing master--slave
+    broadcast and unicast communication in multi-node STM32 networks using UART and RS485
+    protocols,'' \textit{IEEE ICCIT}, 2024. \\
+    DOI: \href{https://doi.org/10.1109/ICCIT64611.2024.11022430}{10.1109/ICCIT64611.2024.11022430}
+\end{itemize}
+
+\textbf{Manuscripts Under Review}
+\begin{itemize}
+    \item S.\ Rahman, M.\ K.\ Hossain, A.\ Banik, \me, A.\ Al-Hysam, I.\ Ahmed, ``Topological survey of
+    Zeta power converters from classical designs to emerging architectures.''
+    \item M.\ M.\ Islam, \me, M.\ S.\ Tanvir, ``Speed synchronization of a dual-BLDC tracked
+    differential-drive vehicle using a GA-tuned multi-rate cross-coupled controller.''
+\end{itemize}
+
+\vspace{-5pt}
+%========================= PROJECTS =========================
+\section*{Projects}
+\begin{itemize}
+    \item \textbf{\href{https://www.youtube.com/watch?v=Bf5ViUtLQ4g}{Man-Transportable EOD ROV (JS2.0)}:} CANopen control of 11 servos over dual CAN, STM32 SBUS-over-UDP link with wireless failover, closed-form 7-DOF inverse kinematics, layered fail-safe logic, and the Android operator console \textit{(in progress)}.
+    \item \textbf{\href{https://www.youtube.com/watch?v=3r5VhLD1Ths}{Jontro Soinik 1.0} \& Smart Soinik 1.0:} Addressable-UART modular control, sensor and power-system integration up to PCB fabrication, and field testing.
+    \item \textbf{\href{https://www.youtube.com/watch?v=hJlHvlHfOaA}{Autonomous Guided Vehicle --- CYBERFLEET}:} Built the ROS2 autonomy stack --- 5-state EKF (AprilTag + odometry), space-time A* planner, trajectory-tracking controller, and the fleet coordinator.
+    \item \textbf{Autonomous Target-Tracking Drone:} Onboard-vision target tracking (YOLO on Raspberry Pi 5; DeepSORT/KCF), dataset creation, and flight-time optimization.
+    \item \textbf{Surveillance Drone (SD15-N):} Flight-time analysis and optimization (drag, thrust, battery) and field testing.
+    \item \textbf{Toll-Booth Automation:} STM32 based DMA-UART + WIZnet W5500 TCP stack, and three custom PCBs design, manufacture and assembly .
+    \item \textbf{Offline Hardware CryptoWallet:} System state machine, display/touch UI and QR-based offline transaction signing.
+    \item \textbf{8-bit SAP-1 Computer:} Designed an educational 8-bit CPU (ALU, control unit, registers) with reduced T-states executing the fetch--decode--execute cycle.
+    \item \textbf{LiPo Battery Management System (BMS):} MATLAB cell-protection simulation (load cut-off outside 3.7--4.2\,V, 2S--6S) and PCB design.
+    \item \textbf{Pulse-Width Measurement \& Generation (AT89S52):} 8051 assembly firmware for frequency/duty-cycle measurement with threshold alarm and summed-frequency signal generation.
+    \item \textbf{\href{https://www.facebook.com/projectaltair}{IUT Mars Rover --- Project Altair}:} Electrical system design --- PCB design, hardware integration, and debugging.
+    \item \textbf{\href{https://www.facebook.com/iutavijatrik}{IUT Mars Rover --- Team Avijatrik}:} Designed the wheel-drive board and several PCBs/sub-circuits; wiring and debugging.
+\end{itemize}
+\vspace{-3pt}
+%========================= TECHNICAL SKILLS =========================
+\section*{Technical Skills}
+\vspace{-3pt}
+\textbf{Programming:} Python, C/C++, MATLAB, Embedded C \\
+\textbf{ML / DL:} PyTorch, TensorFlow, scikit-learn, YOLO, Explainable AI (LIME/SHAP), Vision-Language OCR \\
+\textbf{Robotics / Control:} ROS2, Extended Kalman Filter (EKF), sensor fusion, inverse kinematics,
+MPC, PID, LiDAR/vision perception, AprilTag/vision-based localization \\
+\textbf{Embedded \& Communication:} CAN bus, RS-485, UART, Modbus, STM32, PCB design, real-time
+distributed control \\
+\textbf{CAD / 3D Design:} Autodesk Fusion, Onshape
+
+%========================= HONORS =========================
+\section*{Honors \& Achievements}
+\begin{itemize}
+    \item \textbf{IRC 2024 --- 6th Global:} International Rover Challenge; ABEX Best Science Team
+    (Project Altair, 1st in Bangladesh).
+    \item \textbf{ERC 2023 --- 16th Global:} European Rover Challenge (Project Altair).
+    \item \textbf{IRDC 2021 --- 11th Global:} Indian Rover Design Challenge (Team Avijatrik, 1st in
+    Bangladesh).
+    \item \textbf{\href{https://www.mathworks.com/matlabcentral/profile/authors/25804044}{MATLAB Cody}:} Global rank 117; 914 problems solved; 26 badges.
+\end{itemize}
+
+%========================= REFERENCES =========================
+\section*{References}
+\textbf{\href{https://scholar.google.com/citations?hl=en\&user=3waAWaYAAAAJ\&view_op=list_works\&sortby=pubdate}{Prof.\ Dr.\ Golam Sarowar}} --- B.Sc.\ Thesis Supervisor \\
+Professor, Department of EEE, Islamic University of Technology (IUT) \\
+Email: asim@iut-dhaka.edu
+
+\end{document}

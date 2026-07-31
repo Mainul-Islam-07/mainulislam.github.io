@@ -1,16 +1,18 @@
-\documentclass[11pt]{article}
+\documentclass[10.5pt]{article}
 
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.85in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
 \usepackage{parskip}
 
-\titleformat{\section}{\large\bfseries}{}{0em}{}
-\titlespacing{\section}{0pt}{10pt}{4pt}
-\setlist[itemize]{leftmargin=1.4em, itemsep=3pt, topsep=2pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[{\vspace{-4pt}\rule{\linewidth}{0.5pt}}]
+\titlespacing{\section}{0pt}{9pt}{3pt}
+\setlist[itemize]{leftmargin=1.3em, itemsep=2.5pt, topsep=2pt}
 \pagestyle{empty}
-\setlength{\parskip}{6pt}
+\setlength{\parskip}{4pt}
+\newcommand{\pub}[1]{\textit{(published, #1)}}
+\newcommand{\rev}{\textit{(under review)}}
 
 \begin{document}
 
@@ -24,75 +26,81 @@
 
 \vspace{2pt}
 
-My background sits at the intersection of embedded control systems, robotics, and applied
-machine learning. Across five research projects and two years of hands-on robotics
-engineering, I have moved from designing the low-level control and communication backbone of
-multi-node robotic systems to validating control algorithms in simulation and applying deep
-learning to real-world perception problems. I am seeking a Ph.D.\ position to formalize this
-experience into rigorous research on AI-enabled digital twins and control co-design for
-autonomous systems.
+This summary spans seven publications (five published, two under review) and hands-on projects across
+control, machine learning, computer vision, embedded systems, autonomous systems, and robotics.
 
-\section*{Control Systems, Robotics \& Simulation}
+\section*{Research Interests}
+Building on my experience across control, machine learning, and embedded robotics, I am interested in
+pursuing future research on:
 \begin{itemize}
-    \item \textbf{MonoSIM} (published, IEEE): Co-developed an open-source Software-in-the-Loop
-    framework for Ackermann-steered vehicles, built to validate control algorithms before
-    hardware deployment. Implemented and compared Model Predictive Control (MPC) and PID
-    controllers against a monocular-vision lane-detection pipeline --- direct experience with
-    the simulate-design-validate loop central to control co-design and digital twins.
-
-    \item \textbf{Multi-node Real-Time Control} (published, IEEE ICCIT): Designed and timed a
-    master-slave RS485/UART communication architecture across 11+ STM32 microcontrollers
-    coordinating a 6-DOF robotic arm and drive system, using DMA and CRC for reliable,
-    low-latency feedback --- foundational experience in the real-time data pipelines that
-    AI-enabled digital twins depend on.
-
-    \item \textbf{Teleoperated Robotic Manipulator} (``Manportable''): Built the system
-    architecture for an 11-motor, dual-CAN-bus robot with a custom inverse-kinematics solver
-    for a 7-DOF arm, ROS2-based integration with full sensor feedback, and fault/failsafe
-    logic --- practical exposure to the design-control interaction that motivates control
-    co-design.
-
-    \item \textbf{Autonomous Ground Vehicle}: Contributed an Extended Kalman Filter built from
-    scratch to fuse dual-camera AprilTag detections with wheel odometry, and helped build the
-    ROS2 stack for localization, path planning, and LIDAR-based obstacle avoidance --- core
-    state-estimation skills for model-based and learning-based control.
+    \item Learning-based and adaptive control (including reinforcement learning) for autonomous and
+    multi-agent robotic systems.
+    \item Robust perception, sensor fusion, and state estimation for reliable autonomy in unstructured,
+    real-world environments.
+    \item AI-enabled digital twins and control co-design that couple simulation, learning, and
+    physical-system design.
+    \item Efficient, interpretable, and trustworthy machine learning for edge and embedded deployment
+    in safety-critical applications.
+    \item Real-time, fault-tolerant embedded and cyber-physical systems for field robotics and IoT.
 \end{itemize}
 
-\section*{Machine Learning \& Deep Learning}
+\section*{Control Systems, Autonomous Systems \& Robotics}
 \begin{itemize}
-    \item \textbf{Bangla License Plate Recognition} (published, ICARA): Designed a two-stage
-    adaptive YOLOv8 training strategy with phase-aware augmentation for detection, paired with
-    a ViT + BanglaBERT OCR pipeline, validated on real low-light CCTV data --- hands-on deep
-    learning model design and rigorous benchmarking.
+    \item \textbf{MonoSIM} \pub{IEEE ICARA}: Open-source Software-in-the-Loop framework for
+    Ackermann-steered autonomous vehicles; implemented and benchmarked Model Predictive Control (MPC)
+    and PID against a monocular-vision lane-detection pipeline --- the simulate--design--validate loop
+    central to control co-design and digital twins.
+    \item \textbf{Speed Synchronization of a Dual-BLDC Tracked Vehicle} \rev: GA-tuned multi-rate
+    cross-coupled controller for precise speed synchronization of a differential-drive tracked platform.
+    \item \textbf{Autonomous Ground Vehicle --- CYBERFLEET} (project): ROS2 autonomy stack for a
+    3-robot warehouse fleet --- a from-scratch 5-state EKF fusing AprilTag vision with wheel odometry,
+    space-time A* planning, trajectory tracking, and LiDAR obstacle avoidance.
+    \item \textbf{Man-Transportable EOD ROV (JS2.0)} (project): System architecture for an 11-motor,
+    dual-CAN robot --- closed-form 7-DOF inverse kinematics (verified with MoveIt 2), redundant
+    wired/wireless control, and layered fail-safe logic.
+    \item \textbf{EOD ROVs --- Jontro Soinik 1.0 \& Smart Soinik 1.0} (delivered): Real-time embedded
+    firmware and addressable-UART modular control for field-deployed robots operating under the
+    Bangladesh Army and a UN Peacekeeping Mission.
+    \item \textbf{Autonomous Target-Tracking Drone} (project): Onboard-vision detection and tracking
+    (YOLO on Raspberry Pi 5; DeepSORT/KCF) integrated with the flight controller.
+    \item \textbf{Surveillance Drone (SD15-N)} (project) \& \textbf{Fixed-Wing VTOL UAV} (project):
+    Long-endurance-UAV flight-time optimization (drag/thrust/battery), and a prototype study of
+    aerodynamic stability, control allocation, and VTOL-to-fixed-wing transition.
+\end{itemize}
 
-    \item \textbf{Solar Panel Fault Detection} (published, Solar Energy): Contributed to a
-    hybrid RefineU-Net segmentation and MobileNetV3 classification framework for multi-class
-    fault detection, incorporating explainable AI (LIME) for interpretability --- experience
-    with efficient architectures and trustworthy-model considerations relevant to AI-driven
-    decision-making.
+\section*{Machine Learning, Computer Vision \& Deep Learning}
+\begin{itemize}
+    \item \textbf{Bangla License Plate Recognition} \pub{IEEE ICAD}: Two-stage adaptive YOLOv8
+    detector paired with a ViT + BanglaBERT vision-language OCR pipeline, validated on real low-light
+    CCTV data.
+    \item \textbf{Solar Panel Fault Detection} \pub{Solar Energy, IF 6.6}: Hybrid RefineU-Net
+    segmentation and MobileNetV3 classification for multi-class PV fault detection, with LIME-based
+    explainable AI for interpretability.
+    \item \textbf{Long-Term Energy Demand Forecasting} \pub{IEEE ICECIE}: Benchmarked Random Forest,
+    KNN, XGBoost, and LightGBM on a million-sample utility dataset for long-horizon demand prediction.
+\end{itemize}
 
-    \item \textbf{Long-Term Energy Demand Forecasting} (published, IEEE): Benchmarked Random
-    Forest, KNN, XGBoost, and LightGBM on a million-sample utility dataset for long-term
-    demand prediction --- direct experience with data-driven modeling and comparative
-    optimization of learning algorithms.
+\section*{Embedded Systems, Power Electronics \& Hardware}
+\begin{itemize}
+    \item \textbf{Multi-node Real-Time Control} \pub{IEEE ICCIT}: Master--slave RS485/UART
+    architecture across 11+ STM32 microcontrollers with DMA and CRC for reliable, low-latency
+    distributed control.
+    \item \textbf{Topological Survey of Zeta Power Converters} \rev: Comparative study of Zeta
+    converter topologies, from classical designs to emerging architectures.
+    \item \textbf{Toll-Booth Automation} (project): Industrial multi-lane STM32 controller ---
+    table-driven FSM firmware, DMA-UART and WIZnet W5500 TCP networking, and three custom PCBs with
+    galvanic isolation.
+    \item \textbf{Offline Hardware CryptoWallet} (project): Air-gapped embedded wallet --- system
+    state machine, touchscreen UI, BIP-39 key generation, and QR-based offline transaction signing.
+    \item \textbf{Undergraduate \& team hardware}: 8-bit SAP-1 computer; LiPo Battery Management
+    System; pulse-width measurement/generation on the AT89S52; and IUT Mars Rover (Project Altair,
+    Team Avijatrik) --- PCB design, hardware integration, and debugging for international rover challenges.
 \end{itemize}
 
 \section*{Technical Skills}
-Python (PyTorch, scikit-learn), C/C++ (embedded, STM32), ROS2, real-time embedded control
-(UART, RS485, CAN bus, Modbus, DMA), classical estimation and control (EKF, PID, MPC), PCB
-design, Git, and end-to-end deployment of vision and forecasting models from data collection
-through publication.
-
-\section*{Research Interests}
-My core research interests span control systems, machine learning, computer vision, embedded
-systems \& IoT, autonomous systems, and robotics.
-
-My experience validating controllers in simulation before hardware deployment (MonoSIM) and
-building the real-time sensing/communication backbone for multi-agent robots naturally
-extends toward AI-enabled digital twins: systems that continuously learn from live data to
-inform design and control decisions. I am especially drawn to control co-design that couples
-reinforcement learning with physical design optimization, and to multi-fidelity,
-simulation-grounded approaches for dynamic autonomous and robotic systems, and I am eager to
-bring my combined control, embedded-systems, and deep-learning background to that work.
+Python (PyTorch, scikit-learn), C/C++ (embedded, STM32), ROS2, real-time embedded control (UART,
+RS485, CAN bus, Modbus, DMA), classical estimation and control (EKF, PID, MPC), computer vision, PCB
+design, Git, and end-to-end deployment of vision and forecasting models from data collection through
+publication.
 
 \end{document}

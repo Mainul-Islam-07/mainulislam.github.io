@@ -68,7 +68,7 @@
       "venue": "IEEE Intl. Conf. on AI and Data Analytics (ICAD)",
       "year": "2026",
       "note": "",
-      "doi": "arXiv:2603.10267",
+      "doi": "10.1109/ICAD69378.2026.11608728",
       "pdf": "assets/files/Islam-2026-Bangla-LPR-YOLO-VLM-OCR.pdf",
       "abstract": "An Automatic License Plate Recognition (ALPR) system constitutes a crucial element in an intelligent traffic management system. However, the detection of Bangla license plates remains challenging because of the complicated character scheme and uneven layouts. This paper presents a robust Bangla License Plate Recognition system that integrates a deep learning-based object detection model for license plate localization with Optical Character Recognition for text extraction. Multiple object detection architectures, including U-Net and several YOLO (You Only Look Once) variants, are compared for license plate localization. This study proposes a novel two-stage adaptive training strategy built upon the YOLOv8 architecture to improve localization performance. The proposed approach outperforms established models, achieving an accuracy of 97.83% and an Intersection over Union (IoU) of 91.3%. The text recognition problem is phrased as a sequence generation problem with a VisionEncoderDecoder architecture, and a combination of encoder-decoders is evaluated. The ViT + BanglaBERT model gives the best results at the character level, with a Character Error Rate of 0.1323 and Word Error Rate of 0.1068. The system also shows consistent performance on an external dataset curated for this study, offering completely different environment and lighting conditions from the training sample, indicating the robustness of the framework. Overall, the proposed system provides a robust and reliable solution for Bangla license plate recognition and performs effectively across diverse real-world scenarios, making it well suited for deployment in intelligent transportation applications such as automated law enforcement and access control.",
       "highlights": [
@@ -111,6 +111,24 @@
         "Addresses half-duplex RS485 bus arbitration and node addressing for reliable multi-node embedded networking.",
         "A practical embedded-systems contribution for distributed sensor and actuator networks."
       ]
+    },
+    {
+      "type": "Under Review",
+      "title": "Topological Survey of Zeta Power Converters from Classical Designs to Emerging Architectures",
+      "authors": "",
+      "venue": "Manuscript under peer review",
+      "year": "",
+      "note": "",
+      "pdf": "assets/files/Islam-UnderReview-Zeta-Converters-Survey.pdf"
+    },
+    {
+      "type": "Under Review",
+      "title": "Speed Synchronization of a Dual-BLDC Tracked Differential-Drive Vehicle Using a GA-Tuned Multi-Rate Cross-Coupled Controller",
+      "authors": "",
+      "venue": "Manuscript under peer review",
+      "year": "",
+      "note": "",
+      "pdf": "assets/files/Islam-UnderReview-Dual-BLDC-Speed-Sync.pdf"
     }
   ],
 
