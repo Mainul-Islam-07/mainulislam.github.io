@@ -4,8 +4,7 @@
   "headline": "R&D Engineer · Embedded Systems, Robotics & Control",
   "summary": "I'm a Research & Development engineer specializing in embedded systems, robotics, and control — I build the electrical and software stacks that let complex machines move, sense, and think. At Cybernetics Hi-Tech Solutions I develop safety-critical robots and autonomous platforms end-to-end: from man-transportable EOD ROVs with multi-DOF manipulator arms to autonomous ground vehicles, target-tracking drones, and industrial control systems — working across firmware (STM32, CAN/RS-485, ROS 2), hardware and PCB design, and operator software.\n\nMy research sits at the intersection of machine learning and physical systems. I've published work on deep-learning-based solar-panel fault diagnosis (Solar Energy, IF 6.6), monocular-vision autonomous vehicles, Bangla license-plate recognition, and multi-node embedded communication. I completed my BSc in Electrical & Electronic Engineering at the Islamic University of Technology (IUT) with a CGPA of 3.87/4.00 on a full merit scholarship, and I also teach as a part-time lecturer at AUST.\n\nI'm passionate about autonomous systems and building things that work reliably in the real world — turning research ideas into robust, deployable hardware and pushing toward smarter, more capable robots.",
   "avatar": "assets/img/mainul-islam.jpg",
-  "cv": "assets/files/Mainul-Islam-CV.pdf",
-  "researchSummary": "assets/files/Mainul-Islam-Research-Summary.pdf",
+  "cv": "assets/files/Mainul_Islam_CV.pdf",
   "themeColor": "#0ea5e9",
   "email": "mainulislam@iut-dhaka.edu",
   "linkedin": "https://www.linkedin.com/in/mainul-islam-254071205/",
@@ -113,12 +112,13 @@
       ]
     },
     {
-      "type": "Under Review",
+      "type": "Journal Article",
       "title": "Topological Survey of Zeta Power Converters from Classical Designs to Emerging Architectures",
       "authors": "",
-      "venue": "Manuscript under peer review",
-      "year": "",
-      "note": ""
+      "venue": "Energy Conversion and Management: X (Elsevier), art. no. 102222",
+      "year": "2026",
+      "note": "Impact Factor 8.8",
+      "doi": "10.1016/j.ecmx.2026.102222"
     },
     {
       "type": "Under Review",
@@ -570,7 +570,7 @@
       "period": "2020-01-2024-06",
       "highlights": [
         "CGPA: 3.87/4.00 (4.00/4.00 in the last two semesters).",
-        "Full tuition-waiver merit scholarship."
+        "OIC Partial Scholarship (2019) — 4 years of free tuition and residence at Islamic University of Technology, Bangladesh."
       ],
       "links": [
         { "label": "Relevant Coursework", "href": "assets/education/coursework.html" },

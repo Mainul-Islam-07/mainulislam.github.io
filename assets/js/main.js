@@ -164,11 +164,6 @@
       if (profile.cv) cv.href = profile.cv;
       else cv.style.display = "none";
     }
-    const rs = document.getElementById("research-summary-link");
-    if (rs) {
-      if (profile.researchSummary) rs.href = profile.researchSummary;
-      else rs.style.display = "none";
-    }
 
     /* --- Links --- */
     if (profile.email)

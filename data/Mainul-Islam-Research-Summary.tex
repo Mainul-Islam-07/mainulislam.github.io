@@ -1,106 +1,90 @@
 \documentclass[10.5pt]{article}
 
-\usepackage[margin=0.85in]{geometry}
+\usepackage[margin=0.8in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage[hidelinks]{hyperref}
 \usepackage{parskip}
 
 \titleformat{\section}{\large\bfseries}{}{0em}{}[{\vspace{-4pt}\rule{\linewidth}{0.5pt}}]
-\titlespacing{\section}{0pt}{9pt}{3pt}
-\setlist[itemize]{leftmargin=1.3em, itemsep=2.5pt, topsep=2pt}
+\titlespacing{\section}{0pt}{3pt}{3pt}
+\setlist[itemize]{leftmargin=1.25em, itemsep=2pt, topsep=2pt}
 \pagestyle{empty}
 \setlength{\parskip}{4pt}
-\newcommand{\pub}[1]{\textit{(published, #1)}}
-\newcommand{\rev}{\textit{(under review)}}
+
+\newcommand{\pub}[1]{\textnormal{\textit{#1}}}
 
 \begin{document}
 
+%========================= HEADER =========================
 \begin{center}
-    {\LARGE\bfseries Mainul Islam}\\[3pt]
-    {\large Research Experience, Skills, and Interests}\\[4pt]
-    Department of EEE, Islamic University of Technology, Gazipur, Bangladesh
-    \;\textbar\;
-    \href{mailto:mainulislam@iut-dhaka.edu}{mainulislam@iut-dhaka.edu}
+    {\LARGE\bfseries Mainul Islam}\\[4pt]
+    {\large Research Summary}
 \end{center}
 
 \vspace{2pt}
 
-This summary spans seven publications (five published, two under review) and hands-on projects across
-control, machine learning, computer vision, embedded systems, autonomous systems, and robotics.
-
+%========================= INTERESTS =========================
 \section*{Research Interests}
-Building on my experience across control, machine learning, and embedded robotics, I am interested in
-pursuing future research on:
 \begin{itemize}
-    \item Learning-based and adaptive control (including reinforcement learning) for autonomous and
-    multi-agent robotic systems.
-    \item Robust perception, sensor fusion, and state estimation for reliable autonomy in unstructured,
-    real-world environments.
-    \item AI-enabled digital twins and control co-design that couple simulation, learning, and
-    physical-system design.
-    \item Efficient, interpretable, and trustworthy machine learning for edge and embedded deployment
-    in safety-critical applications.
-    \item Real-time, fault-tolerant embedded and cyber-physical systems for field robotics and IoT.
+    \item Learning-based and adaptive control for autonomous systems --- when learned policies beat
+    well-tuned model-based control, and how to certify it.
+    \item Robust perception, sensor fusion, and state estimation under delayed, intermittent, or
+    drifting measurements.
+    \item Sim-to-real transfer and digital twins --- closing the simulate--design--validate gap
+    systematically.
+    \item Efficient, interpretable ML for safety-critical edge deployment.
 \end{itemize}
 
-\section*{Control Systems, Autonomous Systems \& Robotics}
+%========================= PUBLICATIONS =========================
+\section*{Publications}
 \begin{itemize}
-    \item \textbf{MonoSIM} \pub{IEEE ICARA}: Open-source Software-in-the-Loop framework for
-    Ackermann-steered autonomous vehicles; implemented and benchmarked Model Predictive Control (MPC)
-    and PID against a monocular-vision lane-detection pipeline --- the simulate--design--validate loop
-    central to control co-design and digital twins.
-    \item \textbf{Speed Synchronization of a Dual-BLDC Tracked Vehicle} \rev: GA-tuned multi-rate
-    cross-coupled controller for precise speed synchronization of a differential-drive tracked platform.
-    \item \textbf{Autonomous Ground Vehicle --- CYBERFLEET} (project): ROS2 autonomy stack for a
-    3-robot warehouse fleet --- a from-scratch 5-state EKF fusing AprilTag vision with wheel odometry,
-    space-time A* planning, trajectory tracking, and LiDAR obstacle avoidance.
-    \item \textbf{Man-Transportable EOD ROV (JS2.0)} (project): System architecture for an 11-motor,
-    dual-CAN robot --- closed-form 7-DOF inverse kinematics (verified with MoveIt 2), redundant
-    wired/wireless control, and layered fail-safe logic.
-    \item \textbf{EOD ROVs --- Jontro Soinik 1.0 \& Smart Soinik 1.0} (delivered): Real-time embedded
-    firmware and addressable-UART modular control for field-deployed robots operating under the
-    Bangladesh Army and a UN Peacekeeping Mission.
-    \item \textbf{Autonomous Target-Tracking Drone} (project): Onboard-vision detection and tracking
-    (YOLO on Raspberry Pi 5; DeepSORT/KCF) integrated with the flight controller.
-    \item \textbf{Surveillance Drone (SD15-N)} (project) \& \textbf{Fixed-Wing VTOL UAV} (project):
-    Long-endurance-UAV flight-time optimization (drag/thrust/battery), and a prototype study of
-    aerodynamic stability, control allocation, and VTOL-to-fixed-wing transition.
+    \item \pub{MonoSIM} (\textit{IEEE ICARA 2026}, B.Sc.\ thesis) --- open-source software-in-the-loop
+    framework for Ackermann vehicles. \textit{I built the simulation testbed and the monocular
+    sliding-window lane-detection pipeline, then implemented and benchmarked MPC against PID for path
+    tracking} --- closing the perception-to-control loop entirely in simulation. The platform is released
+    openly so other groups can validate control strategies before committing to hardware.
+    \item \textit{Solar Energy} (Elsevier, IF 6.6, 2025) --- two-stage PV fault inspection.
+    \textit{I developed the deep-learning segmentation and fault-classification pipeline (U-Net/RefineNet,
+    93.6\% IoU; MobileNetV3, 97.5\% accuracy) and added LIME-based explainability} to make each diagnosis
+    auditable for field maintenance. The framework generalizes across two public datasets and diverse
+    real-world fault types, supporting automated, transparent PV monitoring.
+    \item \textit{Energy Conversion and Management: X} (Elsevier, IF 8.8, 2026) --- topological survey of
+    zeta power converters, from classical designs to emerging architectures. \textit{I contributed to the
+    topology comparison and analysis.} It consolidates scattered converter designs into a single comparative
+    reference to guide topology selection.
+    \item \textit{IEEE ICAD 2026} --- robust Bangla license-plate recognition.
+    \textit{I contributed the adaptive YOLOv8 detection stage (97.8\% accuracy) and the out-of-distribution
+    evaluation on a curated low-light dataset}, coupled to a ViT\,+\,BanglaBERT vision--language OCR reader.
+    The vision--language design handles conjunct characters and multi-line layouts that defeat conventional
+    OCR engines.
+    \item \textit{IEEE ICECIE 2024} --- long-horizon electricity-demand forecasting.
+    \textit{I built and benchmarked the ML forecasters (Random Forest, KNN, XGBoost, LightGBM) and the
+    feature pipeline} on a million-sample utility dataset ($R^2 = 0.94$). The comparison frames model choice
+    as a practical planning tool for a fast-growing developing-country grid.
+    \item \textit{IEEE ICCIT 2024} --- distributed real-time embedded networking.
+    \textit{I co-developed the master--slave RS485 communication firmware and its timing analysis across
+    eleven STM32 nodes}, validated on a 6-DOF manipulator ROV. A selective-feedback scheme keeps every node
+    synchronized without saturating the half-duplex bus, enabling scalable actuator and sensor networks.
+    \item \textit{Under review} --- speed synchronization of a dual-BLDC tracked differential-drive
+    vehicle using a GA-tuned multi-rate cross-coupled controller. \textit{I co-developed the control scheme
+    and its evaluation.} The approach targets accurate straight-line tracking and reduced heading drift on
+    skid-steer platforms.
 \end{itemize}
 
-\section*{Machine Learning, Computer Vision \& Deep Learning}
+%========================= SYSTEMS =========================
+\section*{Research-Grade Systems Built and Deployed}
+As an R\&D engineer at Cybernetics Hi-Tech Solutions, I own fielded platforms end-to-end --- the source of
+most of my research questions.
 \begin{itemize}
-    \item \textbf{Bangla License Plate Recognition} \pub{IEEE ICAD}: Two-stage adaptive YOLOv8
-    detector paired with a ViT + BanglaBERT vision-language OCR pipeline, validated on real low-light
-    CCTV data.
-    \item \textbf{Solar Panel Fault Detection} \pub{Solar Energy, IF 6.6}: Hybrid RefineU-Net
-    segmentation and MobileNetV3 classification for multi-class PV fault detection, with LIME-based
-    explainable AI for interpretability.
-    \item \textbf{Long-Term Energy Demand Forecasting} \pub{IEEE ICECIE}: Benchmarked Random Forest,
-    KNN, XGBoost, and LightGBM on a million-sample utility dataset for long-horizon demand prediction.
+    \item \textbf{Autonomous fleet (CYBERFLEET).} Complete ROS\,2 stack for a three-robot AGV fleet:
+    five-state EKF fusing 50\,Hz odometry with AprilTag observations (Joseph-form updates, out-of-sequence
+    handling), space-time A\textsuperscript{*} multi-agent planning, and a 50\,Hz trajectory tracker.
+    \item \textbf{Man-transportable EOD robot (7-DOF).} Closed-form inverse kinematics verified against the
+    URDF and integrated with MoveIt\,2; CANopen (CiA-402) control of eleven servo drives over two CAN buses,
+    with a layered fail-safe architecture.
+    \item \textbf{Onboard-vision UAV.} YOLO detection with DeepSORT/KCF tracking on embedded accelerator
+    hardware --- a study in accuracy-versus-latency trade-offs under power constraints.
 \end{itemize}
-
-\section*{Embedded Systems, Power Electronics \& Hardware}
-\begin{itemize}
-    \item \textbf{Multi-node Real-Time Control} \pub{IEEE ICCIT}: Master--slave RS485/UART
-    architecture across 11+ STM32 microcontrollers with DMA and CRC for reliable, low-latency
-    distributed control.
-    \item \textbf{Topological Survey of Zeta Power Converters} \rev: Comparative study of Zeta
-    converter topologies, from classical designs to emerging architectures.
-    \item \textbf{Toll-Booth Automation} (project): Industrial multi-lane STM32 controller ---
-    table-driven FSM firmware, DMA-UART and WIZnet W5500 TCP networking, and three custom PCBs with
-    galvanic isolation.
-    \item \textbf{Offline Hardware CryptoWallet} (project): Air-gapped embedded wallet --- system
-    state machine, touchscreen UI, BIP-39 key generation, and QR-based offline transaction signing.
-    \item \textbf{Undergraduate \& team hardware}: 8-bit SAP-1 computer; LiPo Battery Management
-    System; pulse-width measurement/generation on the AT89S52; and IUT Mars Rover (Project Altair,
-    Team Avijatrik) --- PCB design, hardware integration, and debugging for international rover challenges.
-\end{itemize}
-
-\section*{Technical Skills}
-Python (PyTorch, scikit-learn), C/C++ (embedded, STM32), ROS2, real-time embedded control (UART,
-RS485, CAN bus, Modbus, DMA), classical estimation and control (EKF, PID, MPC), computer vision, PCB
-design, Git, and end-to-end deployment of vision and forecasting models from data collection through
-publication.
 
 \end{document}
