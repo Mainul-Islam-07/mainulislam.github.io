@@ -52,6 +52,10 @@
       "note": "B.Sc. Thesis",
       "doi": "10.1109/ICARA69401.2026.11480327",
       "pdf": "assets/files/Islam-2026-MonoSIM-ICARA.pdf",
+      "links": [
+        { "label": "Working Video", "href": "https://youtu.be/UKBCvdY1r2U", "icon": "fa-brands fa-youtube" },
+        { "label": "GitHub Repository", "href": "https://github.com/shantanu404/monosim", "icon": "fa-brands fa-github" }
+      ],
       "abstract": "This paper presents an open-source Software-in-the-Loop (SIL) simulation platform designed for autonomous Ackermann vehicle research and education. The proposed framework focuses on simplicity while making it easy to work with small-scale experimental setups such as the XTENTH-CAR platform. The system was designed using open-source tools, creating an environment with a monocular camera vision system to capture stimuli with minimal computational overhead through a sliding-window based lane detection method. The platform supports a flexible algorithm testing and validation environment, allowing researchers to implement and compare various control strategies within an easy-to-use virtual environment. To validate the platform, Model Predictive Control (MPC) and Proportional-Integral-Derivative (PID) algorithms were implemented within the SIL framework. The results confirm that the platform provides a reliable environment for algorithm verification, making it an ideal tool for future multi-agent system research, educational purposes, and low-cost AGV development. Code: https://github.com/shantanu404/monosim.git",
       "highlights": [
         "Software-in-the-loop (SIL) framework that closes the perception-to-control loop for Ackermann-steered vehicles entirely in simulation, removing hardware from early-stage algorithm validation.",
@@ -69,6 +73,10 @@
       "note": "",
       "doi": "10.1109/ICAD69378.2026.11608728",
       "pdf": "assets/files/Islam-2026-Bangla-LPR-YOLO-VLM-OCR.pdf",
+      "links": [
+        { "label": "Dataset", "href": "https://youtu.be/WPpcxEU5ig4", "icon": "fa-brands fa-youtube" },
+        { "label": "GitHub Repository", "href": "https://github.com/Snap0dragon/Bangla-ALPR-using-Vision-Transformer", "icon": "fa-brands fa-github" }
+      ],
       "abstract": "An Automatic License Plate Recognition (ALPR) system constitutes a crucial element in an intelligent traffic management system. However, the detection of Bangla license plates remains challenging because of the complicated character scheme and uneven layouts. This paper presents a robust Bangla License Plate Recognition system that integrates a deep learning-based object detection model for license plate localization with Optical Character Recognition for text extraction. Multiple object detection architectures, including U-Net and several YOLO (You Only Look Once) variants, are compared for license plate localization. This study proposes a novel two-stage adaptive training strategy built upon the YOLOv8 architecture to improve localization performance. The proposed approach outperforms established models, achieving an accuracy of 97.83% and an Intersection over Union (IoU) of 91.3%. The text recognition problem is phrased as a sequence generation problem with a VisionEncoderDecoder architecture, and a combination of encoder-decoders is evaluated. The ViT + BanglaBERT model gives the best results at the character level, with a Character Error Rate of 0.1323 and Word Error Rate of 0.1068. The system also shows consistent performance on an external dataset curated for this study, offering completely different environment and lighting conditions from the training sample, indicating the robustness of the framework. Overall, the proposed system provides a robust and reliable solution for Bangla license plate recognition and performs effectively across diverse real-world scenarios, making it well suited for deployment in intelligent transportation applications such as automated law enforcement and access control.",
       "highlights": [
         "Cascades a YOLO detector for plate localization with a vision-language OCR stage for reading, separating 'where' from 'what' for robustness.",
@@ -136,7 +144,7 @@
       "title": "Man-Transportable EOD ROV (JS2.0)",
       "subtitle": "A single-soldier-deployable Explosive Ordnance Disposal (EOD) robot with a 7-DOF arm.",
       "description": "A compact, man-transportable EOD ROV with a tracked base, telescopic 7-DOF arm and integrated disrupter, built on lessons from the medium-platform Jontro Soinik.",
-      "status": "In Progress",
+      "status": "Delivered",
       "descriptionFile": "data/Projects/Manportable EOD JS2.0/Description.md",
       "specsFile": "data/Projects/Manportable EOD JS2.0/Electrical and Mechanical Specs.md",
       "contribution": [
@@ -146,6 +154,12 @@
         "Derived and shipped a **closed-form inverse-kinematics solver** for the telescoping 7-DOF arm, verified against the URDF and integrated with **MoveIt 2** for collision-validity checks and home-pose planning.",
         "Engineered a **layered fail-safe system** for a weaponized platform: asymmetric per-bus fault isolation with full-disarm, latched safe states, a degraded loopback mode, an encoder-battery startup gate, and fail-safe disrupter fire-control that disarms the instant the operator link drops.",
         "Built the **operator console** (Android/Kotlin): 5-feed low-latency RTSP switching (hardware MediaCodec), a real-time telemetry dashboard (Jetpack Compose), a **3D digital-twin OpenGL overlay**, two-way echo-cancelled intercom, gimbal control and the fire-control UI."
+      ],
+      "links": [
+        { "label": "Arm Operation Demo", "href": "https://youtu.be/v_SOAQoPP6Q", "icon": "fa-brands fa-youtube" },
+        { "label": "Inverse Kinematics Simulation", "href": "https://youtu.be/q3PXsEoqBRU", "icon": "fa-brands fa-youtube" },
+        { "label": "Drive Operation Demo", "href": "https://youtu.be/fLiwTvl2xmI", "icon": "fa-brands fa-youtube" },
+        { "label": "App Interface", "href": "https://youtu.be/Rg6Wm63T_u8", "icon": "fa-brands fa-youtube" }
       ],
       "image": "data/Projects/Manportable EOD JS2.0/main image.jpg",
       "gallery": [
@@ -172,6 +186,9 @@
         "Conducted field testing and iterative refinement under constrained environments."
       ],
       "links": [
+        { "label": "Full Working Video", "href": "https://youtu.be/3r5VhLD1Ths", "icon": "fa-brands fa-youtube" },
+        { "label": "Package Pickup", "href": "https://youtu.be/nChAgFDy9ZI", "icon": "fa-brands fa-youtube" },
+        { "label": "Features Explanation", "href": "https://youtu.be/TNkV5zoLfus", "icon": "fa-brands fa-youtube" },
         { "label": "More details", "href": "https://brief-stream-853.notion.site/Jontro-Soinik-1-0-Version-2-0-26e1162dbc8f81daafa8c44a4a61de28", "icon": "fa-solid fa-arrow-up-right-from-square" }
       ],
       "image": "data/Projects/Jontro Soinik 1.0 JS1.0/main image.jpg",
@@ -222,7 +239,7 @@
         "Engineered **FleetCore**, the central coordinator: 3 concurrent per-robot FSMs (~20 states), FIFO dispatch, atomic **lift/scanner mutual exclusion** with staging queues, and publish-until-accept command delivery."
       ],
       "links": [
-        { "label": "YouTube", "href": "https://www.youtube.com/watch?v=ooK1592gYgM", "icon": "fa-brands fa-youtube" }
+        { "label": "Full Working Video", "href": "https://youtu.be/TkmOu6lCBTw", "icon": "fa-brands fa-youtube" }
       ],
       "image": "data/Projects/Autonomous Ground Vehicle AGV/main image.png",
       "gallery": [
@@ -248,8 +265,9 @@
         "Implemented tracking algorithms including DeepSORT and KCF."
       ],
       "links": [
-        { "label": "Details (v1)", "href": "https://vagabond-hollyhock-5a3.notion.site/Autonomous-Target-Tracking-Drone-27f1c47e0d4c80e3aec2ca2109cfaa6d", "icon": "fa-solid fa-arrow-up-right-from-square" },
-        { "label": "YouTube (v2)", "href": "https://www.youtube.com/watch?v=MLrD0SuG4Q0", "icon": "fa-brands fa-youtube" }
+        { "label": "Full Working Video (V2.0)", "href": "https://youtu.be/MLrD0SuG4Q0", "icon": "fa-brands fa-youtube" },
+        { "label": "Full Working Video (V1.0)", "href": "https://www.youtube.com/watch?v=kwuWfc4Lmt4", "icon": "fa-brands fa-youtube" },
+        { "label": "Details (v1)", "href": "https://vagabond-hollyhock-5a3.notion.site/Autonomous-Target-Tracking-Drone-27f1c47e0d4c80e3aec2ca2109cfaa6d", "icon": "fa-solid fa-arrow-up-right-from-square" }
       ],
       "image": "data/Projects/Autonomous Target Tracking Drone/main image - prototype one.jpg",
       "gallery": []
@@ -290,6 +308,10 @@
         "**Simulated the analog front-end in Proteus** (input sensing, output driving, reverse-polarity and RGB-LED subsystems) prior to fabrication, and modeled a 3D-printed enclosure in SolidWorks.",
         "Performed **hardware bring-up and debugging**, cataloguing first-iteration issues (signal routing, divider values, regulator needs) and specifying fixes for the second iteration."
       ],
+      "links": [
+        { "label": "Full Setup Video", "href": "https://youtu.be/B-6yc3st20Q", "icon": "fa-brands fa-youtube" },
+        { "label": "Working Demo", "href": "https://youtu.be/tsnFWpL0otE", "icon": "fa-brands fa-youtube" }
+      ],
       "image": "data/Projects/Tollbooth Automation/main image.jpg",
       "gallery": [
         "data/Projects/Tollbooth Automation/circuit stack.jpg",
@@ -312,7 +334,7 @@
         "Added UI theming (Dark/Light/Contrast), layout options (Grid/Compact/List), two keyboard styles (Semi-QWERTY, Numeric), and invalid-input handling."
       ],
       "links": [
-        { "label": "YouTube", "href": "https://youtu.be/bSHUT5XJSNQ", "icon": "fa-brands fa-youtube" },
+        { "label": "Full Working Video", "href": "https://youtu.be/bSHUT5XJSNQ", "icon": "fa-brands fa-youtube" },
         { "label": "Manual (PDF)", "href": "data/Projects/Airgapped/Airgapped Manual.pdf", "icon": "fa-solid fa-file-pdf" }
       ],
       "image": "data/Projects/Airgapped/main image.jpeg",
@@ -350,7 +372,8 @@
         "Measured the frequencies of two signals, summed them, and generated a signal at the summed frequency."
       ],
       "links": [
-        { "label": "GitHub", "href": "https://github.com/Mainul-Islam-07/Pulse_Width_Measurement-by-8051-in-Assembly-Language", "icon": "fa-brands fa-github" }
+        { "label": "Full Working Video", "href": "https://youtu.be/YBWyxpcqqeg", "icon": "fa-brands fa-youtube" },
+        { "label": "GitHub Repository", "href": "https://github.com/Mainul-Islam-07/Pulse_Width_Measurement-by-8051-in-Assembly-Language", "icon": "fa-brands fa-github" }
       ],
       "image": "data/Projects/Pulse Width Measurement and generation by AT89S52 Microcontroller/main image.png",
       "gallery": []
@@ -384,7 +407,7 @@
         "Supports basic instructions such as addition and subtraction."
       ],
       "links": [
-        { "label": "GitHub", "href": "https://github.com/Mainul-Islam-07/SAP-1-8-Bit-Computer-Design", "icon": "fa-brands fa-github" }
+        { "label": "GitHub Repository", "href": "https://github.com/Mainul-Islam-07/SAP-1-8-Bit-Computer-Design", "icon": "fa-brands fa-github" }
       ],
       "image": "data/Projects/8 Bit SAP-1/main image.png",
       "gallery": []

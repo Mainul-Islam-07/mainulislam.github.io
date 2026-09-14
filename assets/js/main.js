@@ -240,7 +240,17 @@
             ${p.description ? `<p class="project-desc">${esc(p.description)}</p>` : ""}
             ${p.note ? `<p class="project-note">${esc(p.note)}</p>` : ""}
             ${(p.tags || []).length ? `<div class="card-tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
-            <a class="btn btn-ghost project-details" href="${href}"${tgt}>Details</a>
+            <div class="project-actions">
+              <a class="btn btn-ghost project-details" href="${href}"${tgt}>Details</a>
+              ${(p.links || [])
+                .map(
+                  (l) =>
+                    `<a href="${esc(encodeURI(l.href))}" target="_blank" rel="noopener noreferrer">${
+                      l.icon ? `<i class="${esc(l.icon)}"></i> ` : ""
+                    }${esc(l.label)}</a>`
+                )
+                .join("")}
+            </div>
           </div>`;
         projectsGrid.appendChild(card);
       });
@@ -524,6 +534,7 @@
       }
       if (p.link) links.push({ label: "Link", href: p.link, icon: "fa-solid fa-arrow-up-right-from-square" });
       if (p.code) links.push({ label: "Code", href: p.code, icon: "fa-brands fa-github" });
+      (p.links || []).forEach((l) => links.push(l));
       const linksHtml = links.length
         ? `<div class="pub-links">${links
             .map(

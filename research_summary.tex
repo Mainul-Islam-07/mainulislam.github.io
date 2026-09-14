@@ -1,0 +1,52 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\definecolor{linkblue}{HTML}{0B5FA5}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue}
+\usepackage{parskip}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[{\vspace{-5pt}\rule{\linewidth}{0.5pt}}]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+\setlength{\parskip}{5pt}
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Mainul Islam} \\[5pt]
+mainulislam@iut-dhaka.edu \textbar\ \href{https://scholar.google.com/citations?user=mHfGHugAAAAJ\&hl=en}{Google Scholar} \textbar\ \href{https://www.linkedin.com/in/mainul-islam-254071205/}{LinkedIn} \textbar\ \href{https://mainul-islam-07.github.io/mainulislam.github.io/}{Portfolio}
+\end{center}
+
+\section*{Projects}
+
+My recent completed work is the \href{https://www.youtube.com/watch?v=TkmOu6lCBTw}{CYBERFLEET} autonomous guided vehicle fleet, where I designed the ROS\,2 system integration for three warehouse robots: a five-state EKF fusing 50\,Hz odometry with AprilTag observations, time-aware route planning that prevents collisions and deadlocks, and LiDAR obstacle detection. The fleet is delivered and operational.
+
+That followed teleoperated work on the man-transportable EOD robot (\href{https://www.youtube.com/watch?v=fLiwTvl2xmI}{Jontro Soinik 2.0}): I developed the motion-control library for eleven servo drives on two CAN buses under CANopen (CiA-402), contributed a closed-form inverse-kinematics solution integrated with MoveIt\,2, wrote the STM32 firmware carrying the operator's control signal over optical fiber, and built the operator interface.
+
+Perception moved onboard in the \href{https://www.youtube.com/watch?v=MLrD0SuG4Q0}{autonomous target-tracking drone}, where I implemented live detection and tracking on a Raspberry Pi\,5 with an AI accelerator and created the aerial training dataset.
+
+The same embedded practice went into the toll-booth automation system: lane-controller firmware on an STM32 as a table-driven state machine, integration of loop coils, an infrared exit sensor and licence-plate recognition, and three custom circuit boards with optical isolation.
+
+Before that, I was involved in making \href{https://www.youtube.com/watch?v=3r5VhLD1Ths}{Jontro Soinik 1.0}, the medium-platform EOD ROV, where I contributed to make an addressable serial-bus architecture, sensor integration and power-system design through to board fabrication.
+
+Everything started with the IUT Mars Rover teams, Project Altair and Team Avijatrik, where as electrical system designer I built different PCBs and developed mcu based firmware to make them conduct different specialized tasks.
+
+\section*{Publications}
+
+My publications follow the same progression. \href{https://doi.org/10.1109/ICCIT64611.2024.11022430}{``Optimizing Master--Slave Broadcast and Unicast Communication in Multi-Node STM32 Networks Using UART and RS485 Protocols''} (IEEE ICCIT, 2024) came out of that embedded work: I co-developed the firmware and its timing analysis across eleven STM32 nodes.
+
+\href{https://doi.org/10.1109/ICECIE63774.2024.10815643}{``Long-Term Energy Demand Analysis Using Machine Learning Algorithms: A Case Study in Bangladesh''} (IEEE ICECIE, 2024) addressed national load forecasting; I built and benchmarked the forecasters and the feature pipeline, reaching $R^2 = 0.94$.
+
+My B.Sc.\ thesis became \href{https://doi.org/10.1109/ICARA69401.2026.11480327}{``MonoSIM: An Open-Source SIL Framework for Ackermann Vehicular Systems with Monocular Vision''} (IEEE ICARA, 2026): I built the testbed and the monocular lane-detection pipeline, then benchmarked MPC against PID --- PID gave lower tracking error, MPC constraint-aware control. Released open-source.
+
+Perception work continued in \href{https://doi.org/10.1016/j.solener.2025.114058}{``A Deep Learning Based Framework for Solar Panel Segmentation and Fault Classification Enhanced with Explainable AI''} (\textit{Solar Energy}, IF 6.6, 2025), where as second author I developed the segmentation and fault-classification models (93.6\% IoU, 97.5\% accuracy) with LIME explainability.
+
+In \href{https://doi.org/10.1109/ICAD69378.2026.11608728}{``A Robust Deep Learning Framework for Bangla License Plate Recognition Using YOLO and Vision-Language OCR''} (IEEE ICAD, 2026) I contributed the YOLOv8m detection stage (97.83\% accuracy) and the low-light CCTV out-of-distribution evaluation (92.10\% F1 against 73--79\% for baselines).
+
+Alongside these are \href{https://doi.org/10.1016/j.ecmx.2026.102222}{``Topological Survey of Zeta Power Converters from Classical Designs to Emerging Architectures''} (\textit{Energy Conversion and Management: X}, IF 8.8, 2026), where I contributed the topology comparison, and a manuscript under review on GA-tuned cross-coupled speed synchronisation of a dual-BLDC tracked vehicle.
+
+\end{document}

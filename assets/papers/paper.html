@@ -88,6 +88,7 @@
                             ${pdfSrc ? `<a class="btn btn-ghost" href="${esc(pdfSrc)}" target="_blank" rel="noopener"><i class="fa-solid fa-up-right-from-square"></i> Open in new tab</a>` : ""}
                             ${pdfSrc ? `<a class="btn btn-ghost" href="${esc(pdfSrc)}" download><i class="fa-solid fa-download"></i> Download</a>` : ""}
                             ${doiLink ? `<a class="btn btn-ghost" href="${esc(doiLink)}" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i> ${doiLabel}</a>` : ""}
+                            ${(p.links || []).map(l => `<a class="btn btn-ghost" href="${esc(l.href)}" target="_blank" rel="noopener">${l.icon ? `<i class="${esc(l.icon)}"></i> ` : ""}${esc(l.label)}</a>`).join("")}
                         </div>`;
 
                     wrap.innerHTML = pdfSrc

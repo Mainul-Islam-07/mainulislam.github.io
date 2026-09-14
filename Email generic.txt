@@ -1,0 +1,17 @@
+Dear X,
+
+I hope this email finds you well.
+
+My name is Mainul Islam. I completed my B.Sc. in EEE from IUT, (Gazipur Bangladesh), with a CGPA of 3.87/4.00 (15th in class). I am currently working as a Research and Development Engineer (Embedded Systems) at Cybernetics Hi-Tech Solutions Pvt. Ltd. Alongside, I began my journey as a part-time lecturer in the Department of EEE at AUST, Bangladesh.
+
+At Cybernetics, I have been involved in building safety-critical robots, ranging from Explosive Ordnance Disposal (EOD) ROVs to autonomous ground vehicles deployed at garment factories, target-tracking drones and toll booth automation systems etc. I have been involved in ROS2 system integration, PCB designing, understanding underlying math and concepts of different algorithms etc throughout this period. In addition, I have collaborated with various professors on machine learning-related applications to gain hands-on experience.
+
+----------
+Body
+---------
+
+All in all, I feel my background and research interests are a perfect match for your group's endeavor. I would greatly appreciate it if you could let me know about any potential openings or opportunities to work in your lab. I have attached my CV, academic transcripts, journal publications and my Medium of Instructions (MOI) for your review. Thank you for your time, and I look forward to your response.
+
+Sincerely,
+Mainul Islam
+Prospective PhD Student

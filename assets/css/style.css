@@ -532,11 +532,33 @@ img {
     font-style: italic;
 }
 
-.project-details {
-    align-self: flex-start;
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
     margin-top: 8px;
+}
+
+.project-details {
     padding: 6px 15px;
     font-size: 0.83rem;
+}
+
+.project-actions a:not(.btn) {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    padding: 4px 10px;
+    border: 1px solid var(--tag-border);
+    background: var(--tag-bg);
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.project-actions a:not(.btn):hover {
+    background: var(--primary);
+    color: #fff;
 }
 
 @media (max-width: 640px) {
