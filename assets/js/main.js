@@ -87,7 +87,7 @@
   };
 
   // Turn an image file path into a readable caption.
-  const ACRONYMS = ["PCB", "UAV", "AGV", "ROV", "EOD", "IR", "GPS", "LED", "VTOL", "RGB", "UART", "SPI", "I2C", "CAN", "MCU", "AI", "OCR", "IMU", "RTSP", "SMD", "3D", "2D"];
+  const ACRONYMS = ["PCB", "UAV", "AGV", "ROV", "EOD", "IR", "GPS", "LED", "VTOL", "RGB", "UART", "SPI", "I2C", "CAN", "MCU", "AI", "OCR", "IMU", "RTSP", "SMD", "3D", "2D", "BMS", "SBUS", "CNC", "IP", "VC", "BUET", "IUT", "AUST"];
   const prettyName = (path) => {
     let n = String(path).split("/").pop().replace(/\.[^.]+$/, "");
     n = n.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
@@ -202,6 +202,9 @@
 
     /* --- Gallery --- */
     renderGallery(profile.gallery);
+
+    /* --- PCB Designs (same behaviour as the gallery) --- */
+    renderGallery(profile.pcbDesigns, "pcb-designs-list", "PCB designs");
 
     /* --- Contact --- */
     renderContact(profile);
@@ -665,10 +668,11 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * Gallery (collapsible; images revealed on click)
+   * Image galleries (collapsible; images revealed on click).
+   * Used by both the Gallery and PCB Designs sections.
    * ------------------------------------------------------------------ */
-  function renderGallery(items) {
-    const box = document.getElementById("gallery-list");
+  function renderGallery(items, boxId = "gallery-list", noun = "gallery") {
+    const box = document.getElementById(boxId);
     if (!box) return;
     const section = box.closest("section");
     if (!Array.isArray(items) || !items.length) {
@@ -684,7 +688,7 @@
       .join("");
     box.innerHTML = `
       <details class="gallery-dropdown">
-        <summary>Show gallery (${items.length} image${items.length > 1 ? "s" : ""})</summary>
+        <summary>Show ${noun} (${items.length} image${items.length > 1 ? "s" : ""})</summary>
         <div class="site-gallery">${grid}</div>
       </details>`;
   }

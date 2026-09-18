@@ -163,6 +163,9 @@
       ],
       "image": "data/Projects/Manportable EOD JS2.0/main image.jpg",
       "gallery": [
+        "data/Projects/Manportable EOD JS2.0/App Interface.png",
+        "data/Projects/Manportable EOD JS2.0/App Interface 3D overlay.png",
+        "data/Projects/Manportable EOD JS2.0/Firing App.png",
         "data/Projects/Manportable EOD JS2.0/Coding, Developing, Debugging (Hardware and Software).JPG",
         "data/Projects/Manportable EOD JS2.0/Developing App.JPG",
         "data/Projects/Manportable EOD JS2.0/Final electronics wiring.JPG",
@@ -270,7 +273,10 @@
         { "label": "Details (v1)", "href": "https://vagabond-hollyhock-5a3.notion.site/Autonomous-Target-Tracking-Drone-27f1c47e0d4c80e3aec2ca2109cfaa6d", "icon": "fa-solid fa-arrow-up-right-from-square" }
       ],
       "image": "data/Projects/Autonomous Target Tracking Drone/main image - prototype one.jpg",
-      "gallery": []
+      "gallery": [
+        "data/Projects/Autonomous Target Tracking Drone/Apriltag or Aruco Detect Test.jpg",
+        "data/Projects/Autonomous Target Tracking Drone/Cross Sign Detect Test.jpg"
+      ]
     },
     {
       "slug": "fixed-wing-vtol-uav",
@@ -732,6 +738,19 @@
       ]
     },
     {
+      "name": "Showrov Rahman",
+      "title": "PhD",
+      "role": "Research Supervisor",
+      "affiliation": "University of Rhode Island",
+      "location": "Rhode Island, USA",
+      "specialization": "Energy and Power, State Estimation, Power Electronics, Energy & AI",
+      "profileUrl": "https://scholar.google.com/citations?user=flfFBI8AAAAJ&hl=en",
+      "profileType": "scholar",
+      "topics": [
+        "Topological survey of zeta power converters from classical designs to emerging architectures."
+      ]
+    },
+    {
       "name": "Rashed Mujib Noman",
       "title": "Country Director, Augmedix Bangladesh",
       "role": "Research Supervisor",
@@ -763,6 +782,44 @@
   ],
 
   "gallery": [
-    "data/Gallery/Smd component under microscope.JPG"
+    "data/Gallery/Analysing Lidar Data.jpg",
+    "data/Gallery/Curve fitting sharp laser range finder.jpg",
+    "data/Gallery/Cybernetics Team.jpeg",
+    "data/Gallery/Cybernetics Team With AUST VC.jpeg",
+    "data/Gallery/Debugging Localization.jpg",
+    "data/Gallery/Exam Assessment.jpg",
+    "data/Gallery/Last Day as a Part time Lecturer.jpg",
+    "data/Gallery/Participating in Robotics Competition.jpg",
+    "data/Gallery/Project Altair team with IUT VC.jpg",
+    "data/Gallery/Smd component under microscope.JPG",
+    "data/Gallery/Team Avijatrik.jpg",
+    "data/Gallery/Testing Js1.0 at BUET.jpg",
+    "data/Gallery/Testing Robo.jpg",
+    "data/Gallery/Thermal imaging Capability of JS1.0.png",
+    "data/Gallery/With Avijatrik and Anirban.JPG",
+    "data/Gallery/With Project Altair Team.jpg",
+    "data/Gallery/With avijatrik rover.jpg"
+  ],
+
+  "pcbDesigns": [
+    "data/PCB Designs/Bms With Soldering.jpg",
+    "data/PCB Designs/Bms Without Soldering.png",
+    "data/PCB Designs/Crypto Wallet Front.jpg",
+    "data/PCB Designs/Crypto Wallet Back.jpg",
+    "data/PCB Designs/Crypto Wallet Front Design 3D.png",
+    "data/PCB Designs/Crypto Wallet Bottom Design 3D.png",
+    "data/PCB Designs/Custom PCB for Ip cam V1.0 Front.jpg",
+    "data/PCB Designs/Custom PCB for Ip cam V2.0.jpg",
+    "data/PCB Designs/Data Logger 3D.png",
+    "data/PCB Designs/Multitasking.jpg",
+    "data/PCB Designs/PCB Fabrication Using CNC Machine.jpg",
+    "data/PCB Designs/PCB Fabrication using Laser.JPG",
+    "data/PCB Designs/Sbus Client PCB.jpg",
+    "data/PCB Designs/Toll Automation Full Setup.jpg",
+    "data/PCB Designs/Toll Automation v1.0.jpg",
+    "data/PCB Designs/Toll Automation v1.0 3D.jpg",
+    "data/PCB Designs/Toll Automation v2.0 Main PCB.jpg",
+    "data/PCB Designs/Toll Automation v2.0 Relay PCB.jpg",
+    "data/PCB Designs/Toll Automation v2.0 Status Indicator PCB.jpg"
   ]
 }
