@@ -56,7 +56,7 @@ Includes a light/dark theme toggle (remembered), mobile menu, "Read more" bio cl
 | `avatar` | string | Path to your photo |
 | `cv` | string | Path to CV PDF (button hidden if empty) |
 | `themeColor` | string | Accent color, e.g. `#0ea5e9` |
-| `email`, `whatsapp` | string | Contact details |
+| `email` | string | Contact details |
 | `linkedin`, `github`, `scholar`, `orcid`, `researchgate`, `youtube` | string | Profile URLs (icons hidden if empty) |
 | `researchInterests[]` | array | `title, icon` (Font Awesome class) |
 | `publications[]` | array | `type, title, authors, venue, year, note, doi, pdf, abstract, highlights[]`: thesis first, then journal articles, then newest first |

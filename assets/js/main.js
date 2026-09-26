@@ -467,7 +467,6 @@
     if (profile.orcid) links.push({ icon: "fa-brands fa-orcid", href: profile.orcid, label: "ORCID" });
     if (profile.researchgate) links.push({ icon: "fa-brands fa-researchgate", href: profile.researchgate, label: "ResearchGate" });
     if (profile.youtube) links.push({ icon: "fa-brands fa-youtube", href: profile.youtube, label: "YouTube" });
-    if (profile.whatsapp) links.push({ icon: "fa-brands fa-whatsapp", href: `https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`, label: "WhatsApp" });
     (profile.socials || []).forEach((s) => links.push(s));
     box.innerHTML = links
       .map(
@@ -706,7 +705,6 @@
     if (profile.scholar) rows.push({ icon: "fa-solid fa-graduation-cap", label: "Google Scholar", href: profile.scholar, text: disp(profile.scholar) });
     if (profile.github) rows.push({ icon: "fa-brands fa-github", label: "GitHub", href: profile.github, text: disp(profile.github) });
     if (profile.youtube) rows.push({ icon: "fa-brands fa-youtube", label: "YouTube", href: profile.youtube, text: disp(profile.youtube) });
-    if (profile.whatsapp) rows.push({ icon: "fa-brands fa-whatsapp", label: "WhatsApp", href: `https://wa.me/${profile.whatsapp.replace(/\D/g, "")}`, text: profile.whatsapp });
     (profile.portfolios || []).forEach((p, i) => {
       const url = typeof p === "string" ? p : p.url;
       const label = typeof p === "string" ? "Portfolio" + (profile.portfolios.length > 1 ? ` ${i + 1}` : "") : p.label || "Portfolio";
