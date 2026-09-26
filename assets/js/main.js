@@ -762,7 +762,28 @@
   document.addEventListener("DOMContentLoaded", () => {
     const y = document.getElementById("footer-year");
     if (y) y.textContent = new Date().getFullYear();
+    loadVisitCount();
   });
+
+  /* ------------------------------------------------------------------ *
+   * Public visitor count (GoatCounter). Stays hidden if it can't load.
+   * The site code is read from the tracking <script data-goatcounter>.
+   * ------------------------------------------------------------------ */
+  function loadVisitCount() {
+    const box = document.getElementById("visit-count");
+    const gc = document.querySelector("script[data-goatcounter]");
+    if (!box || !gc) return;
+    const base = gc.getAttribute("data-goatcounter").replace(/\/count$/, "");
+    if (/YOURCODE/.test(base)) return;
+    fetch(base + "/counter/TOTAL.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d) => {
+        if (!d || !d.count) return;
+        box.innerHTML = ` | <i class="fa-regular fa-eye"></i> ${esc(d.count)} visits`;
+        box.hidden = false;
+      })
+      .catch(() => {});
+  }
 
   const revealEls = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && revealEls.length) {

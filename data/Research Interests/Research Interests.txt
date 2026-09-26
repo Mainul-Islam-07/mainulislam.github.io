@@ -1,5 +1,0 @@
-Control System
-Machine Learning
-Embedded Systems & IoT
-Autonomous Systems
-Robotics
