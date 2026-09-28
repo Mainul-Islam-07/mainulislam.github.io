@@ -461,6 +461,7 @@
   "experience": [
     {
       "company": "Cybernetics Hi-Tech Solutions (Pvt.) Ltd. (CHSL)",
+      "featured": true,
       "location": "Dhaka, Bangladesh",
       "position": "Embedded Systems Engineer (R&D)",
       "period": "Oct 2024 - Present",
@@ -481,6 +482,7 @@
     },
     {
       "company": "Ahsanullah University of Science & Technology (AUST)",
+      "featured": true,
       "location": "Dhaka, Bangladesh",
       "position": "Lecturer (Part-time)",
       "period": "Jul 2025 - Jun 2026",
@@ -544,6 +546,7 @@
     },
     {
       "company": "Project Altair (IUT Mars Rover)",
+      "featured": true,
       "location": "Gazipur, Bangladesh",
       "kind": "Undergraduate Rover Team",
       "position": "System Designer, Electrical Subteam",

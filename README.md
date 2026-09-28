@@ -62,7 +62,7 @@ Includes a light/dark theme toggle (remembered), mobile menu, "Read more" bio cl
 | `publications[]` | array | `type, title, authors, venue, year, note, doi, pdf, abstract, highlights[]`: thesis first, then journal articles, then newest first |
 | `projects[]` | array | `slug, title, subtitle, description, status, descriptionFile, specsFile, contribution[], links[], image, gallery[]` |
 | `skillsGrouped[]` | array | `{ category, items[] }` |
-| `experience[]` | array | `company, position, location, period, url, links[], proof, highlights[]`: entries with the same company merge into one card |
+| `experience[]` | array | `company, position, location, period, url, links[], proof, highlights[], featured`: entries with the same company merge into one card; entries without `featured: true` go in a collapsed "Other Experience" dropdown |
 | `education[]` | array | `institution, institutionUrl, location, degree, period, highlights[], links[]` |
 | `certifications[]` | array | `title, issuer, description, proof` |
 | `achievements[]` | array | `title, position, year, note, proof`: sorted newest first |

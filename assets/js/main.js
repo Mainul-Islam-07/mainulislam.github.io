@@ -392,7 +392,9 @@
           proofPending: item.proofPending || false,
           kind: item.kind || "",
           links: item.links || [],
+          featured: false,
         };
+      if (item.featured) entry.featured = true;
       const posArr = Array.isArray(item.position) ? item.position : [item.position];
       const perArr = Array.isArray(item.period) ? item.period : [item.period];
       const len = Math.max(posArr.length, perArr.length);
@@ -410,8 +412,18 @@
       map.set(key, entry);
     });
 
+    // Featured entries render directly; the rest go in a collapsed "Other Experience" dropdown.
     expList.innerHTML = "";
-    map.forEach((e) => {
+    const entries = [...map.values()];
+    const others = entries.filter((e) => !e.featured);
+    let otherBox = null;
+    if (others.length && others.length < entries.length) {
+      const details = el("details", "gallery-dropdown other-experience");
+      details.innerHTML = `<summary>Other Experience (${others.length})</summary>`;
+      otherBox = el("div", "other-experience-list stack");
+      details.appendChild(otherBox);
+    }
+    entries.forEach((e) => {
       const card = el("div", "experience-card");
       // Company website + any extra links (e.g. YouTube) → clickable icons beside the name.
       const siteLink = e.url
@@ -449,8 +461,9 @@
         ${e.kind ? `<span class="exp-kind">${esc(e.kind)}</span>` : ""}
         ${roles}${hl}${tech}
         ${proof ? `<div class="exp-actions">${proof}</div>` : ""}`;
-      expList.appendChild(card);
+      (otherBox && !e.featured ? otherBox : expList).appendChild(card);
     });
+    if (otherBox) expList.appendChild(otherBox.parentNode);
   }
 
   /* ------------------------------------------------------------------ *
