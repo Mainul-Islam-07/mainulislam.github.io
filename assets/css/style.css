@@ -1462,8 +1462,13 @@ a.achievement-org:hover {
     transform: rotate(180deg);
 }
 
-.other-experience-list {
+/* "Other …" dropdowns for items flagged `collapsed` */
+.more-dropdown > .dropdown-list {
     padding: 4px 18px 18px;
+}
+
+.more-dropdown.dropdown-after {
+    margin-top: var(--gap);
 }
 
 .site-gallery {

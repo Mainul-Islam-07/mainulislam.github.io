@@ -60,16 +60,18 @@ Includes a light/dark theme toggle (remembered), mobile menu, "Read more" bio cl
 | `linkedin`, `github`, `scholar`, `orcid`, `researchgate`, `youtube` | string | Profile URLs (icons hidden if empty) |
 | `researchInterests[]` | array | `title, icon` (Font Awesome class) |
 | `publications[]` | array | `type, title, authors, venue, year, note, doi, pdf, abstract, highlights[]`: thesis first, then journal articles, then newest first |
-| `projects[]` | array | `slug, title, subtitle, description, status, descriptionFile, specsFile, contribution[], links[], image, gallery[]` |
+| `projects[]` | array | `slug, title, subtitle, description, status, descriptionFile, specsFile, contribution[], links[], image, gallery[], category, collapsed` |
 | `skillsGrouped[]` | array | `{ category, items[] }` |
-| `experience[]` | array | `company, position, location, period, url, links[], proof, highlights[], featured`: entries with the same company merge into one card; entries without `featured: true` go in a collapsed "Other Experience" dropdown |
-| `education[]` | array | `institution, institutionUrl, location, degree, period, highlights[], links[]` |
-| `certifications[]` | array | `title, issuer, description, proof` |
+| `experience[]` | array | `company, position, location, period, url, links[], proof, highlights[], collapsed`: entries with the same company merge into one card |
+| `education[]` | array | `institution, institutionUrl, location, degree, period, highlights[], links[], collapsed` |
+| `certifications[]` | array | `title, issuer, description, proof, collapsed` |
 | `achievements[]` | array | `title, position, year, note, proof`: sorted newest first |
 | `participation[]` | array | `title, year, proof` |
 | `supervisors[]` | array | `name, title, role, affiliation, location, specialization, profileUrl, profileType, topics` |
 | `blog[]` | array | `title, excerpt, link` |
 | `gallery[]`, `pcbDesigns[]` | array | Image paths; the caption comes from the file name |
+
+Set `"collapsed": true` on any project, experience, education or certification entry to move it into a closed "Other …" dropdown at the end of its section (projects: at the end of its `category` group).
 
 **Links** (`links[]`): `{ "label", "href", "icon" }`, where `icon` is an optional Font Awesome class.
 

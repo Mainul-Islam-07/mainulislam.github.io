@@ -272,6 +272,7 @@
     {
       "slug": "fixed-wing-vtol-uav",
       "title": "Fixed-Wing VTOL UAV",
+      "collapsed": true,
       "subtitle": "A handmade prototype of a fixed-wing VTOL unmanned aerial vehicle.",
       "description": "A small-scale fixed-wing VTOL UAV prototype (2 m wingspan) built as an empirical platform to study aerodynamic stability, control response and VTOL/fixed-wing transition dynamics.",
       "status": "Completed",
@@ -319,6 +320,7 @@
     {
       "slug": "offline-hardware-cryptowallet",
       "title": "Offline Hardware CryptoWallet",
+      "collapsed": true,
       "subtitle": "An air-gapped hardware wallet for cryptocurrency keys.",
       "description": "A standalone hardware cryptocurrency wallet built around a touchscreen display module (with QR-scanning camera) and a custom embedded control board. It generates, stores and manages private keys and seed phrases entirely offline — the device never connects to the internet or any network. All communication with the outside world (e.g. broadcasting a transaction) happens through QR codes, keeping the signing keys physically isolated (\"air-gapped\") from any online system. This protects against remote hacking, malware and network-based key theft: a signed transaction can only leave the device visually via QR, and unsigned transaction data can only enter it the same way.",
       "status": "Completed",
@@ -344,6 +346,7 @@
     {
       "slug": "surveillance-drone",
       "title": "Surveillance Drone",
+      "collapsed": true,
       "subtitle": "A long-endurance surveillance UAV (Cybernetics SD15-N).",
       "description": "",
       "status": "Completed",
@@ -395,6 +398,7 @@
     {
       "slug": "sap-1-8bit",
       "title": "8-bit SAP-1 Computer",
+      "collapsed": true,
       "category": "Undergrad Projects",
       "status": "Completed",
       "description": "",
@@ -429,6 +433,7 @@
     {
       "slug": "iut-mars-rover-avijatrik",
       "title": "IUT Mars Rover — Team Avijatrik",
+      "collapsed": true,
       "category": "Undergrad Projects",
       "subtitle": "Undergraduate Team Project",
       "description": "",
@@ -461,7 +466,6 @@
   "experience": [
     {
       "company": "Cybernetics Hi-Tech Solutions (Pvt.) Ltd. (CHSL)",
-      "featured": true,
       "location": "Dhaka, Bangladesh",
       "position": "Embedded Systems Engineer (R&D)",
       "period": "Oct 2024 - Present",
@@ -482,7 +486,6 @@
     },
     {
       "company": "Ahsanullah University of Science & Technology (AUST)",
-      "featured": true,
       "location": "Dhaka, Bangladesh",
       "position": "Lecturer (Part-time)",
       "period": "Jul 2025 - Jun 2026",
@@ -496,6 +499,7 @@
     },
     {
       "company": "EmbeddedThere",
+      "collapsed": true,
       "location": "Remote",
       "position": "Contributing Author",
       "period": "May 2025 - Jan 2026",
@@ -507,6 +511,7 @@
     },
     {
       "company": "Spectrum Engineering Consortium Ltd. (SECL)",
+      "collapsed": true,
       "location": "Dhaka, Bangladesh",
       "position": "Research and Development Engineer",
       "period": "Jun 2024 - Sep 2024",
@@ -520,6 +525,7 @@
     },
     {
       "company": "Pantech.ai",
+      "collapsed": true,
       "location": "Remote",
       "position": "Intern, Embedded System Design",
       "period": "Jan 2024 - Apr 2024",
@@ -533,6 +539,7 @@
     },
     {
       "company": "Spectrum Engineering Consortium Ltd.",
+      "collapsed": true,
       "location": "Dhaka, Bangladesh",
       "position": "Intern, Research and Development Team",
       "period": "Jun 2023 - Mar 2024",
@@ -546,7 +553,6 @@
     },
     {
       "company": "Project Altair (IUT Mars Rover)",
-      "featured": true,
       "location": "Gazipur, Bangladesh",
       "kind": "Undergraduate Rover Team",
       "position": "System Designer, Electrical Subteam",
@@ -560,6 +566,7 @@
     },
     {
       "company": "IUT Robotics Society",
+      "collapsed": true,
       "location": "Gazipur, Bangladesh",
       "kind": "Undergraduate Club",
       "position": "Project Coordinator",
@@ -571,6 +578,7 @@
     },
     {
       "company": "IUT Mars Rover — Team Avijatrik",
+      "collapsed": true,
       "location": "Gazipur, Bangladesh",
       "kind": "Undergraduate Rover Team",
       "position": "Senior Electrical Member",
@@ -603,6 +611,7 @@
     },
     {
       "institution": "Notre Dame College (NDC)",
+      "collapsed": true,
       "institutionUrl": "https://ndc.edu.bd/",
       "location": "Dhaka, Bangladesh",
       "degree": "Higher Secondary Certificate (Science)",
@@ -614,6 +623,7 @@
     },
     {
       "institution": "Dhaka Residential Model College",
+      "collapsed": true,
       "institutionUrl": "https://www.drmc.edu.bd/",
       "location": "Dhaka, Bangladesh",
       "degree": "Secondary School Certificate (Science)",
@@ -632,15 +642,15 @@
     { "title": "Applied Control Systems 1: Autonomous Cars — Math + PID + MPC", "issuer": "Udemy", "description": "Issued by Mark Misin Engineering Ltd", "proof": "assets/proofs/certifications/applied-control-systems-1.jpg" },
     { "title": "Introduction to Programming with MATLAB", "issuer": "Coursera", "description": "Issued by Vanderbilt University", "proof": "assets/proofs/certifications/intro-programming-matlab.png" },
     { "title": "Python Functions, Files and Dictionaries", "issuer": "Coursera", "description": "Issued by University of Michigan", "proof": "assets/proofs/certifications/python-functions-files-dictionaries.png" },
-    { "title": "The Arduino Platform and C Programming", "issuer": "Coursera", "description": "Issued by University of California, Irvine", "proof": "assets/proofs/certifications/arduino-platform-c-programming.png" },
+    { "title": "The Arduino Platform and C Programming", "collapsed": true, "issuer": "Coursera", "description": "Issued by University of California, Irvine", "proof": "assets/proofs/certifications/arduino-platform-c-programming.png" },
     { "title": "Design PCB using Autodesk Eagle for Everyone", "issuer": "Udemy", "proof": "assets/proofs/certifications/design-pcb-autodesk-eagle.jpg" },
     { "title": "Design with KiCad", "issuer": "Udemy", "proof": "assets/proofs/certifications/design-with-kicad.jpg" },
-    { "title": "Simulink Onramp", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/simulink-onramp.pdf" },
-    { "title": "Simscape Onramp", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/simscape-onramp.pdf" },
+    { "title": "Simulink Onramp", "collapsed": true, "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/simulink-onramp.pdf" },
+    { "title": "Simscape Onramp", "collapsed": true, "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/simscape-onramp.pdf" },
     { "title": "Control Design Onramp with Simulink", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/control-design-onramp-simulink.pdf" },
-    { "title": "App Building Onramp", "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/app-building-onramp.pdf" },
-    { "title": "Arduino Long Distance Communication", "issuer": "Udemy", "proof": "assets/proofs/certifications/arduino-long-distance-communication.jpg" },
-    { "title": "Arduino Data Visualization Using Python", "issuer": "Udemy", "proof": "assets/proofs/certifications/arduino-python-visualization.jpg" }
+    { "title": "App Building Onramp", "collapsed": true, "issuer": "MathWorks Training Services", "proof": "assets/proofs/certifications/app-building-onramp.pdf" },
+    { "title": "Arduino Long Distance Communication", "collapsed": true, "issuer": "Udemy", "proof": "assets/proofs/certifications/arduino-long-distance-communication.jpg" },
+    { "title": "Arduino Data Visualization Using Python", "collapsed": true, "issuer": "Udemy", "proof": "assets/proofs/certifications/arduino-python-visualization.jpg" }
   ],
 
   "achievements": [

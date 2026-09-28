@@ -65,6 +65,15 @@
     if (html != null) n.innerHTML = html;
     return n;
   };
+
+  // Collapsed "Other …" dropdown for items flagged `collapsed: true` in profile.json.
+  // Returns the <details> element and the inner box to append cards into.
+  const makeDropdown = (label, count, listClass) => {
+    const details = el("details", "gallery-dropdown more-dropdown", `<summary>${esc(label)} (${count})</summary>`);
+    const box = el("div", `dropdown-list ${listClass}`);
+    details.appendChild(box);
+    return { details, box };
+  };
   const esc = (s) =>
     String(s == null ? "" : s).replace(/[&<>"]/g, (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])
@@ -215,9 +224,20 @@
       projectsGrid.innerHTML = "";
       const placeholder = "assets/img/project-placeholder.svg";
       let lastCat = null;
+      // Collapsed projects of the current group; flushed as a dropdown at the end of the group.
+      let pending = [];
+      const flushPending = () => {
+        if (!pending.length) return;
+        const label = lastCat ? `Other ${lastCat}` : "Other Projects";
+        const { details, box } = makeDropdown(label, pending.length, "projects-list");
+        pending.forEach((c) => box.appendChild(c));
+        projectsGrid.appendChild(details);
+        pending = [];
+      };
       profile.projects.forEach((p, i) => {
         // Group subheading (e.g. "Undergrad Projects") when the category changes.
         const cat = p.category || "";
+        if (cat !== lastCat) flushPending();
         if (cat && cat !== lastCat) {
           projectsGrid.appendChild(el("h3", "project-group-title", esc(cat)));
         }
@@ -255,8 +275,10 @@
                 .join("")}
             </div>
           </div>`;
-        projectsGrid.appendChild(card);
+        if (p.collapsed) pending.push(card);
+        else projectsGrid.appendChild(card);
       });
+      flushPending();
     }
 
     /* --- Experience (grouped by company) --- */
@@ -266,6 +288,8 @@
     const eduList = document.getElementById("education-list");
     if (eduList && Array.isArray(profile.education)) {
       eduList.innerHTML = "";
+      const eduMore = profile.education.filter((e) => e.collapsed);
+      const eduDrop = eduMore.length ? makeDropdown("Other Education", eduMore.length, "stack") : null;
       profile.education.forEach((e) => {
         const card = el("div", "education-item");
         const hl =
@@ -297,8 +321,9 @@
             <span class="dotline"></span>
             <span class="period">${esc(formatEduPeriod(e.period))}</span></div>
           ${hl}${linksHtml}`;
-        eduList.appendChild(card);
+        (e.collapsed && eduDrop ? eduDrop.box : eduList).appendChild(card);
       });
+      if (eduDrop) eduList.appendChild(eduDrop.details);
     }
 
     /* --- Skills --- */
@@ -326,6 +351,8 @@
     const certList = document.getElementById("certifications-list");
     if (certList && Array.isArray(profile.certifications)) {
       certList.innerHTML = "";
+      const certMore = profile.certifications.filter((c) => c.collapsed);
+      const certDrop = certMore.length ? makeDropdown("Other Certifications", certMore.length, "grid cards") : null;
       profile.certifications.forEach((c) => {
         const card = el("div", "cert-card");
         card.innerHTML = `
@@ -333,8 +360,13 @@
           ${c.issuer ? `<div class="cert-issuer">${esc(c.issuer)}</div>` : ""}
           ${c.description ? `<p class="cert-desc">${esc(c.description)}</p>` : ""}
           <div class="cert-actions">${proofButton(c, "View Certificate")}</div>`;
-        certList.appendChild(card);
+        (c.collapsed && certDrop ? certDrop.box : certList).appendChild(card);
       });
+      // certList is a grid, so the dropdown sits after it rather than inside as a grid cell.
+      if (certDrop) {
+        certDrop.details.classList.add("dropdown-after");
+        certList.after(certDrop.details);
+      }
     }
 
     /* --- Achievements (sorted newest-first) --- */
@@ -392,9 +424,9 @@
           proofPending: item.proofPending || false,
           kind: item.kind || "",
           links: item.links || [],
-          featured: false,
+          collapsed: false,
         };
-      if (item.featured) entry.featured = true;
+      if (item.collapsed) entry.collapsed = true;
       const posArr = Array.isArray(item.position) ? item.position : [item.position];
       const perArr = Array.isArray(item.period) ? item.period : [item.period];
       const len = Math.max(posArr.length, perArr.length);
@@ -412,17 +444,11 @@
       map.set(key, entry);
     });
 
-    // Featured entries render directly; the rest go in a collapsed "Other Experience" dropdown.
+    // Collapsed entries go in an "Other Experience" dropdown after the rest.
     expList.innerHTML = "";
     const entries = [...map.values()];
-    const others = entries.filter((e) => !e.featured);
-    let otherBox = null;
-    if (others.length && others.length < entries.length) {
-      const details = el("details", "gallery-dropdown other-experience");
-      details.innerHTML = `<summary>Other Experience (${others.length})</summary>`;
-      otherBox = el("div", "other-experience-list stack");
-      details.appendChild(otherBox);
-    }
+    const expMore = entries.filter((e) => e.collapsed);
+    const expDrop = expMore.length ? makeDropdown("Other Experience", expMore.length, "stack") : null;
     entries.forEach((e) => {
       const card = el("div", "experience-card");
       // Company website + any extra links (e.g. YouTube) → clickable icons beside the name.
@@ -461,9 +487,9 @@
         ${e.kind ? `<span class="exp-kind">${esc(e.kind)}</span>` : ""}
         ${roles}${hl}${tech}
         ${proof ? `<div class="exp-actions">${proof}</div>` : ""}`;
-      (otherBox && !e.featured ? otherBox : expList).appendChild(card);
+      (e.collapsed && expDrop ? expDrop.box : expList).appendChild(card);
     });
-    if (otherBox) expList.appendChild(otherBox.parentNode);
+    if (expDrop) expList.appendChild(expDrop.details);
   }
 
   /* ------------------------------------------------------------------ *
